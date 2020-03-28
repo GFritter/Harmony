@@ -18,11 +18,11 @@ public class Spawner : Node2D
 
     public void Spawn()
     {
-        RythymBox boxInstance = new RythymBox();
-        boxInstance = (RythymBox)box.Instance();
+        Enemy enemyInstance = new Enemy();
+        enemyInstance = (Enemy)box.Instance();
 
-        AddChild(boxInstance);
-        boxInstance.Position = this.Position;
+        AddChild(enemyInstance);
+        enemyInstance.Position = this.Position;
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

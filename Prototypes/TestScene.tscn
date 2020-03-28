@@ -1,17 +1,23 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Spawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tower/Tower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Music/beat110.wav" type="AudioStream" id=3]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Tower" parent="." instance=ExtResource( 2 )]
-position = Vector2( 33.5149, 419.797 )
-rotation = 1.56444
+position = Vector2( 333.51, 365.252 )
+rotation = 0.0281039
 keycode = "fire_1"
 
 [node name="Tower2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 522.468, 495.77 )
+position = Vector2( 543.896, 211.359 )
+keycode = "fire_2"
 
 [node name="Spawner" parent="." instance=ExtResource( 1 )]
 position = Vector2( 99.3491, 64.2846 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true

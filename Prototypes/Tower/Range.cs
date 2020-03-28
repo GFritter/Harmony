@@ -7,7 +7,7 @@ public class Range : Area2D
     // private int a = 2;
     // private string b = "text";
      [Signal]
-    public delegate void Hit();
+    public delegate void Hit(Enemy e);
 
     [Signal]
     public delegate void Wrong();
@@ -15,15 +15,16 @@ public class Range : Area2D
     private AnimatedSprite sprite;
     private string keycode;
 
-    PhysicsBody2D targetBox;
-
+    Tower tower;
+    Area2D targetBox;
+    Enemy targetEnemy;
     public bool onSpot;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-          sprite  = GetNode<AnimatedSprite>("RangeSprite");
-
+        sprite  = GetNode<AnimatedSprite>("RangeSprite");
+        tower = (Tower)Owner;
         onSpot = false;
     }
 
@@ -32,30 +33,32 @@ public class Range : Area2D
         keycode = k;
     }
 
-    public void OnCollisorEnter(PhysicsBody2D body)
+    public void OnCollisorEnter(Area2D area)
 {
     onSpot = true;
-    targetBox = body;
+    targetBox = area;
+    targetEnemy = (Enemy)targetBox.Owner;
 }
 
-public void OnCollisorExit(PhysicsBody2D body)
+public void OnCollisorExit(Area2D area)
 {
     onSpot = false;
+    
 }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 public override void _Process(float delta)
-  {
-      if(onSpot)
+  { if(tower.canShoot)
+   {if(onSpot)
       { 
           sprite.Animation = "ready";
 
           if(Input.IsActionJustPressed(keycode))
           {
               sprite.Animation = "right";
-              targetBox.QueueFree();
+            
 
-              EmitSignal("Hit");
+              EmitSignal("Hit",targetEnemy);
           }
         
       }
@@ -73,7 +76,15 @@ public override void _Process(float delta)
       }
       
 
-      sprite.Play();
+     
+  }
+
+  else
+  {
+      sprite.Animation = "wrong";
+  }
+
+   sprite.Play();
   }
 
 }
