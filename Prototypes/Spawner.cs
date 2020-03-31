@@ -10,6 +10,15 @@ public class Spawner : Node2D
     // private int a = 2;
     // private string b = "text";
 
+    [Export]
+    public int[] numEnemies;
+
+    [Export]
+    public int numWaves;
+
+    int currentWave;
+
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -23,6 +32,11 @@ public class Spawner : Node2D
 
         AddChild(enemyInstance);
         enemyInstance.Position = this.Position;
+    }
+
+    public void setTimer(float t)
+    {
+        GetNode<Timer>("Timer").WaitTime = t;
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

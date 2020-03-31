@@ -14,10 +14,17 @@ public string keycode;
 
 AnimatedSprite sprite;
 
+AnimatedSprite ammoBar;
+
+//da pra botar um array de floats tbm pro tempo de refresh e reload por nivel
+
 [Export]
 public int lvl = 0;
+
+[Export]
 public int[] damage= new int[5] {10,20,30,40,50};
 
+[Export]
 int[] maxAmmo = new int[5] {4,5,6,7,8};
 int currentAmmo;
 
@@ -39,6 +46,7 @@ private ProgressBar bar;
         bar.Hide();
 
         sprite = GetNode<AnimatedSprite>("TowerBase");
+        ammoBar = GetNode<AnimatedSprite>("AmmoBar");
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,11 +62,13 @@ private ProgressBar bar;
         refreshing = false;
         bar.Hide();
         sprite.Animation = "default";
+        ammoBar.Animation = currentAmmo.ToString();
     }
 
     void Reload()
     {
         currentAmmo = maxAmmo[lvl];
+        ammoBar.Animation = currentAmmo.ToString();
         canShoot =true;
         reloading = false;
         bar.Hide();
