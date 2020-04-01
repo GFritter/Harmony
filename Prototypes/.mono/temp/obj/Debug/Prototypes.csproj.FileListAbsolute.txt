@@ -1,0 +1,6 @@
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\Godot Projects\Prototypes\.mono\temp\bin\Debug\Prototypes.dll
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\Godot Projects\Prototypes\.mono\temp\bin\Debug\Prototypes.pdb
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\Godot Projects\Prototypes\.mono\temp\obj\Debug\Prototypes.csprojAssemblyReference.cache
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\Godot Projects\Prototypes\.mono\temp\obj\Debug\Prototypes.csproj.CoreCompileInputs.cache
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\Godot Projects\Prototypes\.mono\temp\obj\Debug\Prototypes.dll
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\Godot Projects\Prototypes\.mono\temp\obj\Debug\Prototypes.pdb

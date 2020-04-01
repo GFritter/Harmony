@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Maps/Map1/Map1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Music/beat110.wav" type="AudioStream" id=3]
+[ext_resource path="res://MainScene.cs" type="Script" id=4]
 
 [node name="Main" type="Node2D"]
 position = Vector2( -31.1685, -37.0124 )
+script = ExtResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -21,5 +23,6 @@ margin_left = 547.394
 margin_top = 37.0124
 margin_right = 547.394
 margin_bottom = 37.0124
+[connection signal="OnBaseDeath" from="Map1" to="." method="Reset"]
 [connection signal="OnLifeUpdate" from="Map1" to="HUD" method="UpdateLife"]
 [connection signal="ready" from="HUD" to="Map1" method="linkHUD"]

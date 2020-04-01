@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Prototypes"
-run/main_scene="res://RythymBar/RythymBar.tscn"
+run/main_scene="res://Tutorial.tscn"
 config/icon="res://icon.png"
 
 [input]
