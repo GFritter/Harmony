@@ -22,7 +22,10 @@ AnimatedSprite ammoBar;
 public int lvl = 0;
 
 [Export]
-public int[] damage= new int[5] {10,20,30,40,50};
+public float[] damage= new float[5] {1,2,3,4,5};
+
+[Export]
+public float[]minDamage = new float[5] {0.5f,1,1,2,2};
 
 [Export]
 int[] maxAmmo = new int[5] {4,5,6,7,8};
@@ -96,6 +99,21 @@ private ProgressBar bar;
 
         else
         setupReload();
+    }
+
+    public void IdleFire(Enemy e)
+    {
+        
+         e.TakeDamage(minDamage[lvl]);
+         currentAmmo--;
+        sound.Play();
+        canShoot = false;
+        if(currentAmmo>0)
+        setupRefresh();
+
+        else
+       setupReload();
+        
     }
 
     void setupRefresh()

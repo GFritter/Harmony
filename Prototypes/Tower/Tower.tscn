@@ -95,14 +95,14 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "4",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -110,28 +110,27 @@ animations = [ {
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "6",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "4",
+"name": "3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "5",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "6",
+"speed": 5.0
 } ]
 
 [node name="Tower" type="Area2D"]
-position = Vector2( 531.262, 488.43 )
+position = Vector2( 502.111, 470.425 )
 scale = Vector2( 1, 0.996461 )
 script = ExtResource( 4 )
 keycode = "fire_1"
-damage = PoolIntArray( 1, 2, 3, 4, 5 )
 maxAmmo = PoolIntArray( 3, 4, 5, 6, 6 )
 
 [node name="TowerBase" type="AnimatedSprite" parent="."]
@@ -146,12 +145,34 @@ shape = SubResource( 2 )
 position = Vector2( 0.650513, 48.2086 )
 rotation = -1.57139
 script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 position = Vector2( 0.162018, -2.15897 )
 shape = SubResource( 3 )
 
 [node name="RangeSprite" type="AnimatedSprite" parent="Range"]
+self_modulate = Color( 1, 1, 1, 0.156863 )
+position = Vector2( 0.349342, -1.92719 )
+scale = Vector2( 2, 1 )
+frames = SubResource( 4 )
+animation = "idle"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Range2" type="Area2D" parent="."]
+position = Vector2( 47.572, -1.559 )
+rotation = -3.14159
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range2"]
+position = Vector2( 0.162018, -2.15897 )
+shape = SubResource( 3 )
+
+[node name="RangeSprite" type="AnimatedSprite" parent="Range2"]
 self_modulate = Color( 1, 1, 1, 0.156863 )
 position = Vector2( 0.349342, -1.92719 )
 scale = Vector2( 2, 1 )
@@ -210,9 +231,18 @@ position = Vector2( -1.29282, 48.3279 )
 scale = Vector2( 0.895034, 1 )
 frames = SubResource( 11 )
 animation = "6"
+__meta__ = {
+"_edit_lock_": true
+}
 [connection signal="Hit" from="Range" to="." method="Fire"]
 [connection signal="Wrong" from="Range" to="." method="Misfire"]
 [connection signal="area_entered" from="Range" to="Range" method="OnCollisorEnter"]
 [connection signal="area_exited" from="Range" to="Range" method="OnCollisorExit"]
+[connection signal="idleHit" from="Range" to="." method="IdleFire"]
+[connection signal="Hit" from="Range2" to="." method="Fire"]
+[connection signal="Wrong" from="Range2" to="." method="Misfire"]
+[connection signal="area_entered" from="Range2" to="Range2" method="OnCollisorEnter"]
+[connection signal="area_exited" from="Range2" to="Range2" method="OnCollisorExit"]
+[connection signal="idleHit" from="Range2" to="." method="IdleFire"]
 [connection signal="timeout" from="ShootTimer" to="." method="Refresh"]
 [connection signal="timeout" from="RechargeTimer" to="." method="Reload"]

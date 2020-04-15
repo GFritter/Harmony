@@ -24,6 +24,16 @@ public class HUD : Control
        lifeBar.Value = life;
     }
 
+    void UpdateWave(int w)
+    {
+        waveCounter.Text = w.ToString();
+    }
+
+    void UpdateMoney(int m)
+    {
+        moneyCounter.Text = m.ToString();
+    }
+
     
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -62,6 +62,7 @@
     <Compile Include="RythymBar\Collisor.cs" />
     <Compile Include="RythymBar\RythymBar.cs" />
     <Compile Include="RythymBox.cs" />
+    <Compile Include="Shader\ShaderHolder.cs" />
     <Compile Include="Spawner.cs" />
     <Compile Include="Tower\Bullet\Bullet.cs" />
     <Compile Include="Tower\Range.cs" />

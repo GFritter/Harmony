@@ -25,4 +25,5 @@ margin_right = 547.394
 margin_bottom = 37.0124
 [connection signal="OnBaseDeath" from="Map1" to="." method="Reset"]
 [connection signal="OnLifeUpdate" from="Map1" to="HUD" method="UpdateLife"]
+[connection signal="OnUpdateWave" from="Map1" to="HUD" method="UpdateWave"]
 [connection signal="ready" from="HUD" to="Map1" method="linkHUD"]

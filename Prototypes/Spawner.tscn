@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Spawner.cs" type="Script" id=1]
-[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -11,7 +10,7 @@ _data = {
 [node name="Spawner" type="Path2D"]
 curve = SubResource( 1 )
 script = ExtResource( 1 )
-box = ExtResource( 2 )
+enemyRefs = PoolStringArray( "" )
 numEnemies = PoolIntArray( 0, 0 )
 
 [node name="Timer" type="Timer" parent="."]

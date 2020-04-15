@@ -53,7 +53,7 @@
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1.57997, 30.7437, 0, 0, 0, 0, 49.4618, 31.9714, 0, 0, 0, 0, 138.603, 350.469, 0, 0, 0, 0, 455.908, 374.568, 0, 0, 0, 0, 745.097, 382.601, 0, 0, 0, 0, 761.967, 206.677, 0, 0, 0, 0, 874.429, 222.743, 0, 0, 0, 0, 944.484, 244.37, 0, 0, 0, 0, 961.672, 151.062 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1.57997, 30.7437, 0, 0, 0, 0, 49.4618, 31.9714, 0, 0, 0, 0, 138.603, 350.469, 0, 0, 0, 0, 723.152, 382.612, 0, 0, 0, 0, 792.958, 223.055, 0, 0, 0, 0, 944.484, 244.37, 0, 0, 0, 0, 961.672, 151.062 )
 }
 
 [sub_resource type="SpriteFrames" id=3]
@@ -68,6 +68,7 @@ animations = [ {
 script = ExtResource( 7 )
 baseRef = NodePath("Base")
 spanwRefs = [ NodePath("Spawner") ]
+waveTimes = PoolRealArray( 3, 5.6 )
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
@@ -79,9 +80,11 @@ tile_data = PoolIntArray( -2162659, 3, 0, -2162657, 3, 0, -2097123, 3, 0, -20971
 
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 2 )
+enemyRefs = PoolStringArray( "res://Enemy/Enemy.tscn" )
+pathFile = "res://Waves/waveEX.tres"
 
 [node name="Base" parent="." instance=ExtResource( 6 )]
-position = Vector2( 954.045, 155.331 )
+position = Vector2( 917.896, 240.481 )
 scale = Vector2( 1, 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -99,5 +102,11 @@ position = Vector2( 736.611, 123.651 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 3 )
 flip_h = true
+
+[node name="WaveTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="StartWaves" from="." to="Spawner" method="StartWave"]
+[connection signal="WaveClear" from="Spawner" to="." method="getWaveClear"]
 [connection signal="Died" from="Base" to="." method="OnBaseDied"]
 [connection signal="UpdateLife" from="Base" to="." method="OnBaseLifeUpdate"]
+[connection signal="timeout" from="WaveTimer" to="." method="startWaves"]

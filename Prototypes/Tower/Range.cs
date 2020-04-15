@@ -10,14 +10,19 @@ public class Range : Area2D
     public delegate void Hit(Enemy e);
 
     [Signal]
+    public delegate void idleHit(Enemy e);
+
+    [Signal]
     public delegate void Wrong();
+
+
 
     private AnimatedSprite sprite;
     private string keycode;
 
     Tower tower;
     Area2D targetBox;
-    Enemy targetEnemy;
+    Enemy targetEnemy,lastEnemy;
     public bool onSpot;
 
     // Called when the node enters the scene tree for the first time.
@@ -37,12 +42,20 @@ public class Range : Area2D
 {
     onSpot = true;
     targetBox = area;
+   
     targetEnemy = (Enemy)targetBox.Owner;
+
 }
 
 public void OnCollisorExit(Area2D area)
 {
     onSpot = false;
+
+    if(tower.canShoot)
+    {
+        EmitSignal("idleHit",targetEnemy);
+
+    }
     
 }
 

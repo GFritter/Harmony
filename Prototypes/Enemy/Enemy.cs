@@ -6,8 +6,12 @@ public class Enemy : PathFollow2D
     // Declare member variables here. Examples:
     // private int a = 2;
     // private string b = "text";
+
+    [Signal]
+    public delegate void OnDeath(int m);
+
     [Export]
-    public int maxLife;
+    public float maxLife;
     [Export]
     public float speed;
 
@@ -15,10 +19,12 @@ public class Enemy : PathFollow2D
     public int moneyValue;
 
     private ProgressBar lifeBar;
-    private int actualLife;
+    private float actualLife;
 
     [Export]
     public int damage;
+
+
 
 
     // Called when the node enters the scene tree for the first time.
@@ -32,7 +38,7 @@ public class Enemy : PathFollow2D
 
     }
 
-    public void TakeDamage(int d)
+    public void TakeDamage(float d)
     {
         actualLife -=d;
         lifeBar.Value = actualLife;
@@ -52,7 +58,7 @@ public class Enemy : PathFollow2D
 
     public void onDeath()
     {
-
+        EmitSignal("OnDeath",moneyValue);
         QueueFree();
 
     }

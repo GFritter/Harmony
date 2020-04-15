@@ -1,0 +1,37 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float saturation = 1.0;
+uniform float r_value = 1.0;
+uniform float b_value=1.0;
+uniform float g_value=1.0;
+
+void fragment()
+{
+	vec3 col = texture(TEXTURE,SCREEN_UV).rgb;
+	
+		//this bumps color
+	//col.r *= r_value;
+	//col.b *= b_value;
+	//col.g *= g_value;
+	
+	float medium = (col.r+col.g+col.b)/3.0;
+	
+	//this makes grayscale
+	col.r = (medium *(1.0-r_value)) + col.r*r_value ;
+	col.g = (medium *(1.0-g_value)) + col.g*g_value ;
+	col.b = (medium *(1.0-b_value)) + col.b*b_value ;
+	
+
+	
+	COLOR.rgb = col.rgb *saturation;
+	}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/saturation = 1.0
+shader_param/r_value = 1.0
+shader_param/b_value = 1.0
+shader_param/g_value = 1.0

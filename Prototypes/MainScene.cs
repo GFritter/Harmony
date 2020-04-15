@@ -3,6 +3,10 @@ using System;
 
 public class MainScene : Node2D
 {
+
+    [Signal]
+    public delegate void UpdateMoney(int m);
+    public int money;
     // Declare member variables here. Examples:
     // private int a = 2;
     // private string b = "text";
@@ -16,6 +20,13 @@ public class MainScene : Node2D
     public void Reset()
     {
         GetTree().ReloadCurrentScene();
+    }
+
+    public void GetMoney(int m)
+    {
+        money += m;
+        EmitSignal("UpdateMoney",money);
+
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
