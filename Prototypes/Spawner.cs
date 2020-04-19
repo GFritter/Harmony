@@ -11,17 +11,10 @@ public class Spawner : Node2D
     public string[] enemyRefs;
 
       PackedScene[] enemies;
-    
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
-    [Export]
-    public int[] numEnemies;
 
     int enemyCounter =0;
 
-    [Export]
+   
     public int numWaves;
 
     int currentWave =0;
@@ -107,6 +100,8 @@ public class Spawner : Node2D
         buffer = inFile.GetLine();
         y= buffer.ToInt();
 
+        numWaves = y;
+
         GD.Print(x);
         GD.Print(y);
 
@@ -144,12 +139,20 @@ public class Spawner : Node2D
     }
     public void StartWave()
     {
-        GD.Print("Comecando os trabalhos");
-        
+        if(currentWave<numWaves)
          GetNode<Timer>("Timer").Start();
+
+         else
+        {
+            EmitSignal("WaveClear");
+        }
 
     }
 
+    public void connectTry()
+    {
+        GD.Print("OI O MEU MAPA TA TENTANDO CONNECTAR UM SINAL AQUI");
+    }
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //public override void _Process(float delta)  {
  //   

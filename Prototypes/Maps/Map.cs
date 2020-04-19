@@ -13,7 +13,7 @@ public class Map : Node2D
     Base b;
 
     [Export]
-    public Array spanwRefs;
+    public Godot.Collections.Array<NodePath> spanwRefs;
 
     public Spawner[] spawners;
 
@@ -45,13 +45,16 @@ public class Map : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        spawners = new Spawner[spanwRefs.Count];
 
-        spawners = new Spawner[spanwRefs.Length];
+        for(int i=0;i<spanwRefs.Count;i++)
+        {   
+           
 
-        for(int i=0;i<spanwRefs.Length;i++)
-        {
-            spawners[i] =GetNode<Spawner>(((NodePath)spanwRefs.GetValue(i)));
+            spawners[i] =GetNode<Spawner>((spanwRefs[i]));
         }
+
+        connectSpawners();
 
         b = GetNode<Base>(baseRef);
         waveTimer = GetNode<Timer>("WaveTimer");
@@ -94,7 +97,7 @@ public class Map : Node2D
     {
         clearCounter++;
         
-        if(clearCounter == spanwRefs.Length+1)
+        if(clearCounter == spanwRefs.Count)
         {
             clearCounter=0;
             waveClear = true;
@@ -113,6 +116,19 @@ public class Map : Node2D
                 GD.Print("PARABENS VOCE GANHOU SEU IDIOTA");
             }
             
+        }
+    }
+
+    void connectSpawners()
+    {
+
+        for(int i= 0;i<spanwRefs.Count;i++)
+        { 
+            
+            Spawner temp =GetNode<Spawner>((NodePath)spanwRefs[i]);
+           
+            Connect(nameof(StartWaves),temp,nameof(temp.StartWave));
+            temp.Connect(nameof(Spawner.WaveClear),this,nameof(getWaveClear));
         }
     }
   

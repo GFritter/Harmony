@@ -81,7 +81,7 @@ tile_data = PoolIntArray( -2162659, 3, 0, -2162657, 3, 0, -2097123, 3, 0, -20971
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 2 )
 enemyRefs = PoolStringArray( "res://Enemy/Enemy.tscn" )
-pathFile = "res://Waves/waveEX.tres"
+pathFile = "res://Waves/waveTeste.tres"
 
 [node name="Base" parent="." instance=ExtResource( 6 )]
 position = Vector2( 917.896, 240.481 )

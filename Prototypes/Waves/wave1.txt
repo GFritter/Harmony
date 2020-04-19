@@ -1,3 +1,4 @@
-2 3
--1 0 0
-0 -1 0
+numDeWaves
+numDeInimigosPorWave
+inimigo11(valor em int), inimigo12,inimigo13
+inimigo21,inimigo22,inimigo23

@@ -76,7 +76,7 @@ tile_data = PoolIntArray( -524289, 3, 0, -589824, 3, 0, -524287, 3, 0, -524286, 
 
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 enemyRefs = PoolStringArray( "res://Enemy/Enemy.tscn" )
-pathFile = "res://Waves/waveEX.tres"
+pathFile = "res://Waves/waveTeste.tres"
 
 [node name="Tower" parent="." instance=ExtResource( 5 )]
 position = Vector2( 334.479, 304.549 )
@@ -98,8 +98,6 @@ scale = Vector2( 2, 2 )
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 3.263
 one_shot = true
-[connection signal="StartWaves" from="." to="Spawner" method="StartWave"]
-[connection signal="WaveClear" from="Spawner" to="." method="getWaveClear"]
 [connection signal="Died" from="Base" to="." method="OnBaseDied"]
 [connection signal="UpdateLife" from="Base" to="." method="OnBaseLifeUpdate"]
 [connection signal="timeout" from="WaveTimer" to="." method="startWaves"]
