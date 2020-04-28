@@ -18,18 +18,18 @@ public class HUD : Control
         moneyCounter= GetNode<Label>("Panel/Money/MoneyCounter");
     }
 
-    void UpdateLife(int maxLife,int life)
+    public void UpdateLife(int maxLife,int life)
     {
        lifeBar.MaxValue = maxLife;
        lifeBar.Value = life;
     }
 
-    void UpdateWave(int w)
+   public void UpdateWave(int w)
     {
         waveCounter.Text = w.ToString();
     }
 
-    void UpdateMoney(int m)
+    public void UpdateMoney(int m)
     {
         moneyCounter.Text = m.ToString();
     }

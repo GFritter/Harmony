@@ -29,6 +29,7 @@ public class Range : Area2D
     public override void _Ready()
     {
         sprite  = GetNode<AnimatedSprite>("RangeSprite");
+        
         tower = (Tower)Owner;
         onSpot = false;
     }
@@ -43,7 +44,8 @@ public class Range : Area2D
     onSpot = true;
     targetBox = area;
    
-    targetEnemy = (Enemy)targetBox.Owner;
+    if(targetBox.Owner.GetGroups().Contains("Enemy"))
+        targetEnemy = (Enemy)targetBox.Owner;
 
 }
 
@@ -51,7 +53,7 @@ public void OnCollisorExit(Area2D area)
 {
     onSpot = false;
 
-    if(tower.canShoot)
+    if(tower.canShoot && targetEnemy!=null)
     {
         EmitSignal("idleHit",targetEnemy);
 
@@ -65,11 +67,12 @@ public override void _Process(float delta)
    {if(onSpot)
       { 
           sprite.Animation = "ready";
+          sprite.Modulate = new Color(0.5f,0.5f,0f);
 
           if(Input.IsActionJustPressed(keycode))
           {
               sprite.Animation = "right";
-            
+                sprite.Modulate = new Color(0f,0.75f,0f);
 
               EmitSignal("Hit",targetEnemy);
           }
@@ -79,10 +82,12 @@ public override void _Process(float delta)
       else
       {
           sprite.Animation = "idle";
+           sprite.Modulate = new Color(1f,1f,1f);
 
           if(Input.IsActionJustPressed(keycode))
           {
               sprite.Animation = "wrong";
+               sprite.Modulate = new Color(1f,0f,0f);
               EmitSignal("Wrong");
               
           }
@@ -95,6 +100,7 @@ public override void _Process(float delta)
   else
   {
       sprite.Animation = "wrong";
+        sprite.Modulate = new Color(1f,0f,0f);
   }
 
    sprite.Play();

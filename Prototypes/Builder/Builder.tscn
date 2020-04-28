@@ -1,0 +1,138 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Tiles/blankTIle.png" type="Texture" id=1]
+[ext_resource path="res://Builder/ColShape.tres" type="Shape2D" id=2]
+[ext_resource path="res://Builder/Builder.cs" type="Script" id=3]
+[ext_resource path="res://Tower/Arts/Back/l0_sprite_1.png" type="Texture" id=4]
+[ext_resource path="res://Tower/Arts/Back/l0_sprite_2.png" type="Texture" id=5]
+[ext_resource path="res://Tower/Arts/Front/l0_sprite_2.png" type="Texture" id=6]
+[ext_resource path="res://Tower/Arts/Front/l0_sprite_1.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Tower2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Tower1",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Tower3",
+"speed": 5.0
+} ]
+
+[node name="Builder" type="Area2D"]
+position = Vector2( 736.845, 399.447 )
+scale = Vector2( 3.22705, 3.33696 )
+script = ExtResource( 3 )
+disabled = Color( 0.301961, 0.321569, 0.223529, 1 )
+cOn = Color( 0.247059, 0.839216, 0.164706, 1 )
+cOff = Color( 0.129412, 0.490196, 0.2, 1 )
+canBuildCol = Color( 0.192157, 0.427451, 0.137255, 0.411765 )
+cantBuildCol = Color( 0.576471, 0.211765, 0.211765, 0.572549 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.231373, 0.972549, 0.0235294, 1 )
+position = Vector2( 0.475006, 0.475006 )
+frames = SubResource( 1 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0.207588, 1.86639 )
+rotation = 0.646909
+shape = ExtResource( 2 )
+
+[node name="BuildHud" type="Control" parent="."]
+visible = false
+margin_left = -40.5451
+margin_top = -30.8378
+margin_right = 57.4549
+margin_bottom = 47.1622
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="BuildHud"]
+margin_left = -6.79454
+margin_top = -0.667953
+margin_right = 13.2055
+margin_bottom = 19.332
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="BuildHud/Button"]
+position = Vector2( 10.1291, 9.87056 )
+scale = Vector2( 0.315963, 0.315963 )
+frames = SubResource( 2 )
+
+[node name="Button2" type="Button" parent="BuildHud"]
+margin_left = 28.5715
+margin_top = -9.30124
+margin_right = 48.5715
+margin_bottom = 10.6988
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="BuildHud/Button2"]
+frames = SubResource( 3 )
+
+[node name="Button3" type="Button" parent="BuildHud"]
+margin_left = 63.0791
+margin_top = -2.49421
+margin_right = 83.0791
+margin_bottom = 17.5058
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="BuildHud/Button3"]
+frames = SubResource( 3 )
+
+[node name="PlaceHolderSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.615686, 0.937255, 0.694118, 0.45098 )
+position = Vector2( 0.772537, -6.85941 )
+scale = Vector2( 0.498373, 0.498373 )
+frames = SubResource( 4 )
+[connection signal="mouse_entered" from="." to="." method="mouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="mouseExited"]
+[connection signal="mouse_entered" from="BuildHud/Button" to="." method="chooseTower1"]
+[connection signal="pressed" from="BuildHud/Button" to="." method="Build"]
+[connection signal="mouse_entered" from="BuildHud/Button2" to="." method="chooseTower2"]
+[connection signal="pressed" from="BuildHud/Button2" to="." method="Build"]
+[connection signal="mouse_entered" from="BuildHud/Button3" to="." method="chooseTower3"]
+[connection signal="pressed" from="BuildHud/Button3" to="." method="Build"]

@@ -3,7 +3,7 @@
 [ext_resource path="res://Maps/Map1/Map2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Shader/shader.tres" type="Material" id=2]
 [ext_resource path="res://Shader/ShaderHolder.cs" type="Script" id=3]
-[ext_resource path="res://Tower/Tower.tscn" type="PackedScene" id=4]
+[ext_resource path="res://HUD/ShaderSliders.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -20,17 +20,22 @@ void fragment()
 shader = SubResource( 1 )
 shader_param/saturation = 1.0
 
-[node name="NODE" type="Node2D"]
+[node name="Renderer" type="Control"]
 material = SubResource( 2 )
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 material = ExtResource( 2 )
-margin_left = -534.0
-margin_top = -483.0
-margin_right = 1078.0
-margin_bottom = 612.0
+margin_left = -502.702
+margin_top = -366.442
+margin_right = 1109.3
+margin_bottom = 728.558
+mouse_filter = 1
 stretch = true
-script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,125 +43,14 @@ __meta__ = {
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 1612, 1095 )
 handle_input_locally = false
+usage = 0
 render_target_update_mode = 3
+physics_object_picking = true
 
 [node name="Map1" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
+position = Vector2( -336.418, -385.721 )
+baseRef = NodePath("../Viewport/Map1/Base")
 
-[node name="Tower" parent="ViewportContainer/Viewport" instance=ExtResource( 4 )]
-
-[node name="Red" type="Label" parent="."]
-process_priority = 1
-margin_left = 106.845
-margin_top = 541.778
-margin_right = 161.845
-margin_bottom = 567.778
-size_flags_horizontal = 3
-size_flags_vertical = 2
-size_flags_stretch_ratio = 0.0
-text = "RED"
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="HSlider" type="HSlider" parent="Red"]
-margin_left = 4.0
-margin_top = -4.0
-margin_right = 72.0
-margin_bottom = 72.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Green" type="Label" parent="."]
-process_priority = 1
-margin_left = 202.897
-margin_top = 545.371
-margin_right = 257.897
-margin_bottom = 576.371
-size_flags_horizontal = 3
-size_flags_vertical = 2
-size_flags_stretch_ratio = 0.0
-text = "GREEN
-"
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="HSlider" type="HSlider" parent="Green"]
-margin_top = -8.0
-margin_right = 55.0
-margin_bottom = 68.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Blue" type="Label" parent="."]
-process_priority = 1
-margin_left = 273.047
-margin_top = 543.212
-margin_right = 328.047
-margin_bottom = 608.212
-size_flags_horizontal = 3
-size_flags_vertical = 2
-size_flags_stretch_ratio = 0.0
-text = "BLUE
-
-
-"
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="HSlider" type="HSlider" parent="Blue"]
-margin_top = -8.0
-margin_right = 57.0
-margin_bottom = 68.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Saturation" type="Label" parent="."]
-process_priority = 1
-margin_left = 8.23772
-margin_top = 546.475
-margin_right = 117.238
-margin_bottom = 628.475
-size_flags_horizontal = 3
-size_flags_vertical = 2
-size_flags_stretch_ratio = 0.0
-text = "SATURATION
-
-
-
-"
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="HSlider" type="HSlider" parent="Saturation"]
-margin_top = -8.0
-margin_right = 58.0
-margin_bottom = 68.0
-min_value = -5.0
-max_value = 5.0
-step = 0.0
-value = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="value_changed" from="Red/HSlider" to="ViewportContainer" method="changeR"]
-[connection signal="value_changed" from="Green/HSlider" to="ViewportContainer" method="changeG"]
-[connection signal="value_changed" from="Blue/HSlider" to="ViewportContainer" method="changeB"]
-[connection signal="value_changed" from="Saturation/HSlider" to="ViewportContainer" method="changeSaturation"]
+[node name="Sliders" parent="." instance=ExtResource( 4 )]
+visible = true
+mouse_filter = 1

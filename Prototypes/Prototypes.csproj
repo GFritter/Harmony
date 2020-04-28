@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Base.cs" />
+    <Compile Include="Builder\Builder.cs" />
     <Compile Include="Enemy\Enemy.cs" />
     <Compile Include="HUD\HUD.cs" />
     <Compile Include="MainScene.cs" />

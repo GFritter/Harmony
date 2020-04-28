@@ -3,14 +3,22 @@ using System;
 
 public class Tower : Area2D
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-  
+    int rotat;
 
 [Export]
+public Godot.Collections.Array<Vector2> RangePositions;
 
+[Export]
+public float[] RangeRotations;
+
+[Export]
+public Godot.Collections.Array<Shape2D> RangeShapes;
+
+[Export]
 public string keycode;
+
+[Export]
+public int cost;
 
 AnimatedSprite sprite;
 
@@ -35,6 +43,8 @@ public bool canShoot;
 public bool refreshing, reloading;
 private AudioStreamPlayer sound;
 
+Range range;
+
 private ProgressBar bar;
 
     // Called when the node enters the scene tree for the first time.
@@ -50,6 +60,8 @@ private ProgressBar bar;
 
         sprite = GetNode<AnimatedSprite>("TowerBase");
         ammoBar = GetNode<AnimatedSprite>("AmmoBar");
+
+        range = GetNode<Range>("Range");
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,6 +69,8 @@ private ProgressBar bar;
   {
       manageBar();
       sprite.Play();
+
+    
   }
 
     void Refresh()
@@ -64,7 +78,7 @@ private ProgressBar bar;
         canShoot = true;
         refreshing = false;
         bar.Hide();
-        sprite.Animation = "default";
+        //sprite.Animation = "default";
         ammoBar.Animation = currentAmmo.ToString();
     }
 
@@ -79,7 +93,8 @@ private ProgressBar bar;
 
     public void Fire(Enemy e)
     {
-        e.TakeDamage(damage[lvl]);
+        if(e!=null)
+        {e.TakeDamage(damage[lvl]);
         currentAmmo--;
         sound.Play();
         canShoot = false;
@@ -88,6 +103,7 @@ private ProgressBar bar;
 
         else
        setupReload();
+        }
     }
 
     public void Misfire()
@@ -103,8 +119,9 @@ private ProgressBar bar;
 
     public void IdleFire(Enemy e)
     {
-        
-         e.TakeDamage(minDamage[lvl]);
+        if(e!=null)
+        {
+             e.TakeDamage(minDamage[lvl]);
          currentAmmo--;
         sound.Play();
         canShoot = false;
@@ -113,6 +130,10 @@ private ProgressBar bar;
 
         else
        setupReload();
+
+        }
+        
+        
         
     }
 
@@ -121,7 +142,7 @@ private ProgressBar bar;
         GetNode<Timer>("ShootTimer").Start();
         refreshing = true;
         bar.MaxValue =  GetNode<Timer>("ShootTimer").WaitTime;
-        sprite.Animation = ("cooldown");
+        //sprite.Animation = ("cooldown");
     }
 
     void setupReload()
@@ -149,5 +170,21 @@ private ProgressBar bar;
         }
 
        
+    }
+
+    public void SetRotat(int rot)
+    {
+
+        sprite.Animation = "Pos"+rot;
+        range.Position = (RangePositions[rot]);
+        range.RotationDegrees = RangeRotations[rot];
+        range.GetNode<CollisionShape2D>("CollisionShape2D").Shape = RangeShapes[rot];
+
+    }
+
+    public void setKeycode(string k)
+    {
+        keycode = k;
+        range.setKeycode(k);
     }
 }

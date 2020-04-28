@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ShaderHolder : ViewportContainer
+public class ShaderHolder : Control
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -9,10 +9,18 @@ public class ShaderHolder : ViewportContainer
 
     ShaderMaterial mat;
 
+    Viewport mainView;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        mat = (ShaderMaterial)Material;
+        ViewportContainer cont = GetNode<ViewportContainer>("ViewportContainer");
+
+        mat = (ShaderMaterial)cont.Material;
+        mainView =GetNode<Viewport>("ViewportContainer/Viewport");
+
+        
+
         
     }
 
@@ -34,6 +42,11 @@ public class ShaderHolder : ViewportContainer
     public void changeSaturation(float s)
     {
         mat.SetShaderParam("saturation",s);
+    }
+
+    public void AddMap(Map m)
+    {
+        mainView.AddChild(m);
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

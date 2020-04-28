@@ -24,7 +24,12 @@ public class Enemy : PathFollow2D
     [Export]
     public int damage;
 
+    Vector2[] points;
+    int idx;
+    Vector2 currentPoint,nextPoint;
 
+    int rot;
+    AnimatedSprite sprite;
 
 
     // Called when the node enters the scene tree for the first time.
@@ -36,6 +41,17 @@ public class Enemy : PathFollow2D
         
         lifeBar.Value = actualLife;
 
+        sprite = GetNode<Area2D>("Area2D").GetNode<AnimatedSprite>("AnimatedSprite");
+        
+        if(GetParentOrNull<Spawner>()!=null)
+        {Spawner dad =(Spawner) GetParent();
+        
+        points = dad.Curve.GetBakedPoints();
+        idx =0;
+        currentPoint = points[idx];
+        nextPoint=points[idx+1 %points.Length];
+        checkRotation();
+        }
     }
 
     public void TakeDamage(float d)
@@ -48,12 +64,25 @@ public class Enemy : PathFollow2D
     {
 
       Offset += speed*delta;
+      
+      float distance =Position.DistanceTo(nextPoint);
+     
+      //GD.Print("minha distancia ate o prox ponto eh "+dPos.Length());
+      if(distance < speed*delta)
+      {
+          
+          idx++;
+          currentPoint = points[idx%points.Length];
+          nextPoint = points[idx+1 % points.Length];
+
+          checkRotation();
+      }
 
     }
 
-    void setMaxHP()
+    void setMaxHP(float mHP)
     {
-
+        maxLife = mHP;
     }
 
     public void onDeath()
@@ -63,6 +92,42 @@ public class Enemy : PathFollow2D
 
     }
 
+    public void checkRotation()
+    {   
+        Vector2 deltaPos = nextPoint - currentPoint;
+        float angle = deltaPos.Angle();
+        angle = Mathf.Rad2Deg(angle);
+
+        float angleMod = Mathf.PosMod(angle,360);
+
+        //GD.Print("Oi meu angulo eh" +angleMod);
+
+        if(angleMod>90 && angleMod<180)
+        {
+            rot = 3;
+        }
+
+        else if(angleMod >180 && angleMod<270)
+        {
+            rot=0;
+        }
+
+        else if(angleMod>270 && angleMod<360)
+        {
+            rot =1;
+        }
+
+        else
+        {
+            rot =2;
+        }
+
+        sprite.Animation="Pos"+rot;
+
+
+    }
+
+
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
      {
@@ -71,5 +136,9 @@ public class Enemy : PathFollow2D
       onDeath();
 
         move(delta);
+       
+
      }
+
+
 }

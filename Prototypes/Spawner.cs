@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Spawner : Node2D
+public class Spawner : Path2D
 {
 
     [Signal]
@@ -61,6 +61,7 @@ public class Spawner : Node2D
         enemyInstance =(Enemy) enemies[matrix[currentWave][enemyCounter]].Instance();
        
         AddChild(enemyInstance);
+        connectEnemyToMap(enemyInstance);
         enemyInstance.Position = this.Position;
 
         }
@@ -77,6 +78,17 @@ public class Spawner : Node2D
    
        }
     
+    }
+
+    public void connectEnemyToMap(Enemy e)
+    {
+        if(GetParentOrNull<Map>()!= null)
+        {
+            Map dad = GetParent<Map>();
+
+            e.Connect(nameof(Enemy.OnDeath),dad,nameof(Map.EnemyDied));
+
+        }
     }
 
     public void setTimer(float t)
@@ -149,10 +161,7 @@ public class Spawner : Node2D
 
     }
 
-    public void connectTry()
-    {
-        GD.Print("OI O MEU MAPA TA TENTANDO CONNECTAR UM SINAL AQUI");
-    }
+ 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //public override void _Process(float delta)  {
  //   

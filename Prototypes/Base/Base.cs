@@ -26,13 +26,18 @@ public class Base : Area2D
 
     void TakeDamage(Area2D other)
     {
-        Enemy e = (Enemy)other.Owner;
+        if(other.IsInGroup("Enemy"))
+        {
+            Enemy e = (Enemy)other.Owner;
 
         life -= e.damage;
 
         e.QueueFree();
 
         EmitSignal("UpdateLife",maxLife,life);
+
+        }
+        
         
     }
 

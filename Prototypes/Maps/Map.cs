@@ -14,6 +14,11 @@ public class Map : Node2D
 
     [Export]
     public Godot.Collections.Array<NodePath> spanwRefs;
+    [Export]
+    public Godot.Collections.Array<NodePath> buildRefs;
+
+    [Export]
+    public Godot.Collections.Array<PackedScene> towerRefs;
 
     public Spawner[] spawners;
 
@@ -24,14 +29,29 @@ public class Map : Node2D
     public delegate void OnUpdateWave(int w);
 
     [Signal]
+    public delegate void OnMoneyChange(int m);
+
+    [Signal]
     public delegate void OnBaseDeath();
+
+    [Signal]
+    public delegate void OnWin();
 
     [Signal]
     public delegate void StartWaves();
 
+    [Signal]
+    public delegate void EnableBuilding();
+
+    [Signal]
+    public delegate void SendBuildRequest(int cost);
+
+    [Signal]
+    public delegate void DeliverBuildPermit(bool b);
+
+   
+
     [Export]
-
-
     bool waveClear;
     int clearCounter;
 
@@ -55,6 +75,7 @@ public class Map : Node2D
         }
 
         connectSpawners();
+        connectBuilders();
 
         b = GetNode<Base>(baseRef);
         waveTimer = GetNode<Timer>("WaveTimer");
@@ -66,22 +87,27 @@ public class Map : Node2D
         
     }
 
-    void linkHUD()
+//*******Functions to work with the MAIN/HUD*******
+    public void linkHUD()
     {
         EmitSignal("OnLifeUpdate",b.maxLife,b.life);
     }
-
-
     public void OnBaseLifeUpdate(int maxLife, int life)
     {
         EmitSignal("OnLifeUpdate",maxLife,life);
 
     }
-
     public void OnBaseDied()
     {
         EmitSignal("OnBaseDeath");
     }
+
+    public void EnemyDied(int m)
+    {
+        EmitSignal("OnMoneyChange",m);
+    }
+
+    //****Functions to work with the waves**** */
 
     public void startWaves()
     {
@@ -101,6 +127,7 @@ public class Map : Node2D
         {
             clearCounter=0;
             waveClear = true;
+            EmitSignal("EnableBuilding");
             
 
             GD.Print("terminamos a wave "+currentWave +"de "+waveTimes.Length);
@@ -109,16 +136,58 @@ public class Map : Node2D
             {
                 waveTimer.WaitTime = waveTimes[currentWave];
                 waveTimer.Start();
+                
             }
 
             else
             {
-                GD.Print("PARABENS VOCE GANHOU SEU IDIOTA");
+                EmitSignal("OnWin");
+               
             }
             
         }
     }
 
+    //********Functions to work with the Builders******* */
+
+    public void SendBuildPermit(int id)
+    {
+        //this is for testing purposes only, in reality this sends the request to the main to calculate the price and if it can build
+        //ReceiveBuildPermit(true);
+        Tower temp = (Tower)towerRefs[id%towerRefs.Count].Instance();
+        int cost = temp.cost;
+        EmitSignal("SendBuildRequest",cost);
+
+    }
+
+    //gets the build permit from main and passes down to the builder
+    public void ReceiveBuildPermit(bool b)
+    {
+        EmitSignal("DeliverBuildPermit",b);
+
+    }
+
+    public void Build(int id, Builder owner, int rot)
+    {
+        Tower tInstance = new Tower();
+        tInstance = (Tower)towerRefs[id].Instance();
+
+        AddChild(tInstance);
+
+        tInstance.Position = owner.Position;
+        tInstance.Scale =(owner.Scale/2);
+
+         tInstance.SetRotat(rot);
+
+        owner.BecomeTowerMode(tInstance);
+
+        EmitSignal("OnMoneyChange",-(tInstance.cost));
+
+    }
+
+
+
+//*****Connecting signals and mostly initializing Stuff****** */
     void connectSpawners()
     {
 
@@ -129,6 +198,23 @@ public class Map : Node2D
            
             Connect(nameof(StartWaves),temp,nameof(temp.StartWave));
             temp.Connect(nameof(Spawner.WaveClear),this,nameof(getWaveClear));
+        }
+    }
+
+    void connectBuilders()
+    {
+        for(int i =0;i<buildRefs.Count;i++)
+        {
+            Builder temp = GetNode<Builder>((NodePath)buildRefs[i]);
+
+            Connect(nameof(StartWaves),temp, nameof(temp.DisableBuild));
+            Connect(nameof(EnableBuilding),temp,nameof(temp.EnableBuild));
+
+            Connect(nameof(DeliverBuildPermit),temp,nameof(temp.setBuildPermit));
+
+            temp.Connect(nameof(Builder.BuildTower),this,nameof(Build));
+
+            temp.Connect(nameof(Builder.RequestBuildPermit),this,nameof(SendBuildPermit));
         }
     }
   
