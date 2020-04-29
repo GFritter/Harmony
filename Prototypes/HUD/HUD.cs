@@ -26,7 +26,7 @@ public class HUD : Control
     {
         lifeBar = GetNode<ProgressBar>("LifeBar");
         waveCounter = GetNode<Label>("Panel/Wave/WaveCounter");
-        waveMaxCounter= GetNode<Label>("Panel/WaveMax");
+        waveMaxCounter= GetNode<Label>("Panel/Wave/WaveMax");
         moneyCounter= GetNode<Label>("Panel/Money/MoneyCounter");
         popups = GetNode<Panel>("PopUps");
         gameOverLose = GetNode<Panel>("PopUps/GameOverWin");

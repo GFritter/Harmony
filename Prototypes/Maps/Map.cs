@@ -29,6 +29,9 @@ public class Map : Node2D
     public delegate void OnUpdateWave(int w);
 
     [Signal]
+    public delegate void UpdateMaxWaves(int mw);
+
+    [Signal]
     public delegate void OnMoneyChange(int m);
 
     [Signal]
@@ -91,6 +94,7 @@ public class Map : Node2D
     public void linkHUD()
     {
         EmitSignal("OnLifeUpdate",b.maxLife,b.life);
+        EmitSignal("UpdateMaxWaves",waveTimes.Length+1);
     }
     public void OnBaseLifeUpdate(int maxLife, int life)
     {

@@ -146,6 +146,7 @@ public class MainScene : Node2D
         m.Connect(nameof(Map.SendBuildRequest),this,nameof(testCanBuild));
         m.Connect(nameof(Map.OnBaseDeath),this,nameof(gameOverLose));
         m.Connect(nameof(Map.OnWin),this,nameof(gameOverWin));
+        m.Connect(nameof(Map.UpdateMaxWaves),hud,nameof(hud.UpdateMaxWave));
 
         Connect(nameof(MainScene.SendBuildPermit),m,nameof(m.ReceiveBuildPermit));
 
