@@ -10,3 +10,9 @@ C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\SourceControl\Harmony\Pro
 C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\SourceControl\Harmony\Prototypes\.mono\temp\obj\Tools\Prototypes.csproj.CoreCompileInputs.cache
 C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\SourceControl\Harmony\Prototypes\.mono\temp\obj\Tools\Prototypes.dll
 C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\SourceControl\Harmony\Prototypes\.mono\temp\obj\Tools\Prototypes.pdb
+C:\Estudos\Harmony\Prototypes\.mono\temp\bin\Tools\Prototypes.dll
+C:\Estudos\Harmony\Prototypes\.mono\temp\bin\Tools\Prototypes.pdb
+C:\Estudos\Harmony\Prototypes\.mono\temp\obj\Tools\Prototypes.csprojAssemblyReference.cache
+C:\Estudos\Harmony\Prototypes\.mono\temp\obj\Tools\Prototypes.csproj.CoreCompileInputs.cache
+C:\Estudos\Harmony\Prototypes\.mono\temp\obj\Tools\Prototypes.dll
+C:\Estudos\Harmony\Prototypes\.mono\temp\obj\Tools\Prototypes.pdb
