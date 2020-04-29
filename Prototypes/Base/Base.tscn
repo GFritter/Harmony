@@ -2,6 +2,7 @@
 
 [ext_resource path="res://Base/Base.cs" type="Script" id=1]
 [ext_resource path="res://Base/BASEISOTTESTE.png" type="Texture" id=2]
+[ext_resource path="res://Builder/ColShape.tres" type="Shape2D" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -10,9 +11,6 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16.3132, 15.596 )
 
 [node name="Base" type="Area2D"]
 scale = Vector2( 1.00169, 1.01357 )
@@ -23,5 +21,8 @@ scale = Vector2( 8, 8 )
 frames = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+position = Vector2( -3.45024, 57.3331 )
+rotation = 0.63139
+scale = Vector2( 7.56184, 7.56184 )
+shape = ExtResource( 3 )
 [connection signal="area_entered" from="." to="." method="TakeDamage"]

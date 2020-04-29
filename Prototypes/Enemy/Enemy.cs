@@ -70,12 +70,14 @@ public class Enemy : PathFollow2D
       //GD.Print("minha distancia ate o prox ponto eh "+dPos.Length());
       if(distance < speed*delta)
       {
-          
+          if(idx+2 <points.Length)
+        {
           idx++;
           currentPoint = points[idx%points.Length];
           nextPoint = points[idx+1 % points.Length];
 
           checkRotation();
+        }
       }
 
     }

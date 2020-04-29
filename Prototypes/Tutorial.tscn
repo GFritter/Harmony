@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Tutorial.png" type="Texture" id=1]
 [ext_resource path="res://Tutorial.cs" type="Script" id=2]
-[ext_resource path="res://Maps/Map1/Map2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TestScene.tscn" type="PackedScene" id=3]
 
 [node name="Tutorial" type="Control"]
 anchor_right = 1.0
@@ -15,7 +15,7 @@ __meta__ = {
 mainScene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 528.888, 299.757 )
+position = Vector2( 528.888, 298.678 )
 scale = Vector2( 0.592894, 0.590013 )
 texture = ExtResource( 1 )
 

@@ -18,6 +18,10 @@ public class MainScene : Node2D
     Godot.Collections.Array<PackedScene> maps;
 
     [Export]
+    PackedScene sceneGameFinished;
+    Map currentMap;
+
+    [Export]
     int [] StartingMoney;
 
     public HUD hud;
@@ -71,17 +75,19 @@ public class MainScene : Node2D
     //*********Scene Management **********//
     public void gameOverLose()
     {
+        hud.OpenGameOverLose();
 
     }
 
     public void gameOverWin()
     {
+        hud.OpenGameOverWin();
 
     }
 
     public void gameFinished()
     {
-
+        GetTree().ChangeSceneTo(sceneGameFinished);
     }
      public void Reset()
     {
@@ -103,7 +109,31 @@ public class MainScene : Node2D
 
            GetMoney(StartingMoney[idx%StartingMoney.Length]);
 
+           currentMap = temp;
+
         }
+    }
+
+    void nextMap()
+    {
+    if(idx +1 <maps.Count)
+     {
+         idx++;
+         currentMap.QueueFree();
+        loadMap();
+     }
+
+     else
+        gameFinished();
+
+
+
+
+    }
+
+    public void goToMainMenu()
+    {
+        GetTree().ChangeScene("res://Tutorial.tscn");
     }
 
     //**********Connectors and stuff **********/

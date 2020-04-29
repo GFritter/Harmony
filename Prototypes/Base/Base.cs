@@ -26,7 +26,7 @@ public class Base : Area2D
 
     void TakeDamage(Area2D other)
     {
-        if(other.IsInGroup("Enemy"))
+        if(other.Owner.GetGroups().Contains("Enemy"))
         {
             Enemy e = (Enemy)other.Owner;
 

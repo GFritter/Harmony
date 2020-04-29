@@ -53,7 +53,7 @@ public void OnCollisorExit(Area2D area)
 {
     onSpot = false;
 
-    if(tower.canShoot && targetEnemy!=null)
+    if(tower.canShoot && targetEnemy!=null && area.Owner.GetGroups().Contains("Enemy"))
     {
         EmitSignal("idleHit",targetEnemy);
 

@@ -23,3 +23,6 @@ margin_top = 37.0124
 margin_right = 547.394
 margin_bottom = 37.0124
 mouse_filter = 2
+[connection signal="NextScene" from="HUD" to="." method="nextMap"]
+[connection signal="RestartScene" from="HUD" to="." method="Reset"]
+[connection signal="goToMainMenu" from="HUD" to="." method="goToMainMenu"]
