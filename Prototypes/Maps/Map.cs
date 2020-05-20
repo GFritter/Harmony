@@ -81,11 +81,11 @@ public class Map : Node2D
         connectBuilders();
 
         b = GetNode<Base>(baseRef);
+        waveClear = true;
         waveTimer = GetNode<Timer>("WaveTimer");
 
         waveTimer.WaitTime = waveTimes[currentWave];
-        waveTimer.Start();
-
+    
         
         
     }
@@ -94,7 +94,7 @@ public class Map : Node2D
     public void linkHUD()
     {
         EmitSignal("OnLifeUpdate",b.maxLife,b.life);
-        EmitSignal("UpdateMaxWaves",waveTimes.Length+1);
+        EmitSignal("UpdateMaxWaves",waveTimes.Length);
     }
     public void OnBaseLifeUpdate(int maxLife, int life)
     {
@@ -111,13 +111,35 @@ public class Map : Node2D
         EmitSignal("OnMoneyChange",m);
     }
 
+    public void Clear()
+    {
+        
+      Godot.Collections.Array children = GetChildren();
+
+      for(int i =0;i<children.Count;i++)
+      {
+         Node temp = new Node();
+         temp =(Node) children[i];
+         temp.QueueFree();
+      }  
+        
+        QueueFree();
+    }
+
     //****Functions to work with the waves**** */
+
+    public void startWaveTimer()
+    {
+        if(waveClear && currentWave < waveTimes.Length)
+            waveTimer.Start();
+
+    }
 
     public void startWaves()
     {
         waveClear = false;
         clearCounter = 0;
-        GD.Print("Ta na hora de startar os spawns");
+       
         EmitSignal("StartWaves");
         EmitSignal("OnUpdateWave",currentWave+1);
 
@@ -134,12 +156,12 @@ public class Map : Node2D
             EmitSignal("EnableBuilding");
             
 
-            GD.Print("terminamos a wave "+currentWave +"de "+waveTimes.Length);
+           
             currentWave++;
             if(currentWave<waveTimes.Length)
             {
                 waveTimer.WaitTime = waveTimes[currentWave];
-                waveTimer.Start();
+           
                 
             }
 

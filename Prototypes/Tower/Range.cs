@@ -52,11 +52,12 @@ public class Range : Area2D
 public void OnCollisorExit(Area2D area)
 {
     onSpot = false;
-
-    if(tower.canShoot && targetEnemy!=null && area.Owner.GetGroups().Contains("Enemy"))
+    if(tower !=null && area!=null && area.Owner!=null)
+    {if(tower.canShoot && targetEnemy!=null && area.Owner.GetGroups().Contains("Enemy"))
     {
         EmitSignal("idleHit",targetEnemy);
 
+    }
     }
     
 }

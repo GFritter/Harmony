@@ -48,7 +48,7 @@ public class Builder : Area2D
 
     public void mouseEntered()
     {
-        GD.Print("MOUSE AQUI IRMAO");
+       
         if(buildEnabled)
        { mouseOn = true;
         GetNode<AnimatedSprite>("Sprite").Modulate = cOn;
@@ -102,7 +102,7 @@ public class Builder : Area2D
 
         if(@event.IsActionPressed(key))
             {
-               if(!towerMode)
+               if(!towerMode && buildEnabled)
                {
                    if(hudON)
                     buildHud.Hide();
@@ -164,6 +164,8 @@ public class Builder : Area2D
         buildHud.Hide();
         placeHolderSprite.Hide();
         }
+
+          EmitSignal("RequestBuildPermit",towerId); 
     }
 
     public void BecomeTowerMode(Tower t)
@@ -175,7 +177,7 @@ public class Builder : Area2D
     public void EnableBuild()
     {
         buildEnabled = true;
-        GD.Print("Oi agra posso construir");
+        
         GetNode<AnimatedSprite>("Sprite").Modulate = cOff;
 
     }
@@ -183,7 +185,7 @@ public class Builder : Area2D
     public void DisableBuild()
     {
          buildEnabled = false;
-        GD.Print("Eu nao posso mais construir");
+        
         GetNode<AnimatedSprite>("Sprite").Modulate = disabled;
 
         buildHud.Hide();

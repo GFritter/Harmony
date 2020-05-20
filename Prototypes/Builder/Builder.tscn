@@ -76,7 +76,6 @@ rotation = 0.646909
 shape = ExtResource( 2 )
 
 [node name="BuildHud" type="Control" parent="."]
-visible = false
 margin_left = -40.5451
 margin_top = -30.8378
 margin_right = 57.4549
@@ -99,6 +98,19 @@ position = Vector2( 10.1291, 9.87056 )
 scale = Vector2( 0.315963, 0.315963 )
 frames = SubResource( 2 )
 
+[node name="Custo" type="Label" parent="BuildHud/Button"]
+margin_left = 2.78577
+margin_top = -5.28203
+margin_right = 45.7858
+margin_bottom = 8.71797
+rect_scale = Vector2( 0.297412, 0.297412 )
+text = "100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Button2" type="Button" parent="BuildHud"]
 margin_left = 28.5715
 margin_top = -9.30124
@@ -111,6 +123,19 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BuildHud/Button2"]
 frames = SubResource( 3 )
 
+[node name="Custo" type="Label" parent="BuildHud/Button2"]
+margin_left = 2.95746
+margin_top = -5.28204
+margin_right = 45.9575
+margin_bottom = 8.71796
+rect_scale = Vector2( 0.297412, 0.297412 )
+text = "CUSTO"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Button3" type="Button" parent="BuildHud"]
 margin_left = 63.0791
 margin_top = -2.49421
@@ -120,8 +145,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Custo" type="Label" parent="BuildHud/Button3"]
+margin_left = 3.47253
+margin_top = -4.78397
+margin_right = 46.4725
+margin_bottom = 9.21603
+rect_scale = Vector2( 0.297412, 0.297412 )
+text = "CUSTO"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BuildHud/Button3"]
 frames = SubResource( 3 )
+
+[node name="BUILD" type="Button" parent="BuildHud"]
+margin_left = 26.9538
+margin_top = 41.0082
+margin_right = 38.9538
+margin_bottom = 61.0082
+rect_scale = Vector2( 2.52213, 0.412991 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="BuildHud/BUILD"]
+margin_left = 2.51859
+margin_top = 3.61807
+margin_right = 42.5186
+margin_bottom = 17.6181
+rect_scale = Vector2( 0.17412, 0.790427 )
+text = "Build"
+align = 1
+valign = 1
 
 [node name="PlaceHolderSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.615686, 0.937255, 0.694118, 0.45098 )
@@ -131,8 +189,9 @@ frames = SubResource( 4 )
 [connection signal="mouse_entered" from="." to="." method="mouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="mouseExited"]
 [connection signal="mouse_entered" from="BuildHud/Button" to="." method="chooseTower1"]
-[connection signal="pressed" from="BuildHud/Button" to="." method="Build"]
+[connection signal="pressed" from="BuildHud/Button" to="." method="chooseTower1"]
 [connection signal="mouse_entered" from="BuildHud/Button2" to="." method="chooseTower2"]
-[connection signal="pressed" from="BuildHud/Button2" to="." method="Build"]
+[connection signal="pressed" from="BuildHud/Button2" to="." method="chooseTower2"]
 [connection signal="mouse_entered" from="BuildHud/Button3" to="." method="chooseTower3"]
-[connection signal="pressed" from="BuildHud/Button3" to="." method="Build"]
+[connection signal="pressed" from="BuildHud/Button3" to="." method="chooseTower3"]
+[connection signal="pressed" from="BuildHud/BUILD" to="." method="Build"]

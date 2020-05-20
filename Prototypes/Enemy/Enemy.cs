@@ -31,6 +31,8 @@ public class Enemy : PathFollow2D
     int rot;
     AnimatedSprite sprite;
 
+    bool dead;
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -52,12 +54,19 @@ public class Enemy : PathFollow2D
         nextPoint=points[idx+1 %points.Length];
         checkRotation();
         }
+
+        GetNode<AudioStreamPlayer>("OnSpawn").Play();
     }
 
     public void TakeDamage(float d)
     {
         actualLife -=d;
         lifeBar.Value = actualLife;
+
+        
+      if(actualLife<=0 )
+      onDeath();
+
     }
 
     public void move(float delta)
@@ -90,8 +99,14 @@ public class Enemy : PathFollow2D
     public void onDeath()
     {
         EmitSignal("OnDeath",moneyValue);
-        QueueFree();
+         GetNode<AudioStreamPlayer>("OnDeath").Play();
+    
+    }
 
+    public void destroy()
+    {
+        GD.Print("oi eu deveria morrer");
+        QueueFree();
     }
 
     public void checkRotation()
@@ -133,9 +148,6 @@ public class Enemy : PathFollow2D
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
      {
-
-      if(actualLife<=0)
-      onDeath();
 
         move(delta);
        

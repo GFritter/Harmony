@@ -13,6 +13,8 @@ public class HUD : Control
     public delegate void RestartScene();
     [Signal]
     public delegate void goToMainMenu();
+    [Signal]
+    public delegate void StartWaves();
 
     ProgressBar lifeBar;
     Label waveCounter,moneyCounter,waveMaxCounter;
@@ -93,6 +95,11 @@ public class HUD : Control
     {
         closePopup();
         EmitSignal("RestartScene");
+    }
+
+    public void goStartWave()
+    {
+        EmitSignal("StartWaves");
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

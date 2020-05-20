@@ -119,7 +119,7 @@ public class MainScene : Node2D
     if(idx +1 <maps.Count)
      {
          idx++;
-         currentMap.QueueFree();
+         currentMap.Clear();
         loadMap();
      }
 
@@ -149,6 +149,7 @@ public class MainScene : Node2D
         m.Connect(nameof(Map.UpdateMaxWaves),hud,nameof(hud.UpdateMaxWave));
 
         Connect(nameof(MainScene.SendBuildPermit),m,nameof(m.ReceiveBuildPermit));
+        hud.Connect(nameof(HUD.StartWaves),m,nameof(m.startWaveTimer));
 
     }
 
