@@ -105,11 +105,19 @@ public class Builder : Area2D
                if(!towerMode && buildEnabled)
                {
                    if(hudON)
+                    {
+                    placeHolderSprite.Animation = "default";
+                    placeHolderSprite.Hide();
                     buildHud.Hide();
-
+                    }
+                   
                     else
-                    buildHud.Show();
+                    { 
+                        buildHud.Show();
+                        placeHolderSprite.Show();
+                    }
 
+                    hudON= !hudON; 
                }
             }
 
