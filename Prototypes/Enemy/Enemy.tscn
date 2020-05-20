@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Enemy/Arts/WeirdMonstro-1.png.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/Arts/Fiery/Front/l0_sprite_2.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Enemy/Arts/Fiery/Back/l0_sprite_1.png" type="Texture" id=4]
 [ext_resource path="res://Enemy/Arts/Fiery/Front/l0_sprite_1.png" type="Texture" id=5]
 [ext_resource path="res://Enemy/Arts/Fiery/Back/l0_sprite_2.png" type="Texture" id=6]
+[ext_resource path="res://Music/enemySpawn.wav" type="AudioStream" id=7]
+[ext_resource path="res://Music/enemyDeath.wav" type="AudioStream" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,9 +21,9 @@ animations = [ {
 "name": "Pos0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "Pos3",
+"name": "Pos1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -29,9 +31,9 @@ animations = [ {
 "name": "Pos2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "Pos1",
+"name": "Pos3",
 "speed": 5.0
 } ]
 
@@ -81,3 +83,12 @@ percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="OnSpawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 15.0
+
+[node name="OnDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 15.0
+[connection signal="finished" from="OnDeath" to="." method="destroy"]
