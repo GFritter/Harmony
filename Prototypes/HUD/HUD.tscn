@@ -141,29 +141,31 @@ __meta__ = {
 [node name="PopUps" type="Panel" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0.290196 )
-margin_right = 1019.0
-margin_bottom = 599.0
+margin_left = -528.363
+margin_top = 1.58673
+margin_right = 490.637
+margin_bottom = 600.587
 mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GameOverWin" type="Panel" parent="PopUps"]
-visible = false
 modulate = Color( 0.862745, 0.831373, 0.831373, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -188.5
-margin_top = -188.5
-margin_right = 205.5
-margin_bottom = 205.5
+margin_left = -123.859
+margin_top = -128.726
+margin_right = 126.141
+margin_bottom = 121.274
 
 [node name="WintText" type="Label" parent="PopUps/GameOverWin"]
-margin_left = 54.0
-margin_right = 322.0
-margin_bottom = 190.0
+margin_left = -9.46704
+margin_top = -39.6669
+margin_right = 258.533
+margin_bottom = 150.333
 text = "Parabens, você conseguiu! "
 align = 1
 valign = 1
@@ -172,10 +174,10 @@ __meta__ = {
 }
 
 [node name="MainMenu" type="Button" parent="PopUps/GameOverWin"]
-margin_left = 16.0
-margin_top = 268.0
-margin_right = 131.0
-margin_bottom = 321.0
+margin_left = 73.1204
+margin_top = 104.572
+margin_right = 188.12
+margin_bottom = 157.572
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -188,10 +190,10 @@ align = 1
 valign = 1
 
 [node name="NextLevel" type="Button" parent="PopUps/GameOverWin"]
-margin_left = 267.687
-margin_top = 270.455
-margin_right = 382.687
-margin_bottom = 323.455
+margin_left = 74.1127
+margin_top = 183.188
+margin_right = 189.113
+margin_bottom = 236.188
 __meta__ = {
 "_edit_use_anchors_": false
 }

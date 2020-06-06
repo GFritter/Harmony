@@ -1,17 +1,18 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Maps/Map1/Map02.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Maps/Map_01/Map01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Music/BASS.wav" type="AudioStream" id=3]
 [ext_resource path="res://MainScene.cs" type="Script" id=4]
-[ext_resource path="res://Maps/Map1/MapTUTORIAL.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Maps/Map1/Map01.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Maps/Map_00/Map00.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Maps/Map_05/Map05.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 position = Vector2( -34.5089, -40.3528 )
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 4 )
-maps = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 1 ) ]
-StartingMoney = PoolIntArray( 100, 100, 100 )
+maps = [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ) ]
+StartingMoney = PoolIntArray( 100, 100, 100, 100 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -21,10 +22,11 @@ autoplay = true
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 545.446
-margin_top = 38.9605
-margin_right = 545.446
-margin_bottom = 38.9605
+margin_left = 1111.0
+margin_top = 73.9955
+margin_right = 1083.43
+margin_bottom = 42.0
+rect_scale = Vector2( 2.03524, 2.02055 )
 mouse_filter = 2
 [connection signal="NextScene" from="HUD" to="." method="nextMap"]
 [connection signal="RestartScene" from="HUD" to="." method="Reset"]

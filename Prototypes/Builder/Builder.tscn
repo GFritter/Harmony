@@ -41,17 +41,17 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
+"name": "Tower3",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
 "name": "Tower2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Tower1",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "Tower3",
 "speed": 5.0
 } ]
 

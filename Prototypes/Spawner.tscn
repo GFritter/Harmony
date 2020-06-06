@@ -4,7 +4,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 6.25574, 25.8607, 0, 0, 0, 0, 63.5347, 31.5886, 0, 0, 0, 0, 57.8068, 350.919, 0, 0, 0, 0, 375.705, 353.783, 0, 0, 0, 0, 384.297, 201.994, 0, 0, 0, 0, 382.865, 190.538, 0, 0, 0, 0, 796.706, 189.106, 0, 0, 0, 0, 795.274, 443.997, 0, 0, 0, 0, 962.815, 451.157, 0, 0, 0, 0, 959.951, 126.099, 0, 0, 0, 0, 1125.93, -126.357, 0, 0, 0, 0, 1084.53, 126.099 )
+"points": PoolVector2Array( 0, 0, 0, 0, 18.6124, 30.9864, 0, 0, 0, 0, 2034.08, 1038.64, 0, 0, 0, 0, 1969.79, 1070.39, 0, 0, 0, 0, 2161.95, 1166.09 )
 }
 
 [node name="Spawner" type="Path2D"]
@@ -14,5 +14,5 @@ enemyRefs = PoolStringArray( "res://Enemy/Enemy.tscn" )
 pathFile = "res://Waves/waveEX.tres"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.344
+wait_time = 0.7
 [connection signal="timeout" from="Timer" to="." method="Spawn"]
