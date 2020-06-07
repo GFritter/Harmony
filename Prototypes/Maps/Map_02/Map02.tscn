@@ -117,10 +117,10 @@ _data = {
 position = Vector2( 166.284, -19.2793 )
 script = ExtResource( 7 )
 baseRef = NodePath("Base")
-spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3") ]
-buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3") ]
+spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3"), NodePath("Spawner4") ]
+buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3"), NodePath("Builder4") ]
 towerRefs = [ ExtResource( 12 ) ]
-waveTimes = PoolRealArray( 8, 5.6, 3 )
+waveTimes = PoolRealArray( 2, 2, 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
@@ -135,20 +135,25 @@ tile_data = PoolIntArray( -2097123, 4, 0, -2031588, 4, 0, -2031587, 4, 0, -20315
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( -419.718, 32.3826 )
 curve = SubResource( 2 )
-pathFile = "res://Waves/Fase_02/waveTeste00.tres"
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+pathFile = "res://Maps/Map_02/Wave/waveTeste00.tres"
 
 [node name="Spawner2" parent="." instance=ExtResource( 4 )]
 position = Vector2( -291.166, -31.0122 )
 curve = SubResource( 3 )
-pathFile = "res://Waves/Fase_02/waveTeste01.tres"
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+pathFile = "res://Maps/Map_02/Wave/waveTeste01.tres"
 
 [node name="Spawner3" parent="." instance=ExtResource( 4 )]
 position = Vector2( -420.162, 33.3839 )
 curve = SubResource( 4 )
-pathFile = "res://Waves/Fase_02/waveTeste02.tres"
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+pathFile = "res://Maps/Map_02/Wave/waveTeste02.tres"
 
 [node name="Spawner4" parent="." instance=ExtResource( 4 )]
 position = Vector2( -306, -40 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+pathFile = "res://Maps/Map_02/Wave/waveTeste03.tres"
 
 [node name="Base" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1813.66, 1066.11 )
@@ -158,25 +163,20 @@ scale = Vector2( 1, 1 )
 one_shot = true
 
 [node name="Builder" parent="." instance=ExtResource( 9 )]
-position = Vector2( 814.462, 731.419 )
-scale = Vector2( 4, 4 )
-cOn = Color( 0.231373, 0.768627, 0.0823529, 1 )
-cOff = Color( 0.0980392, 0.639216, 0.0941176, 1 )
-canBuildCol = Color( 0.243137, 0.615686, 0.27451, 0.411765 )
+position = Vector2( 738.466, 689.624 )
 key = "fire_3"
 
 [node name="Builder2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1081.34, 606.552 )
-scale = Vector2( 4, 4 )
+position = Vector2( 987.195, 557.733 )
 key = "fire_4"
 
 [node name="Builder3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1249.29, 947.297 )
-scale = Vector2( 4, 4 )
+position = Vector2( 1275.55, 956.599 )
 key = "fire_5"
 
 [node name="Builder4" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1492.47, 817.422 )
+scale = Vector2( 3.22705, 3.33696 )
 key = "fire_6"
 [connection signal="Died" from="Base" to="." method="OnBaseDied"]
 [connection signal="UpdateLife" from="Base" to="." method="OnBaseLifeUpdate"]
