@@ -176,7 +176,6 @@ key = "fire_5"
 
 [node name="Builder4" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1492.47, 817.422 )
-scale = Vector2( 3.22705, 3.33696 )
 key = "fire_6"
 [connection signal="Died" from="Base" to="." method="OnBaseDied"]
 [connection signal="UpdateLife" from="Base" to="." method="OnBaseLifeUpdate"]

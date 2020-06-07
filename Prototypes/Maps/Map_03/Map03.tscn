@@ -115,7 +115,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=5]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1728.52, 1318.64, 0, 0, 0, 0, 1056.17, 982.289, 0, 0, 0, 0, 1183.05, 918.122, 0, 0, 0, 0, 927.807, 790.115, 0, 0, 0, 0, 800.073, 854.296, 0, 0, 0, 0, 671.027, 790.438, 0, 0, 0, 0, 415.426, 918.614, 0, 0, 0, 0, 288.251, 855.277, 0, 0, 0, 0, 672.139, 662.453, 0, 0, 0, 0, 543.474, 598.953, 0, 0, 0, 0, 736.352, 502.633, 0, 0, 0, 0, 799.614, 534.264 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1728.52, 1318.64, 0, 0, 0, 0, 1056.17, 982.289, 0, 0, 0, 0, 1183.05, 918.122, 0, 0, 0, 0, 927.807, 790.115, 0, 0, 0, 0, 800.073, 854.296, 0, 0, 0, 0, 671.027, 790.438, 0, 0, 0, 0, 415.426, 918.614, 0, 0, 0, 0, 288.251, 855.277, 0, 0, 0, 0, 672.139, 662.453, 0, 0, 0, 0, 543.474, 598.953, 0, 0, 0, 0, 736.352, 502.633, 0, 0, 0, 0, 799.614, 534.264, 0, 0, 0, 0, 927.753, 470.219 )
 }
 
 [sub_resource type="Curve2D" id=6]
@@ -132,10 +132,10 @@ _data = {
 position = Vector2( 166.284, -19.2793 )
 script = ExtResource( 7 )
 baseRef = NodePath("Base")
-spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3") ]
-buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3") ]
+spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3"), NodePath("Spawner4"), NodePath("Spawner5"), NodePath("Spawner6") ]
+buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3"), NodePath("Builder4"), NodePath("Builder5"), NodePath("Builder6"), NodePath("Builder7"), NodePath("Builder8") ]
 towerRefs = [ ExtResource( 12 ) ]
-waveTimes = PoolRealArray( 8, 5.6, 3 )
+waveTimes = PoolRealArray( 1, 1, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
@@ -154,48 +154,68 @@ scale = Vector2( 1, 1 )
 [node name="WaveTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="Builder" parent="." instance=ExtResource( 9 )]
-position = Vector2( 542.203, 654.354 )
-
-[node name="Builder2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1306.17, 656.431 )
-
-[node name="Builder3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 794.879, 783.243 )
-
-[node name="Builder4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1049.98, 784.31 )
-
-[node name="Builder5" parent="." instance=ExtResource( 9 )]
-position = Vector2( 926.845, 848.447 )
-
-[node name="Builder6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 796.845, 913.448 )
-
-[node name="Builder7" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1052.84, 912.447 )
-
-[node name="Builder8" parent="." instance=ExtResource( 9 )]
-position = Vector2( 927.845, 976.447 )
-
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( -287.077, 397.159 )
 curve = SubResource( 2 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+pathFile = "res://Maps/Map_03/Wave/waveTeste00.tres"
 
 [node name="Spawner2" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 3 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+pathFile = "res://Maps/Map_03/Wave/waveTeste01.tres"
 
 [node name="Spawner3" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 4 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+pathFile = "res://Maps/Map_03/Wave/waveTeste02.tres"
 
 [node name="Spawner4" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 5 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+pathFile = "res://Maps/Map_03/Wave/waveTeste03.tres"
 
 [node name="Spawner5" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 6 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+pathFile = "res://Maps/Map_03/Wave/waveTeste04.tres"
 
 [node name="Spawner6" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 7 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+pathFile = "res://Maps/Map_03/Wave/waveTeste05.tres"
+
+[node name="Builder" parent="." instance=ExtResource( 9 )]
+position = Vector2( 538.71, 656.109 )
+key = "fire_1"
+
+[node name="Builder2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 795.284, 782.344 )
+key = "fire_2"
+
+[node name="Builder3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1051.67, 784.37 )
+key = "fire_3"
+
+[node name="Builder4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1307.05, 657.122 )
+key = "fire_4"
+
+[node name="Builder5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 796.416, 911.583 )
+key = "fire_5"
+
+[node name="Builder6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 927.966, 847.885 )
+key = "fire_6"
+
+[node name="Builder7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 924.717, 975.746 )
+key = "fire_7"
+
+[node name="Builder8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1055.98, 912.759 )
+key = "fire_8"
 [connection signal="Died" from="Base" to="." method="OnBaseDied"]
 [connection signal="UpdateLife" from="Base" to="." method="OnBaseLifeUpdate"]
 [connection signal="timeout" from="WaveTimer" to="." method="startWaves"]
