@@ -31,7 +31,12 @@ public class Enemy : PathFollow2D
     int rot;
     AnimatedSprite sprite;
 
-    bool dead;
+    [Export]
+    public int colorId;
+    [Export]
+    public Color auraColor;
+
+    public bool dead;
 
 
     // Called when the node enters the scene tree for the first time.
@@ -65,7 +70,7 @@ public class Enemy : PathFollow2D
 
         
       if(actualLife<=0 )
-      onDeath();
+      dead = true;
 
     }
 
@@ -91,9 +96,14 @@ public class Enemy : PathFollow2D
 
     }
 
-    void setMaxHP(float mHP)
+    public void setMaxHP(float mHP)
     {
         maxLife = mHP;
+          actualLife= maxLife;
+        lifeBar = GetNode<ProgressBar>("LifeBar");
+        lifeBar.MaxValue = maxLife;
+        
+        lifeBar.Value = actualLife;
     }
 
     public void onDeath()
@@ -148,7 +158,7 @@ public class Enemy : PathFollow2D
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
      {
-
+         if(!dead)
         move(delta);
        
 

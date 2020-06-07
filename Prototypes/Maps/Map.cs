@@ -20,6 +20,9 @@ public class Map : Node2D
     [Export]
     public Godot.Collections.Array<PackedScene> towerRefs;
 
+    [Export]
+    public Godot.Collections.Array<Color> colors;
+
     public Spawner[] spawners;
 
     [Signal]
@@ -224,6 +227,8 @@ public class Map : Node2D
            
             Connect(nameof(StartWaves),temp,nameof(temp.StartWave));
             temp.Connect(nameof(Spawner.WaveClear),this,nameof(getWaveClear));
+
+            temp.colors = colors;
         }
     }
 

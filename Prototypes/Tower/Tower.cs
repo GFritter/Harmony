@@ -39,6 +39,11 @@ public float[]minDamage = new float[5] {0.5f,1,1,2,2};
 int[] maxAmmo = new int[5] {4,5,6,7,8};
 int currentAmmo;
 
+[Export]
+public Color color;
+[Export]
+public int colorId;
+
 public bool canShoot;
 public bool refreshing, reloading;
 private AudioStreamPlayer sound;
@@ -91,11 +96,23 @@ private ProgressBar bar;
         bar.Hide();
     }
 
-    public void Fire(Enemy e)
+    public void Fire(Godot.Collections.Array<Enemy> enemiesInRange)
     {
-        if(e!=null)
-        {e.TakeDamage(damage[lvl]);
-        currentAmmo--;
+        GD.Print("VOU ATIRAR");
+        foreach(Enemy e in enemiesInRange)
+        {
+            if(Godot.Object.IsInstanceValid((Godot.Object)e))
+        {
+            GD.Print("Oi eu to atirando sim porra");
+            e.TakeDamage(damage[lvl]*checkDamage(e));
+        }
+        else
+        {
+            GD.Print("A instancia nao eh valida ??!");
+        }
+       }
+
+       currentAmmo--;
         sound.Play();
         canShoot = false;
         if(currentAmmo>0)
@@ -103,7 +120,6 @@ private ProgressBar bar;
 
         else
        setupReload();
-        }
     }
 
     public void Misfire()
@@ -117,12 +133,17 @@ private ProgressBar bar;
         setupReload();
     }
 
-    public void IdleFire(Enemy e)
+    public void IdleFire(Godot.Collections.Array<Enemy> enemiesInRange)
     {
-        if(e!=null)
+        foreach(Enemy e in enemiesInRange)
+       { if(IsInstanceValid((Godot.Object)e))
         {
-             e.TakeDamage(minDamage[lvl]);
-         currentAmmo--;
+             e.TakeDamage(minDamage[lvl]*checkDamage(e));
+        
+
+        }
+       }
+        currentAmmo--;
         sound.Play();
         canShoot = false;
         if(currentAmmo>0)
@@ -130,8 +151,6 @@ private ProgressBar bar;
 
         else
        setupReload();
-
-        }
         
         
         
@@ -170,6 +189,65 @@ private ProgressBar bar;
         }
 
        
+    }
+
+    float checkDamage(Enemy e)
+    {
+        switch(colorId)
+        {
+            case 1: 
+                if(e.colorId==1)
+                {
+                    return 1.0f;
+                }
+                else if(e.colorId==2)
+                {
+                    return 1.25f; 
+                }
+                else if(e.colorId==3)
+                {
+                 return 0.75f;
+                }
+                break;
+
+             case 2: 
+                if(e.colorId==1)
+                {
+                    return 0.75f;
+                }
+                else if(e.colorId==2)
+                {
+                    return 1.0f; 
+                }
+                else if(e.colorId==3)
+                {
+                    return 1.25f;
+                }
+                 break;
+
+             case 3: 
+                 if(e.colorId==1)
+                {
+                    return 1.25f;
+                }
+                 else if(e.colorId==2)
+                {
+                  return 0.75f; 
+                }
+                 else if(e.colorId==3)
+                {
+                   return 1.0f;
+                }
+                 break;
+        }
+
+        return 1.0f;
+
+    }
+
+    public void setRangeCol(Color c)
+    {
+        range.setColor(c);
     }
 
     public void SetRotat(int rot)

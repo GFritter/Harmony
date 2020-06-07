@@ -7,10 +7,10 @@ public class Range : Area2D
     // private int a = 2;
     // private string b = "text";
      [Signal]
-    public delegate void Hit(Enemy e);
+    public delegate void Hit(Godot.Collections.Array<Enemy> enemiesInRange);
 
     [Signal]
-    public delegate void idleHit(Enemy e);
+    public delegate void idleHit(Godot.Collections.Array<Enemy> enemiesInRange);
 
     [Signal]
     public delegate void Wrong();
@@ -22,13 +22,24 @@ public class Range : Area2D
 
     Tower tower;
     Area2D targetBox;
+    Godot.Collections.Array<Enemy> enemiesInRange;
     Enemy targetEnemy,lastEnemy;
     public bool onSpot;
 
+    public Color spot,wrong,right,idle; 
+
+public void setColor(Color c)
+{
+    idle = c*0.25f;
+    spot = new Color(c.r,c.g,c.b,0.5f);
+    right = new Color(c.r+0.2f,c.g+0.2f,c.b+0.2f,0.6f);
+    wrong = new Color(c.r-0.3f,c.g-0.3f,c.b-0.3f,0.6f);
+}
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         sprite  = GetNode<AnimatedSprite>("RangeSprite");
+        enemiesInRange = new Godot.Collections.Array<Enemy>();
         
         tower = (Tower)Owner;
         onSpot = false;
@@ -45,21 +56,46 @@ public class Range : Area2D
     targetBox = area;
    
     if(targetBox.Owner.GetGroups().Contains("Enemy"))
-        targetEnemy = (Enemy)targetBox.Owner;
+       enemiesInRange.Add((Enemy)targetBox.Owner);
 
+  checkArray();
 }
 
 public void OnCollisorExit(Area2D area)
 {
-    onSpot = false;
+  
     if(tower !=null && area!=null && area.Owner!=null)
     {if(tower.canShoot && targetEnemy!=null && area.Owner.GetGroups().Contains("Enemy"))
     {
-        EmitSignal("idleHit",targetEnemy);
+        EmitSignal("idleHit",enemiesInRange);
 
     }
+
+    if(enemiesInRange.Contains((Enemy)area.Owner))
+    {
+        enemiesInRange.Remove((Enemy)area.Owner);
     }
-    
+    }
+
+    if(enemiesInRange.Count<=0)
+    {
+          onSpot = false;
+    }
+    checkArray();
+}
+
+void checkArray()
+{
+    for(int i=0;i<enemiesInRange.Count;i++)
+    {
+        GD.Print(enemiesInRange[i].Name);
+        if(enemiesInRange[i].dead)
+        {
+            GD.Print("Achei alguem pra deletar");
+            enemiesInRange[i].onDeath();
+            enemiesInRange.RemoveAt(i);
+        }
+    }
 }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,14 +104,15 @@ public override void _Process(float delta)
    {if(onSpot)
       { 
           sprite.Animation = "ready";
-          sprite.Modulate = new Color(0.5f,0.5f,0f);
+          sprite.Modulate = spot;
 
           if(Input.IsActionJustPressed(keycode))
           {
               sprite.Animation = "right";
-                sprite.Modulate = new Color(0f,0.75f,0f);
+                sprite.Modulate = right;
 
-              EmitSignal("Hit",targetEnemy);
+              EmitSignal("Hit",enemiesInRange);
+              checkArray();
           }
         
       }
@@ -88,7 +125,7 @@ public override void _Process(float delta)
           if(Input.IsActionJustPressed(keycode))
           {
               sprite.Animation = "wrong";
-               sprite.Modulate = new Color(1f,0f,0f);
+               sprite.Modulate = wrong;
               EmitSignal("Wrong");
               
           }
@@ -101,7 +138,7 @@ public override void _Process(float delta)
   else
   {
       sprite.Animation = "wrong";
-        sprite.Modulate = new Color(1f,0f,0f);
+        sprite.Modulate = wrong;
   }
 
    sprite.Play();

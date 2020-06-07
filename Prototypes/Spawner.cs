@@ -20,9 +20,22 @@ public class Spawner : Path2D
     int currentWave =0;
 
     [Export]
-    string pathFile;  
+    string pathFileWave;  
+
+    [Export]
+    string pathFileColor;
+    [Export]
+    string pathFileSpeed;
+    [Export]
+    string pathFileHealth;
+
     File inFile;
     int[][] matrix;
+    float [][] matrixSpeed;
+    float [][] matrixHealth;
+    int [][] matrixColor;
+
+    public Godot.Collections.Array<Color> colors;
 
     bool waitingForClear;
     int numChildDefault;
@@ -31,7 +44,10 @@ public class Spawner : Path2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-       readFile();
+       readFileWave();
+       readFileColor();
+       readFileHealth();
+       readFileSpeed();
        readEnemies();
        numChildDefault = GetChildCount();
     }
@@ -59,6 +75,11 @@ public class Spawner : Path2D
         {
              Enemy enemyInstance = new Enemy();
         enemyInstance =(Enemy) enemies[matrix[currentWave][enemyCounter]].Instance();
+
+        enemyInstance.speed += matrixSpeed[currentWave][enemyCounter];
+        enemyInstance.setMaxHP(enemyInstance.maxLife+matrixHealth[currentWave][enemyCounter]);
+        enemyInstance.colorId = matrixColor[currentWave][enemyCounter];
+        enemyInstance.auraColor = colors[enemyInstance.colorId];
        
         AddChild(enemyInstance);
         connectEnemyToMap(enemyInstance);
@@ -96,13 +117,13 @@ public class Spawner : Path2D
         GetNode<Timer>("Timer").WaitTime = t;
     }
 
-    public void readFile()
+    public void readFileWave()
     {
         inFile = new File();
-        if(inFile.FileExists(pathFile))
+        if(inFile.FileExists(pathFileWave))
         {
             
-        inFile.Open(pathFile,File.ModeFlags.Read);
+        inFile.Open(pathFileWave,File.ModeFlags.Read);
         int x,y;
         string buffer;
         string[] buff;
@@ -112,7 +133,7 @@ public class Spawner : Path2D
         buffer = inFile.GetLine();
         y= buffer.ToInt();
 
-        numWaves = y;
+        numWaves = x;
 
         GD.Print(x);
         GD.Print(y);
@@ -129,6 +150,128 @@ public class Spawner : Path2D
             for(int j=0;j<y;j++)
             {
                 matrix[i][j] = buff[j].ToInt();
+            }
+
+        }
+
+        inFile.Close();
+
+        }
+
+    }
+
+    
+    public void readFileSpeed()
+    {
+        inFile = new File();
+        if(inFile.FileExists(pathFileSpeed))
+        {
+            
+        inFile.Open(pathFileSpeed,File.ModeFlags.Read);
+        int x,y;
+        string buffer;
+        string[] buff;
+
+        buffer = inFile.GetLine();
+        x = buffer.ToInt();
+        buffer = inFile.GetLine();
+        y= buffer.ToInt();
+
+
+        matrixSpeed = new float[x][];
+        for(int i=0;i<x;i++)
+        {
+            matrixSpeed[i] = new float[y];
+        }
+
+        for(int i=0;i<x;i++)
+        {
+             buff = inFile.GetCsvLine();
+            for(int j=0;j<y;j++)
+            {
+                matrixSpeed[i][j] = buff[j].ToFloat();
+            }
+
+        }
+
+        inFile.Close();
+
+        }
+
+    }
+      public void readFileHealth()
+    {
+        inFile = new File();
+        if(inFile.FileExists(pathFileHealth))
+        {
+            
+        inFile.Open(pathFileHealth,File.ModeFlags.Read);
+        int x,y;
+        string buffer;
+        string[] buff;
+
+        buffer = inFile.GetLine();
+        x = buffer.ToInt();
+        buffer = inFile.GetLine();
+        y= buffer.ToInt();
+
+
+        matrixHealth = new float[x][];
+        for(int i=0;i<x;i++)
+        {
+            matrixHealth[i] = new float[y];
+        }
+
+        for(int i=0;i<x;i++)
+        {
+             buff = inFile.GetCsvLine();
+            for(int j=0;j<y;j++)
+            {
+                matrixHealth[i][j] = buff[j].ToFloat();
+            }
+
+        }
+
+        inFile.Close();
+
+        }
+
+    }
+
+
+    
+    public void readFileColor()
+    {
+        inFile = new File();
+        if(inFile.FileExists(pathFileColor))
+        {
+            
+        inFile.Open(pathFileColor,File.ModeFlags.Read);
+        int x,y;
+        string buffer;
+        string[] buff;
+
+        buffer = inFile.GetLine();
+        x = buffer.ToInt();
+        buffer = inFile.GetLine();
+        y= buffer.ToInt();
+
+       
+
+       
+
+        matrixColor = new int[x][];
+        for(int i=0;i<x;i++)
+        {
+            matrixColor[i] = new int[y];
+        }
+
+        for(int i=0;i<x;i++)
+        {
+             buff = inFile.GetCsvLine();
+            for(int j=0;j<y;j++)
+            {
+                matrixColor[i][j] = buff[j].ToInt();
             }
 
         }

@@ -12,6 +12,12 @@ public class Builder : Area2D
     [Export]
     public Color disabled;
 
+   Tower tower;
+    
+    [Export]
+    public int colorId;
+    //vermelho =1 verde =2 azul = 3
+    
     [Export]
     public Color cOn;
 
@@ -180,6 +186,9 @@ public class Builder : Area2D
     {
         towerMode = true;
         t.setKeycode(key);
+        tower  =t;
+        t.colorId = colorId;
+        t.setRangeCol(cOff);
     }
 
     public void EnableBuild()
