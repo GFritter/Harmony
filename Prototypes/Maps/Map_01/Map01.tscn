@@ -125,6 +125,7 @@ baseRef = NodePath("Base")
 spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3"), NodePath("Spawner4") ]
 buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3"), NodePath("Builder4") ]
 towerRefs = [ ExtResource( 12 ) ]
+colors = [  ]
 waveTimes = PoolRealArray( 1, 1, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -141,25 +142,37 @@ tile_data = PoolIntArray( -1900513, 4, 0, -1900512, 4, 0, -1834977, 4, 0, -18349
 position = Vector2( 342.703, 171.106 )
 curve = SubResource( 2 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_01/Wave/waveTeste00.tres"
+pathFileWave = "res://Maps/Map_01/Wave/wave_00.tres"
+pathFileColor = "res://Maps/Map_01/Color/color_00.tres"
+pathFileSpeed = "res://Maps/Map_01/Speed/speed_00.tres"
+pathFileHealth = "res://Maps/Map_01/Health/health_00.tres"
 
 [node name="Spawner2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 753.568, 142.165 )
 curve = SubResource( 3 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_01/Wave/waveTeste01.tres"
+pathFileWave = "res://Maps/Map_01/Wave/wave_01.tres"
+pathFileColor = "res://Maps/Map_01/Color/color_01.tres"
+pathFileSpeed = "res://Maps/Map_01/Speed/speed_01.tres"
+pathFileHealth = "res://Maps/Map_01/Health/health_01.tres"
 
 [node name="Spawner3" parent="." instance=ExtResource( 4 )]
 position = Vector2( -189.544, 18.7357 )
 curve = SubResource( 4 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_01/Wave/waveTeste02.tres"
+pathFileWave = "res://Maps/Map_01/Wave/wave_02.tres"
+pathFileColor = "res://Maps/Map_01/Color/color_02.tres"
+pathFileSpeed = "res://Maps/Map_01/Speed/speed_02.tres"
+pathFileHealth = "res://Maps/Map_01/Health/health_02.tres"
 
 [node name="Spawner4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 893.549, 477.673 )
 curve = SubResource( 5 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_01/Wave/waveTeste03.tres"
+pathFileWave = "res://Maps/Map_01/Wave/wave_03.tres"
+pathFileColor = "res://Maps/Map_01/Color/color_03.tres"
+pathFileSpeed = "res://Maps/Map_01/Speed/speed_03.tres"
+pathFileHealth = "res://Maps/Map_01/Health/health_03.tres"
 
 [node name="Base" parent="." instance=ExtResource( 6 )]
 position = Vector2( 963.945, 820.176 )

@@ -136,24 +136,36 @@ tile_data = PoolIntArray( -2097123, 4, 0, -2031588, 4, 0, -2031587, 4, 0, -20315
 position = Vector2( -419.718, 32.3826 )
 curve = SubResource( 2 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_02/Wave/waveTeste00.tres"
+pathFileWave = "res://Maps/Map_02/Wave/wave_00.tres"
+pathFileColor = "res://Maps/Map_02/Color/color_00.tres"
+pathFileSpeed = "res://Maps/Map_02/Speed/speed_00.tres"
+pathFileHealth = "res://Maps/Map_02/Health/health_00.tres"
 
 [node name="Spawner2" parent="." instance=ExtResource( 4 )]
 position = Vector2( -291.166, -31.0122 )
 curve = SubResource( 3 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_02/Wave/waveTeste01.tres"
+pathFileWave = "res://Maps/Map_02/Wave/wave_01.tres"
+pathFileColor = "res://Maps/Map_02/Color/color_01.tres"
+pathFileSpeed = "res://Maps/Map_02/Speed/speed_01.tres"
+pathFileHealth = "res://Maps/Map_02/Health/health_01.tres"
 
 [node name="Spawner3" parent="." instance=ExtResource( 4 )]
 position = Vector2( -420.162, 33.3839 )
 curve = SubResource( 4 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_02/Wave/waveTeste02.tres"
+pathFileWave = "res://Maps/Map_02/Wave/wave_02.tres"
+pathFileColor = "res://Maps/Map_02/Color/color_02.tres"
+pathFileSpeed = "res://Maps/Map_02/Speed/speed_02.tres"
+pathFileHealth = "res://Maps/Map_02/Health/health_02.tres"
 
 [node name="Spawner4" parent="." instance=ExtResource( 4 )]
 position = Vector2( -306, -40 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_02/Wave/waveTeste03.tres"
+pathFileWave = "res://Maps/Map_02/Wave/wave_03.tres"
+pathFileColor = "res://Maps/Map_02/Color/color_03.tres"
+pathFileSpeed = "res://Maps/Map_02/Speed/speed_03.tres"
+pathFileHealth = "res://Maps/Map_02/Health/health_03.tres"
 
 [node name="Base" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1813.66, 1066.11 )

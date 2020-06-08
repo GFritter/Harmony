@@ -157,26 +157,47 @@ one_shot = true
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( 840.919, 50.5185 )
 curve = SubResource( 2 )
-pathFile = "res://Waves/Fase_01/waveTeste00.tres"
+pathFileWave = "res://Maps/Map_05/Wave/wave_00.tres"
+pathFileColor = "res://Maps/Map_05/Color/color_00.tres"
+pathFileSpeed = "res://Maps/Map_05/Speed/speed_00.tres"
+pathFileHealth = "res://Maps/Map_05/Health/health_00.tres"
 
 [node name="Spawner2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 818.007, -2.46468 )
 curve = SubResource( 3 )
-pathFile = "res://Waves/Fase_01/waveTeste01.tres"
+pathFileWave = "res://Maps/Map_05/Wave/wave_01.tres"
+pathFileColor = "res://Maps/Map_05/Color/color_01.tres"
+pathFileSpeed = "res://Maps/Map_05/Speed/speed_01.tres"
+pathFileHealth = "res://Maps/Map_05/Health/health_01.tres"
 
 [node name="Spawner3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 849.511, 16.151 )
 curve = SubResource( 4 )
-pathFile = "res://Waves/Fase_01/waveTeste02.tres"
+pathFileWave = "res://Maps/Map_05/Wave/wave_02.tres"
+pathFileColor = "res://Maps/Map_05/Color/color_02.tres"
+pathFileSpeed = "res://Maps/Map_05/Speed/speed_02.tres"
+pathFileHealth = "res://Maps/Map_05/Health/health_02.tres"
 
 [node name="Spawner4" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 5 )
+pathFileWave = "res://Maps/Map_05/Wave/wave_03.tres"
+pathFileColor = "res://Maps/Map_05/Color/color_03.tres"
+pathFileSpeed = "res://Maps/Map_05/Speed/speed_03.tres"
+pathFileHealth = "res://Maps/Map_05/Health/health_03.tres"
 
 [node name="Spawner5" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 6 )
+pathFileWave = "res://Maps/Map_05/Wave/wave_04.tres"
+pathFileColor = "res://Maps/Map_05/Color/color_04.tres"
+pathFileSpeed = "res://Maps/Map_05/Speed/speed_04.tres"
+pathFileHealth = "res://Maps/Map_05/Health/health_04.tres"
 
 [node name="Spawner6" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 7 )
+pathFileWave = "res://Maps/Map_05/Wave/wave_05.tres"
+pathFileColor = "res://Maps/Map_05/Color/color_05.tres"
+pathFileSpeed = "res://Maps/Map_05/Speed/speed_05.tres"
+pathFileHealth = "res://Maps/Map_05/Health/health_05.tres"
 
 [node name="Builder" parent="." instance=ExtResource( 9 )]
 position = Vector2( 443.046, 544.311 )

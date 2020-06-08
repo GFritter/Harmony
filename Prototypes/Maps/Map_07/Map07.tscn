@@ -136,19 +136,16 @@ tile_data = PoolIntArray( -1900513, 4, 0, -1900512, 4, 0, -1834977, 4, 0, -18349
 visible = false
 position = Vector2( 840.919, 50.5185 )
 curve = SubResource( 2 )
-pathFile = "res://Waves/Fase_01/waveTeste00.tres"
 
 [node name="Spawner2" parent="." instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 818.007, -2.46468 )
 curve = SubResource( 3 )
-pathFile = "res://Waves/Fase_01/waveTeste01.tres"
 
 [node name="Spawner3" parent="." instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 849.511, 16.151 )
 curve = SubResource( 4 )
-pathFile = "res://Waves/Fase_01/waveTeste02.tres"
 
 [node name="Base" parent="." instance=ExtResource( 6 )]
 visible = false

@@ -179,22 +179,34 @@ key = "fire_5"
 [node name="Spawner" parent="." instance=ExtResource( 7 )]
 curve = SubResource( 2 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_04/Wave/waveTeste00.tres"
+pathFileWave = "res://Maps/Map_04/Wave/wave_00.tres"
+pathFileColor = "res://Maps/Map_04/Color/color_00.tres"
+pathFileSpeed = "res://Maps/Map_04/Speed/speed_00.tres"
+pathFileHealth = "res://Maps/Map_04/Health/health_00.tres"
 
 [node name="Spawner2" parent="." instance=ExtResource( 7 )]
 curve = SubResource( 3 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_04/Wave/waveTeste01.tres"
+pathFileWave = "res://Maps/Map_04/Wave/wave_01.tres"
+pathFileColor = "res://Maps/Map_04/Color/color_01.tres"
+pathFileSpeed = "res://Maps/Map_04/Speed/speed_01.tres"
+pathFileHealth = "res://Maps/Map_04/Health/health_01.tres"
 
 [node name="Spawner3" parent="." instance=ExtResource( 7 )]
 curve = SubResource( 4 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_04/Wave/waveTeste02.tres"
+pathFileWave = "res://Maps/Map_04/Wave/wave_02.tres"
+pathFileColor = "res://Maps/Map_04/Color/color_02.tres"
+pathFileSpeed = "res://Maps/Map_04/Speed/speed_02.tres"
+pathFileHealth = "res://Maps/Map_04/Health/health_02.tres"
 
 [node name="Spawner4" parent="." instance=ExtResource( 7 )]
 curve = SubResource( 5 )
 enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Maps/Map_04/Wave/waveTeste03.tres"
+pathFileWave = "res://Maps/Map_04/Wave/wave_03.tres"
+pathFileColor = "res://Maps/Map_04/Color/color_03.tres"
+pathFileSpeed = "res://Maps/Map_04/Speed/speed_03.tres"
+pathFileHealth = "res://Maps/Map_04/Health/health_03.tres"
 [connection signal="timeout" from="WaveTimer" to="." method="startWaves"]
 [connection signal="Died" from="Base" to="." method="OnBaseDied"]
 [connection signal="UpdateLife" from="Base" to="." method="OnBaseLifeUpdate"]
