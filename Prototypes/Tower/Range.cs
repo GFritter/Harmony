@@ -63,18 +63,21 @@ public void setColor(Color c)
 
 public void OnCollisorExit(Area2D area)
 {
-  
-    if(tower !=null && area!=null && area.Owner!=null)
-    {if(tower.canShoot && targetEnemy!=null && area.Owner.GetGroups().Contains("Enemy"))
+
+    if(IsInstanceValid(area.Owner) && area.Owner.GetGroups().Contains("Enemy"))
     {
+        
+        if(tower.canShoot )
+        {
+        
         EmitSignal("idleHit",enemiesInRange);
 
-    }
+         }
 
-    if(enemiesInRange.Contains((Enemy)area.Owner))
-    {
-        enemiesInRange.Remove((Enemy)area.Owner);
-    }
+        if(enemiesInRange.Contains((Enemy)area.Owner))
+         {
+          enemiesInRange.Remove((Enemy)area.Owner);
+         }
     }
 
     if(enemiesInRange.Count<=0)
@@ -88,10 +91,10 @@ void checkArray()
 {
     for(int i=0;i<enemiesInRange.Count;i++)
     {
-        GD.Print(enemiesInRange[i].Name);
+       
         if(enemiesInRange[i].dead)
         {
-            GD.Print("Achei alguem pra deletar");
+           
             enemiesInRange[i].onDeath();
             enemiesInRange.RemoveAt(i);
         }

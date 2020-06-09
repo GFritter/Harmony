@@ -26,14 +26,14 @@ animations = [ {
 "name": "Pos3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Pos2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Pos1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Pos2",
 "speed": 5.0
 } ]
 

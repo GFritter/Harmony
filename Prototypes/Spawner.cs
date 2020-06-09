@@ -58,7 +58,7 @@ public class Spawner : Path2D
         {
             if(GetChildCount()==numChildDefault)
             {
-                GD.Print("terminei minha wave");
+             
             GetNode<Timer>("Timer").Stop();
              EmitSignal("WaveClear");
             
@@ -91,9 +91,9 @@ public class Spawner : Path2D
 
         if(enemyCounter>=matrix[currentWave].Length)
       {
-        GD.Print("nao tenho mais nada pra spawnar");
        
-        GD.Print("tenho " + GetChildCount() + "filhos");
+       
+       
         waitingForClear = true;
       }
    
@@ -135,9 +135,7 @@ public class Spawner : Path2D
 
         numWaves = x;
 
-        GD.Print(x);
-        GD.Print(y);
-
+       
         matrix = new int[x][];
         for(int i=0;i<x;i++)
         {

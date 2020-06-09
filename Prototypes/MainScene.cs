@@ -10,10 +10,7 @@ public class MainScene : Node2D
     [Signal] 
     public delegate void SendBuildPermit(bool b);
     public int money;
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
+   
     [Export]
     Godot.Collections.Array<PackedScene> maps;
 
@@ -107,7 +104,7 @@ public class MainScene : Node2D
             //sHolder.AddMap(temp);
             temp.linkHUD();
 
-           GetMoney(StartingMoney[idx%StartingMoney.Length]);
+           GetMoney(StartingMoney[idx%StartingMoney.Length] - money);
 
            currentMap = temp;
 

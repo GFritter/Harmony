@@ -136,13 +136,12 @@ private ProgressBar bar;
     public void IdleFire(Godot.Collections.Array<Enemy> enemiesInRange)
     {
         foreach(Enemy e in enemiesInRange)
-       { if(IsInstanceValid((Godot.Object)e))
-        {
+       { 
              e.TakeDamage(minDamage[lvl]*checkDamage(e));
         
 
         }
-       }
+      
         currentAmmo--;
         sound.Play();
         canShoot = false;

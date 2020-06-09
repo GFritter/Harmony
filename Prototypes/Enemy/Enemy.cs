@@ -81,7 +81,7 @@ public class Enemy : PathFollow2D
       
       float distance =Position.DistanceTo(nextPoint);
      
-      //GD.Print("minha distancia ate o prox ponto eh "+dPos.Length());
+    
       if(distance < speed*delta)
       {
           if(idx+2 <points.Length)
@@ -115,7 +115,7 @@ public class Enemy : PathFollow2D
 
     public void destroy()
     {
-        GD.Print("oi eu deveria morrer");
+       
         QueueFree();
     }
 
@@ -127,7 +127,7 @@ public class Enemy : PathFollow2D
 
         float angleMod = Mathf.PosMod(angle,360);
 
-        //GD.Print("Oi meu angulo eh" +angleMod);
+     
 
         if(angleMod>90 && angleMod<180)
         {

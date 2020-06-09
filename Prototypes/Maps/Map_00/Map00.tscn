@@ -21,10 +21,6 @@
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
 1/name = "isoFundo.png 1"
@@ -35,10 +31,6 @@
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
 1/shapes = [  ]
 1/z_index = 0
 2/name = "isoGroundCerto.png 2"
@@ -49,10 +41,6 @@
 2/tile_mode = 0
 2/occluder_offset = Vector2( 0, 0 )
 2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
 2/shapes = [  ]
 2/z_index = 0
 3/name = "isoFundoCerto.png 3"
@@ -63,10 +51,6 @@
 3/tile_mode = 0
 3/occluder_offset = Vector2( 0, 0 )
 3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape_one_way = false
-3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 3/z_index = 0
 4/name = "isoFundoCerto2.png 4"
@@ -77,10 +61,6 @@
 4/tile_mode = 0
 4/occluder_offset = Vector2( 0, 0 )
 4/navigation_offset = Vector2( 0, 0 )
-4/shape_offset = Vector2( 0, 0 )
-4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape_one_way = false
-4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
 5/name = "isoGroundCerto2.png 5"
@@ -91,10 +71,6 @@
 5/tile_mode = 0
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
-5/shape_offset = Vector2( 0, 0 )
-5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape_one_way = false
-5/shape_one_way_margin = 0.0
 5/shapes = [  ]
 5/z_index = 0
 
@@ -155,6 +131,7 @@ key = "fire_3"
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( -130.863, 651.599 )
 curve = SubResource( 2 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_00/Wave/wave_00.tres"
 pathFileColor = "res://Maps/Map_00/Color/color_00.tres"
 pathFileSpeed = "res://Maps/Map_00/Speed/speed_00.tres"
@@ -163,6 +140,7 @@ pathFileHealth = "res://Maps/Map_00/Health/health_00.tres"
 [node name="Spawner2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0.837402, -0.732666 )
 curve = SubResource( 3 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_00/Wave/wave_01.tres"
 pathFileColor = "res://Maps/Map_00/Color/color_01.tres"
 pathFileSpeed = "res://Maps/Map_00/Speed/speed_01.tres"
@@ -170,6 +148,7 @@ pathFileHealth = "res://Maps/Map_00/Health/health_01.tres"
 
 [node name="Spawner3" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 4 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_00/Wave/wave_02.tres"
 pathFileColor = "res://Maps/Map_00/Color/color_02.tres"
 pathFileSpeed = "res://Maps/Map_00/Speed/speed_02.tres"

@@ -135,7 +135,6 @@ baseRef = NodePath("Base")
 spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3"), NodePath("Spawner4"), NodePath("Spawner5"), NodePath("Spawner6") ]
 buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3"), NodePath("Builder4"), NodePath("Builder5"), NodePath("Builder6"), NodePath("Builder7"), NodePath("Builder8") ]
 towerRefs = [ ExtResource( 12 ) ]
-colors = [ Color( 1, 0, 0, 1 ), Color( 0, 0.0862745, 1, 1 ), Color( 0, 1, 0.321569, 1 ) ]
 waveTimes = PoolRealArray( 1, 1, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -158,6 +157,7 @@ one_shot = true
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( -287.077, 397.159 )
 curve = SubResource( 2 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_03/Wave/wave_00.tres"
 pathFileColor = "res://Maps/Map_03/Color/color_00.tres"
 pathFileSpeed = "res://Maps/Map_03/Speed/speed_00.tres"
@@ -165,6 +165,7 @@ pathFileHealth = "res://Maps/Map_03/Health/health_00.tres"
 
 [node name="Spawner2" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 3 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_03/Wave/wave_01.tres"
 pathFileColor = "res://Maps/Map_03/Color/color_01.tres"
 pathFileSpeed = "res://Maps/Map_03/Speed/speed_01.tres"
@@ -172,6 +173,7 @@ pathFileHealth = "res://Maps/Map_03/Health/health_01.tres"
 
 [node name="Spawner3" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 4 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_03/Wave/wave_02.tres"
 pathFileColor = "res://Maps/Map_03/Color/color_02.tres"
 pathFileSpeed = "res://Maps/Map_03/Speed/speed_02.tres"
@@ -179,6 +181,7 @@ pathFileHealth = "res://Maps/Map_03/Health/health_02.tres"
 
 [node name="Spawner4" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 5 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_03/Wave/wave_03.tres"
 pathFileColor = "res://Maps/Map_03/Color/color_03.tres"
 pathFileSpeed = "res://Maps/Map_03/Speed/speed_03.tres"
@@ -186,6 +189,7 @@ pathFileHealth = "res://Maps/Map_03/Health/health_03.tres"
 
 [node name="Spawner5" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 6 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_03/Wave/wave_04.tres"
 pathFileColor = "res://Maps/Map_03/Color/color_04.tres"
 pathFileSpeed = "res://Maps/Map_03/Speed/speed_04.tres"
@@ -193,6 +197,7 @@ pathFileHealth = "res://Maps/Map_03/Health/health_04.tres"
 
 [node name="Spawner6" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 7 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_03/Wave/wave_05.tres"
 pathFileColor = "res://Maps/Map_03/Color/color_05.tres"
 pathFileSpeed = "res://Maps/Map_03/Speed/speed_05.tres"
