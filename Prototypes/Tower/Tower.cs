@@ -40,6 +40,11 @@ public float[] damage= new float[5] {1,2,3,4,5};
 public float[]minDamage = new float[5] {0.5f,1,1,2,2};
 
 [Export]
+public float[] refreshTime =  new float[5] {0.4f,0.4f,0.4f,0.4f,0.2f};
+[Export]
+public float[] reloadTime =  new float[5] {0.4f,0.4f,0.4f,0.4f,0.2f};
+
+[Export]
 int[] maxAmmo = new int[5] {4,5,6,7,8};
 int currentAmmo;
 
@@ -161,6 +166,7 @@ private ProgressBar bar;
 
     void setupRefresh()
     {
+        GetNode<Timer>("ShootTimer").WaitTime = refreshTime[lvl];
         GetNode<Timer>("ShootTimer").Start();
         refreshing = true;
         bar.MaxValue =  GetNode<Timer>("ShootTimer").WaitTime;
@@ -169,6 +175,7 @@ private ProgressBar bar;
 
     void setupReload()
     {
+          GetNode<Timer>("RechargeTimer").WaitTime=(reloadTime[lvl]);
           GetNode<Timer>("RechargeTimer").Start();
           reloading =true;
           bar.MaxValue = GetNode<Timer>("RechargeTimer").WaitTime;
@@ -292,4 +299,38 @@ private ProgressBar bar;
     {
         return (experience>=maxXP[lvl] && lvl<5);
     }
+
+    //get stats used to link the tower hud
+
+    public int GetAmmo()
+    {
+        return maxAmmo[lvl];
+
+    }
+
+    public float GetDamage()
+    {
+        return damage[lvl];
+    }
+
+    public float GetMinDamage()
+    {
+        return minDamage[lvl];
+    }
+
+    public float GetSpeed()
+    {
+        return refreshTime[lvl];
+    }
+
+    public float GetReloadSpeed()
+    {
+        return reloadTime[lvl];
+    }
+
+    public AnimatedSprite getSprite()
+    {
+        return GetNode<AnimatedSprite>("TowerBase");
+    }
 }
+

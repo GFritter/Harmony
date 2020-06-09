@@ -55,6 +55,7 @@ public class Map : Node2D
     [Signal]
     public delegate void DeliverBuildPermit(bool b);
 
+  
    
 
     [Export]
@@ -214,6 +215,11 @@ public class Map : Node2D
 
     }
 
+    public void Sell(int m)
+    {
+        EmitSignal("OnMoneyChange",m);
+    }
+
 
 
 //*****Connecting signals and mostly initializing Stuff****** */
@@ -246,6 +252,10 @@ public class Map : Node2D
             temp.Connect(nameof(Builder.BuildTower),this,nameof(Build));
 
             temp.Connect(nameof(Builder.RequestBuildPermit),this,nameof(SendBuildPermit));
+
+            temp.Connect(nameof(Builder.DeliverMoney),this,nameof(Sell));
+
+            temp.GetTowers(towerRefs);
         }
     }
   

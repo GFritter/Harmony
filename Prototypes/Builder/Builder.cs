@@ -9,11 +9,18 @@ public class Builder : Area2D
     [Signal]
     public delegate void RequestBuildPermit(int id);
 
+    [Signal]
+    public delegate void DeliverMoney(int id);
+
     [Export]
     public Color disabled;
 
    Tower tower;
     
+    Label [] tCosts = new Label[3];
+
+    Button [] tButtons = new Button[3];
+
     [Export]
     public int colorId;
     //vermelho =1 verde =2 azul = 3
@@ -43,13 +50,37 @@ public class Builder : Area2D
     bool towerMode;
 
     int rot,towerId;
+
+    //tower mode things, attributes I mean
+    Control towerHud;
+    Label ammoCount, Damage, DamageIdle, Speed, Reload;
    
     public override void _Ready()
     {
         buildHud = GetNode<Control>("BuildHud");
         buildHud.Hide();
+
+        towerHud = GetNode<Control>("TowerHud");
+        towerHud.Hide();
         placeHolderSprite = GetNode<AnimatedSprite>("PlaceHolderSprite");
         GetNode<AnimatedSprite>("Sprite").Modulate = cOff;
+
+        tButtons[0] = GetNode<Button>("BuildHud/Button");
+        tButtons[0].Hide();
+        tButtons[1] = GetNode<Button>("BuildHud/Button2");
+        tButtons[1].Hide();
+        tButtons[2] = GetNode<Button>("BuildHud/Button3");
+        tButtons[2].Hide();
+
+        tCosts[0] = GetNode<Label>("BuildHud/Button/Custo");
+        tCosts[1] = GetNode<Label>("BuildHud/Button2/Custo");
+        tCosts[2] = GetNode<Label>("BuildHud/Button3/Custo");
+        
+        ammoCount = GetNode<Label>("TowerHud/Stats/Ammo/Stat");
+        Damage = GetNode<Label>("TowerHud/Stats/Dano/Stat");
+        DamageIdle = GetNode<Label>("TowerHud/Stats/DanoAuto/Stat");
+        Speed = GetNode<Label>("TowerHud/Stats/Velocidade/Stat");
+        Reload = GetNode<Label>("TowerHud/Stats/Recarrega/Stat");
     }
 
     public void mouseEntered()
@@ -89,6 +120,20 @@ public class Builder : Area2D
                placeHolderSprite.Hide();
                buildHud.Hide();
            }
+            }
+
+           else if(towerMode && buildEnabled)
+            {
+                if(!hudON)
+                {
+                    towerHud.Show();
+                }
+
+                if(hudON)
+                {
+                    towerHud.Hide();
+                }
+
             }
 
 
@@ -182,6 +227,23 @@ public class Builder : Area2D
           EmitSignal("RequestBuildPermit",towerId); 
     }
 
+    public void Sell()
+    {
+        EmitSignal("DeliverMoney",tower.cost);
+        towerMode = false;
+        tower.QueueFree();
+
+        towerHud.Hide();
+
+
+    }
+
+    public void LevelUp()
+    {
+        if(tower.canLevelUp())
+            tower.levelUp();
+    }
+
     public void BecomeTowerMode(Tower t)
     {
         towerMode = true;
@@ -189,6 +251,27 @@ public class Builder : Area2D
         tower  =t;
         t.colorId = colorId;
         t.setRangeCol(cOff);
+
+        ammoCount.Text = t.GetAmmo().ToString();
+        Damage.Text = t.GetDamage().ToString();
+        DamageIdle.Text = t.GetMinDamage().ToString();
+        Speed.Text = t.GetSpeed().ToString();
+        Reload.Text = t.GetReloadSpeed().ToString();
+      
+    }
+
+    public void GetTowers(Godot.Collections.Array<PackedScene> towers)
+    {
+
+        for(int i=0;i<towers.Count && i<3;i++)
+        {
+            Tower temp = (Tower)towers[i].Instance();
+
+            tButtons[i].Show();
+            tButtons[i].GetNode<AnimatedSprite>("AnimatedSprite").Frame= (temp.getSprite().Frame);
+            tCosts[i].Text = temp.cost.ToString();
+        }
+
     }
 
     public void EnableBuild()
@@ -209,6 +292,8 @@ public class Builder : Area2D
         placeHolderSprite.Hide();
 
     }
+
+
 
  //public override void _Process(float delta)
  //{
