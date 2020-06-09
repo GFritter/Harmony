@@ -73,6 +73,7 @@ public void OnCollisorExit(Area2D area)
         EmitSignal("idleHit",enemiesInRange);
 
          }
+         checkArray();
 
         if(enemiesInRange.Contains((Enemy)area.Owner))
          {
@@ -94,7 +95,7 @@ void checkArray()
        
         if(enemiesInRange[i].dead)
         {
-           
+            tower.getXp(enemiesInRange[i].ExpValue);
             enemiesInRange[i].onDeath();
             enemiesInRange.RemoveAt(i);
         }

@@ -35,6 +35,9 @@ public class Enemy : PathFollow2D
     public int colorId;
     [Export]
     public Color auraColor;
+    [Export]
+    public int ExpValue;
+
 
     public bool dead;
 

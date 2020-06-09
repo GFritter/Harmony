@@ -41,7 +41,7 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "Tower2",
+"name": "Tower3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
@@ -51,7 +51,7 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "Tower3",
+"name": "Tower2",
 "speed": 5.0
 } ]
 

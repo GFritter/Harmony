@@ -4,6 +4,7 @@ using System;
 public class Tower : Area2D
 {
     int rotat;
+    int experience;
 
 [Export]
 public Godot.Collections.Array<Vector2> RangePositions;
@@ -28,6 +29,9 @@ AnimatedSprite ammoBar;
 
 [Export]
 public int lvl = 0;
+
+[Export]
+public int [] maxXP = new int[5] {100,200,300,400,500};
 
 [Export]
 public float[] damage= new float[5] {1,2,3,4,5};
@@ -263,5 +267,29 @@ private ProgressBar bar;
     {
         keycode = k;
         range.setKeycode(k);
+    }
+
+    public void getXp(int xp)
+    {
+        experience+= xp;
+
+        //in case we dont want to store xp
+        //if(experience> maxXP[lvl])
+            //experience = maxXP[lvl];
+    }
+
+    public void levelUp()
+    {
+        experience -= maxXP[lvl];
+
+        //do something cool
+
+        lvl++;
+
+    }
+
+    public bool canLevelUp()
+    {
+        return (experience>=maxXP[lvl] && lvl<5);
     }
 }

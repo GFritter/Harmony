@@ -1,0 +1,176 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Tower/Arts/Back/l0_sprite_1.png" type="Texture" id=1]
+[ext_resource path="res://Tower/Arts/Front/l0_sprite_2.png" type="Texture" id=2]
+[ext_resource path="res://Tower/Arts/Back/l0_sprite_2.png" type="Texture" id=3]
+[ext_resource path="res://Tower/Arts/Front/l0_sprite_1.png" type="Texture" id=4]
+[ext_resource path="res://TowerMenu/Menu/Stats.PNG" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="TowerHud" type="Control"]
+margin_left = -40.5451
+margin_top = -30.8378
+margin_right = 57.4549
+margin_bottom = 47.1622
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 31.0
+margin_top = -9.301
+margin_right = 51.0
+margin_bottom = 10.699
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Button"]
+position = Vector2( 10.1291, 9.87056 )
+scale = Vector2( 0.315963, 0.315963 )
+frames = SubResource( 1 )
+
+[node name="Custo" type="Label" parent="Button"]
+margin_left = 2.78577
+margin_top = -5.28203
+margin_right = 45.7858
+margin_bottom = 8.71797
+rect_scale = Vector2( 0.297412, 0.297412 )
+text = "100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vender" type="Button" parent="."]
+margin_left = 26.9538
+margin_top = 41.0082
+margin_right = 38.9538
+margin_bottom = 61.0082
+rect_scale = Vector2( 2.52213, 0.412991 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Vender"]
+margin_left = 2.0
+margin_top = 3.618
+margin_right = 47.0
+margin_bottom = 17.618
+rect_scale = Vector2( 0.17412, 0.790427 )
+text = "Vender"
+align = 1
+valign = 1
+
+[node name="Stats" type="Sprite" parent="."]
+position = Vector2( 80.414, -7.19218 )
+scale = Vector2( 0.528855, 0.539631 )
+texture = ExtResource( 5 )
+
+[node name="Munição" type="Label" parent="Stats"]
+margin_left = -45.0
+margin_top = -27.0
+margin_right = 9.0
+margin_bottom = -13.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Munição:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stat" type="Label" parent="Stats/Munição"]
+margin_left = 59.0
+margin_right = 108.0
+margin_bottom = 14.0
+text = "PINGAS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Velocidade" type="Label" parent="Stats"]
+margin_left = -45.0
+margin_top = 9.0
+margin_right = 9.0
+margin_bottom = 23.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Velocidade:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stat" type="Label" parent="Stats/Velocidade"]
+margin_left = 75.0
+margin_right = 124.0
+margin_bottom = 14.0
+text = "PINGAS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DanoAuto" type="Label" parent="Stats"]
+margin_left = -45.0
+margin_top = -3.0
+margin_right = 9.0
+margin_bottom = 11.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "DanoAuto:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stat" type="Label" parent="Stats/DanoAuto"]
+margin_left = 68.0
+margin_right = 117.0
+margin_bottom = 14.0
+text = "PINGAS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dano" type="Label" parent="Stats"]
+margin_left = -45.0
+margin_top = -15.0
+margin_right = 9.0
+margin_bottom = -1.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Dano:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stat" type="Label" parent="Stats/Dano"]
+margin_left = 39.0
+margin_right = 88.0
+margin_bottom = 14.0
+text = "PINGAS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Recarrega" type="Label" parent="Stats"]
+margin_left = -45.0
+margin_top = 21.0
+margin_right = 9.0
+margin_bottom = 35.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Recarga:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stat" type="Label" parent="Stats/Recarrega"]
+margin_left = 54.0
+margin_right = 103.0
+margin_bottom = 14.0
+text = "PINGAS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
