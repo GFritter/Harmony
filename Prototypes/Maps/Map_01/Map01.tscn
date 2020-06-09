@@ -125,7 +125,7 @@ baseRef = NodePath("Base")
 spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3"), NodePath("Spawner4") ]
 buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3"), NodePath("Builder4") ]
 towerRefs = [ ExtResource( 12 ) ]
-colors = [  ]
+colors = [ Color( 1, 0, 0, 1 ), Color( 0, 0.0627451, 1, 1 ), Color( 0, 1, 0.133333, 1 ) ]
 waveTimes = PoolRealArray( 1, 1, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]

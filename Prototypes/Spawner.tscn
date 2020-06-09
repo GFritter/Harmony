@@ -10,8 +10,7 @@ _data = {
 [node name="Spawner" type="Path2D"]
 curve = SubResource( 1 )
 script = ExtResource( 1 )
-enemyRefs = PoolStringArray( "res://Enemy/Enemy.tscn" )
-pathFile = "res://Waves/waveEX.tres"
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.7
