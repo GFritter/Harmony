@@ -141,7 +141,6 @@ tile_data = PoolIntArray( -2097123, 4, 0, -2031588, 4, 0, -2031587, 4, 0, -20315
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( -419.718, 32.3826 )
 curve = SubResource( 2 )
-enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_02/Wave/wave_00.tres"
 pathFileColor = "res://Maps/Map_02/Color/color_00.tres"
 pathFileSpeed = "res://Maps/Map_02/Speed/speed_00.tres"
@@ -150,7 +149,6 @@ pathFileHealth = "res://Maps/Map_02/Health/health_00.tres"
 [node name="Spawner2" parent="." instance=ExtResource( 4 )]
 position = Vector2( -291.166, -31.0122 )
 curve = SubResource( 3 )
-enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_02/Wave/wave_01.tres"
 pathFileColor = "res://Maps/Map_02/Color/color_01.tres"
 pathFileSpeed = "res://Maps/Map_02/Speed/speed_01.tres"
@@ -159,7 +157,6 @@ pathFileHealth = "res://Maps/Map_02/Health/health_01.tres"
 [node name="Spawner3" parent="." instance=ExtResource( 4 )]
 position = Vector2( -420.162, 33.3839 )
 curve = SubResource( 4 )
-enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_02/Wave/wave_02.tres"
 pathFileColor = "res://Maps/Map_02/Color/color_02.tres"
 pathFileSpeed = "res://Maps/Map_02/Speed/speed_02.tres"
@@ -168,7 +165,6 @@ pathFileHealth = "res://Maps/Map_02/Health/health_02.tres"
 [node name="Spawner4" parent="." instance=ExtResource( 4 )]
 position = Vector2( -306, -40 )
 curve = SubResource( 5 )
-enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_02/Wave/wave_03.tres"
 pathFileColor = "res://Maps/Map_02/Color/color_03.tres"
 pathFileSpeed = "res://Maps/Map_02/Speed/speed_03.tres"
@@ -183,18 +179,42 @@ one_shot = true
 
 [node name="Builder" parent="." instance=ExtResource( 9 )]
 position = Vector2( 738.466, 689.624 )
+disabled = Color( 0.219608, 0, 0, 1 )
+colorId = 1
+cOn = Color( 1, 0, 0, 1 )
+cOff = Color( 0.521569, 0, 0, 1 )
+canBuildCol = Color( 1, 0, 0, 0.462745 )
+cantBuildCol = Color( 0.458824, 0, 0, 0.756863 )
 key = "fire_3"
 
 [node name="Builder2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 987.195, 557.733 )
+disabled = Color( 0.219608, 0, 0, 1 )
+colorId = 1
+cOn = Color( 1, 0, 0, 1 )
+cOff = Color( 0.521569, 0, 0, 1 )
+canBuildCol = Color( 1, 0, 0, 0.462745 )
+cantBuildCol = Color( 0.458824, 0, 0, 0.756863 )
 key = "fire_4"
 
 [node name="Builder3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1275.55, 956.599 )
+disabled = Color( 0.00392157, 0.196078, 0, 1 )
+colorId = 3
+cOn = Color( 0.121569, 1, 0, 1 )
+cOff = Color( 0.0235294, 0.596078, 0.133333, 1 )
+canBuildCol = Color( 0.188235, 1, 0, 0.411765 )
+cantBuildCol = Color( 0, 0.196078, 0.0156863, 0.988235 )
 key = "fire_5"
 
 [node name="Builder4" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1492.47, 817.422 )
+disabled = Color( 0.00392157, 0.196078, 0, 1 )
+colorId = 3
+cOn = Color( 0.121569, 1, 0, 1 )
+cOff = Color( 0.0235294, 0.596078, 0.133333, 1 )
+canBuildCol = Color( 0.188235, 1, 0, 0.411765 )
+cantBuildCol = Color( 0, 0.196078, 0.0156863, 0.988235 )
 key = "fire_6"
 [connection signal="Died" from="Base" to="." method="OnBaseDied"]
 [connection signal="UpdateLife" from="Base" to="." method="OnBaseLifeUpdate"]

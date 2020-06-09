@@ -147,39 +147,82 @@ scale = Vector2( 1, 1 )
 
 [node name="Builder" parent="." instance=ExtResource( 10 )]
 position = Vector2( 539.197, 688.247 )
+disabled = Color( 0, 0.219608, 0.00392157, 1 )
+colorId = 3
+cOn = Color( 0.121569, 1, 0, 1 )
+cOff = Color( 0.00392157, 0.568627, 0.113725, 1 )
+canBuildCol = Color( 0.188235, 1, 0, 0.411765 )
+cantBuildCol = Color( 0.0156863, 0.321569, 0, 0.984314 )
 key = "fire_2"
 
 [node name="Builder2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 931.785, 495.112 )
+disabled = Color( 0, 0.219608, 0.00392157, 1 )
+colorId = 3
+cOn = Color( 0.121569, 1, 0, 1 )
+cOff = Color( 0.00392157, 0.568627, 0.113725, 1 )
+canBuildCol = Color( 0.188235, 1, 0, 0.411765 )
+cantBuildCol = Color( 0.0156863, 0.321569, 0, 0.984314 )
 key = "fire_3"
 
 [node name="Builder3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1309.93, 689.15 )
+disabled = Color( 0, 0.219608, 0.00392157, 1 )
+colorId = 3
+cOn = Color( 0.121569, 1, 0, 1 )
+cOff = Color( 0.00392157, 0.568627, 0.113725, 1 )
+canBuildCol = Color( 0.188235, 1, 0, 0.411765 )
+cantBuildCol = Color( 0.0156863, 0.321569, 0, 0.984314 )
 key = "fire_7"
 
 [node name="Builder4" parent="." instance=ExtResource( 10 )]
 position = Vector2( 916.443, 882.285 )
+disabled = Color( 0, 0.219608, 0.00392157, 1 )
+colorId = 3
+cOn = Color( 0.121569, 1, 0, 1 )
+cOff = Color( 0.00392157, 0.568627, 0.113725, 1 )
+canBuildCol = Color( 0.188235, 1, 0, 0.411765 )
+cantBuildCol = Color( 0.0156863, 0.321569, 0, 0.984314 )
 key = "fire_6"
 
 [node name="Builder5" parent="." instance=ExtResource( 10 )]
 position = Vector2( 284.52, 687.642 )
+disabled = Color( 0.25098, 0, 0, 1 )
+cOn = Color( 1, 0, 0, 1 )
+cOff = Color( 0.643137, 0, 0, 1 )
+canBuildCol = Color( 1, 0, 0, 0.454902 )
+cantBuildCol = Color( 0.258824, 0, 0, 0.878431 )
 key = "fire_1"
 
 [node name="Builder6" parent="." instance=ExtResource( 10 )]
 position = Vector2( 926.683, 367.002 )
+disabled = Color( 0.25098, 0, 0, 1 )
+cOn = Color( 1, 0, 0, 1 )
+cOff = Color( 0.643137, 0, 0, 1 )
+canBuildCol = Color( 1, 0, 0, 0.454902 )
+cantBuildCol = Color( 0.258824, 0, 0, 0.878431 )
 key = "fire_4"
 
 [node name="Builder7" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1564.87, 687.795 )
+disabled = Color( 0.25098, 0, 0, 1 )
+cOn = Color( 1, 0, 0, 1 )
+cOff = Color( 0.643137, 0, 0, 1 )
+canBuildCol = Color( 1, 0, 0, 0.454902 )
+cantBuildCol = Color( 0.258824, 0, 0, 0.878431 )
 key = "fire_8"
 
 [node name="Builder8" parent="." instance=ExtResource( 10 )]
 position = Vector2( 923.536, 1007.13 )
+disabled = Color( 0.25098, 0, 0, 1 )
+cOn = Color( 1, 0, 0, 1 )
+cOff = Color( 0.643137, 0, 0, 1 )
+canBuildCol = Color( 1, 0, 0, 0.454902 )
+cantBuildCol = Color( 0.258824, 0, 0, 0.878431 )
 key = "fire_5"
 
 [node name="Spawner" parent="." instance=ExtResource( 7 )]
 curve = SubResource( 2 )
-enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_04/Wave/wave_00.tres"
 pathFileColor = "res://Maps/Map_04/Color/color_00.tres"
 pathFileSpeed = "res://Maps/Map_04/Speed/speed_00.tres"
@@ -187,7 +230,6 @@ pathFileHealth = "res://Maps/Map_04/Health/health_00.tres"
 
 [node name="Spawner2" parent="." instance=ExtResource( 7 )]
 curve = SubResource( 3 )
-enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_04/Wave/wave_01.tres"
 pathFileColor = "res://Maps/Map_04/Color/color_01.tres"
 pathFileSpeed = "res://Maps/Map_04/Speed/speed_01.tres"
@@ -195,7 +237,6 @@ pathFileHealth = "res://Maps/Map_04/Health/health_01.tres"
 
 [node name="Spawner3" parent="." instance=ExtResource( 7 )]
 curve = SubResource( 4 )
-enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_04/Wave/wave_02.tres"
 pathFileColor = "res://Maps/Map_04/Color/color_02.tres"
 pathFileSpeed = "res://Maps/Map_04/Speed/speed_02.tres"
@@ -203,7 +244,6 @@ pathFileHealth = "res://Maps/Map_04/Health/health_02.tres"
 
 [node name="Spawner4" parent="." instance=ExtResource( 7 )]
 curve = SubResource( 5 )
-enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
 pathFileWave = "res://Maps/Map_04/Wave/wave_03.tres"
 pathFileColor = "res://Maps/Map_04/Color/color_03.tres"
 pathFileSpeed = "res://Maps/Map_04/Speed/speed_03.tres"
