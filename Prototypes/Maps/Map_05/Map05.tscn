@@ -135,6 +135,7 @@ baseRef = NodePath("Base")
 spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3"), NodePath("Spawner4"), NodePath("Spawner5"), NodePath("Spawner6") ]
 buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3"), NodePath("Builder4"), NodePath("Builder5"), NodePath("Builder6"), NodePath("Builder7"), NodePath("Builder8") ]
 towerRefs = [ ExtResource( 12 ) ]
+colors = [ Color( 1, 0, 0, 1 ), Color( 0.00784314, 0, 1, 1 ), Color( 0, 1, 0.0862745, 1 ) ]
 waveTimes = PoolRealArray( 1, 1, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -200,28 +201,36 @@ pathFileSpeed = "res://Maps/Map_05/Speed/speed_05.tres"
 pathFileHealth = "res://Maps/Map_05/Health/health_05.tres"
 
 [node name="Builder" parent="." instance=ExtResource( 9 )]
-position = Vector2( 443.046, 544.311 )
+position = Vector2( 577.529, 542.51 )
+key = "fire_1"
 
 [node name="Builder2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1340.18, 544.679 )
+position = Vector2( 572.076, 672.666 )
+key = "fire_2"
 
 [node name="Builder3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 635.852, 640.451 )
+position = Vector2( 573.44, 798.241 )
+key = "fire_3"
 
 [node name="Builder4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1147.99, 640.865 )
+position = Vector2( 572.976, 929.435 )
+key = "fire_4"
 
 [node name="Builder5" parent="." instance=ExtResource( 9 )]
-position = Vector2( 247.343, 958.598 )
+position = Vector2( 1212.73, 545.044 )
+key = "fire_5"
 
 [node name="Builder6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 572.819, 928.372 )
+position = Vector2( 1213.25, 673.82 )
+key = "fire_6"
 
 [node name="Builder7" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1211.32, 929.137 )
+position = Vector2( 1210.7, 800.157 )
+key = "fire_7"
 
 [node name="Builder8" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1533.88, 960.635 )
+position = Vector2( 1210.79, 929.489 )
+key = "fire_8"
 [connection signal="Died" from="Base" to="." method="OnBaseDied"]
 [connection signal="UpdateLife" from="Base" to="." method="OnBaseLifeUpdate"]
 [connection signal="timeout" from="WaveTimer" to="." method="startWaves"]
