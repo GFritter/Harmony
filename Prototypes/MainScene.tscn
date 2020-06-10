@@ -14,7 +14,7 @@
 [ext_resource path="res://Maps/Map_05/Map05.tscn" type="PackedScene" id=12]
 
 [node name="Main" type="Node2D"]
-position = Vector2( -34.5089, -40.3528 )
+position = Vector2( -34.5089, -44.2489 )
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 4 )
 maps = [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 6 ) ]

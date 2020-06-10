@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Tutorial.cs" type="Script" id=1]
 [ext_resource path="res://MenuPrincipal/Menu.jpg" type="Texture" id=2]
 [ext_resource path="res://MenuPrincipal/backMenu.png" type="Texture" id=3]
 [ext_resource path="res://Tutorial_v2.png" type="Texture" id=4]
 [ext_resource path="res://MenuPrincipal/Metal_Mania/MetalMania-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://MainScene.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.8, 0.25098, 0.25098, 1 )
@@ -62,6 +63,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ],
 "_edit_use_anchors_": false
 }
+mainScene = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 511.785, 299.294 )

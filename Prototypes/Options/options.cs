@@ -3,7 +3,7 @@ using System;
 
 public class options : Control
 {
-    bool porra = false;
+    bool fullscreen = false;
     private Vector2 WindowSize = new Vector2(1024, 640);
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -17,8 +17,8 @@ public class options : Control
 
     void ScreenToggle()
     {
-        porra = !porra;
-        OS.SetWindowFullscreen(porra);
+        fullscreen = !fullscreen;
+        OS.SetWindowFullscreen(fullscreen);
     }
 
     void BackToMenu()

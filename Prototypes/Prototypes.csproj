@@ -59,6 +59,7 @@
     <Compile Include="HUD\HUD.cs" />
     <Compile Include="MainScene.cs" />
     <Compile Include="Maps\Map.cs" />
+    <Compile Include="Options\options.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RythymBar\Collisor.cs" />
     <Compile Include="RythymBar\RythymBar.cs" />

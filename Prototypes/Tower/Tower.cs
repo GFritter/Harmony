@@ -10,6 +10,10 @@ public class Tower : Area2D
 public Godot.Collections.Array<Vector2> RangePositions;
 
 [Export]
+public Godot.Collections.Array<Vector2> RangeSpritePositions;
+
+
+[Export]
 public float[] RangeRotations;
 
 [Export]
@@ -107,17 +111,17 @@ private ProgressBar bar;
 
     public void Fire(Godot.Collections.Array<Enemy> enemiesInRange)
     {
-        GD.Print("VOU ATIRAR");
+        //GD.Print("VOU ATIRAR");
         foreach(Enemy e in enemiesInRange)
         {
             if(Godot.Object.IsInstanceValid((Godot.Object)e))
         {
-            GD.Print("Oi eu to atirando sim porra");
+            //GD.Print("Oi eu to atirando sim porra");
             e.TakeDamage(damage[lvl]*checkDamage(e));
         }
         else
         {
-            GD.Print("A instancia nao eh valida ??!");
+            //GD.Print("A instancia nao eh valida ??!");
         }
        }
 
@@ -267,6 +271,12 @@ private ProgressBar bar;
         range.Position = (RangePositions[rot]);
         range.RotationDegrees = RangeRotations[rot];
         range.GetNode<CollisionShape2D>("CollisionShape2D").Shape = RangeShapes[rot];
+        range.GetNode<AnimatedSprite>("RangeSprite").Position = (RangeSpritePositions[rot]);
+
+        if(rot%2==1)
+            {
+                range.GetNode<AnimatedSprite>("RangeSprite").FlipH = true;
+            }
 
     }
 
