@@ -1,0 +1,187 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Tutorial_v2.png" type="Texture" id=1]
+[ext_resource path="res://MenuPrincipal/backMenu.png" type="Texture" id=2]
+[ext_resource path="res://MenuPrincipal/Menu.jpg" type="Texture" id=3]
+[ext_resource path="res://Options/options.cs" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.8, 0.25098, 0.25098, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.388235, 0.388235, 0.388235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.827451, 0.160784, 0.160784, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.8, 0.25098, 0.25098, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.388235, 0.388235, 0.388235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.827451, 0.160784, 0.160784, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.8, 0.25098, 0.25098, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.388235, 0.388235, 0.388235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.827451, 0.160784, 0.160784, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.8, 0.25098, 0.25098, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.388235, 0.388235, 0.388235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.827451, 0.160784, 0.160784, 1 )
+
+[node name="Tutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -2.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 511.785, 299.294 )
+scale = Vector2( 1.18086, 0.788616 )
+z_index = -1
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -274.232, 312.05 )
+scale = Vector2( 0.738322, 0.730059 )
+texture = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.375
+anchor_top = 0.074
+anchor_right = 0.612
+anchor_bottom = 0.908
+margin_left = -6.00003
+margin_top = -0.251999
+margin_right = 0.311951
+margin_bottom = 0.0159912
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Control"]
+position = Vector2( 138.384, 265.307 )
+scale = Vector2( 1.22681, 0.621801 )
+texture = ExtResource( 2 )
+
+[node name="Novo jogo" type="Button" parent="Control"]
+anchor_left = 0.253
+anchor_top = 0.264
+anchor_right = 0.759
+anchor_bottom = 0.332
+margin_left = 9.53302
+margin_top = -0.191986
+margin_right = 9.53902
+margin_bottom = -0.124008
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "Fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Voltar" type="Button" parent="Control"]
+anchor_left = 1.277
+anchor_top = 0.787
+anchor_right = 1.49
+anchor_bottom = 0.869
+margin_left = 4.54239
+margin_top = 11.2798
+margin_right = 4.5054
+margin_bottom = 11.3618
+text = "Voltar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Res1" type="Button" parent="Control"]
+anchor_left = 0.044
+anchor_top = 0.567
+anchor_right = 0.679
+anchor_bottom = 0.682
+margin_left = 214.044
+margin_top = 11.979
+margin_right = 187.929
+margin_bottom = -12.406
+rect_pivot_offset = Vector2( -1095.7, 167.227 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "1024 X 640"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Res2" type="Button" parent="Control"]
+anchor_left = 0.295
+anchor_top = 0.595
+anchor_right = 0.825
+anchor_bottom = 0.657
+margin_left = -0.924988
+margin_top = -1.99301
+margin_right = -0.894989
+margin_bottom = 0.0690002
+rect_pivot_offset = Vector2( -1095.7, 167.227 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+text = "1024 X 768"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Res3" type="Button" parent="Control"]
+anchor_left = -0.313
+anchor_top = 0.593
+anchor_right = 0.215
+anchor_bottom = 0.657
+margin_left = -1.063
+margin_top = -0.994995
+margin_right = -0.534996
+margin_bottom = 0.0690002
+rect_pivot_offset = Vector2( -1095.7, 167.227 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "2560 X 1080"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Control/Novo jogo" to="." method="ScreenToggle"]
+[connection signal="pressed" from="Control/Voltar" to="." method="BackToMenu"]
+[connection signal="pressed" from="Control/Res1" to="." method="Res2"]
+[connection signal="pressed" from="Control/Res2" to="." method="Res1"]
+[connection signal="pressed" from="Control/Res3" to="." method="Res3"]

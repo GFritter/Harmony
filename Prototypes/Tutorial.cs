@@ -23,6 +23,16 @@ public class Tutorial : Control
         GetTree().ChangeSceneTo(mainScene);
     }
 
+    void LoadOptionsScene()
+    {
+        GetTree().ChangeScene("res://Options/options.tscn"); 
+    }
+
+    void LoadComoJogarScene()
+    {
+        GetTree().ChangeScene("res://Tutorial/Tutorial.tscn");
+    }
+
     void LoadPrevScene()
     {
         GetTree().ChangeSceneTo(prevScene);
@@ -31,9 +41,13 @@ public class Tutorial : Control
     {
         GetTree().ChangeSceneTo(nextScene);
     }
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    void Quit()
+    {
+        GetTree().Quit();
+    }
+    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
+    //  public override void _Process(float delta)
+    //  {
+    //      
+    //  }
 }
