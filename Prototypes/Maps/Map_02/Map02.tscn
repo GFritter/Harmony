@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Tiles/isoFundo.png" type="Texture" id=1]
 [ext_resource path="res://Tiles/isoGround.png" type="Texture" id=2]
 [ext_resource path="res://Tiles/isoGroundCerto.png" type="Texture" id=3]
 [ext_resource path="res://Spawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tower/BoomBoxTower.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Base/Base.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Maps/Map.cs" type="Script" id=7]
 [ext_resource path="res://Tiles/isoFundoCerto.png" type="Texture" id=8]
@@ -21,6 +22,10 @@
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
 1/name = "isoFundo.png 1"
@@ -31,6 +36,10 @@
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
 1/shapes = [  ]
 1/z_index = 0
 2/name = "isoGroundCerto.png 2"
@@ -41,6 +50,10 @@
 2/tile_mode = 0
 2/occluder_offset = Vector2( 0, 0 )
 2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
 2/shapes = [  ]
 2/z_index = 0
 3/name = "isoFundoCerto.png 3"
@@ -51,6 +64,10 @@
 3/tile_mode = 0
 3/occluder_offset = Vector2( 0, 0 )
 3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 3/z_index = 0
 4/name = "isoFundoCerto2.png 4"
@@ -61,6 +78,10 @@
 4/tile_mode = 0
 4/occluder_offset = Vector2( 0, 0 )
 4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
 5/name = "isoGroundCerto2.png 5"
@@ -71,6 +92,10 @@
 5/tile_mode = 0
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
 5/shapes = [  ]
 5/z_index = 0
 
@@ -101,7 +126,7 @@ script = ExtResource( 7 )
 baseRef = NodePath("Base")
 spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3"), NodePath("Spawner4") ]
 buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3"), NodePath("Builder4") ]
-towerRefs = [ ExtResource( 12 ) ]
+towerRefs = [ ExtResource( 12 ), ExtResource( 5 ) ]
 colors = [ Color( 1, 0, 0, 1 ), Color( 0, 0.0392157, 1, 1 ), Color( 0, 1, 0.133333, 1 ) ]
 waveTimes = PoolRealArray( 1, 1, 1 )
 
