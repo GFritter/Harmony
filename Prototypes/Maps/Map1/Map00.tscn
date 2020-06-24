@@ -90,6 +90,8 @@ waveTimes = PoolRealArray( 8, 5.6, 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
+z_index = -1
+z_as_relative = false
 mode = 1
 tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 16 )
@@ -101,8 +103,6 @@ tile_data = PoolIntArray( -1048564, 4, 0, -1048563, 4, 0, -983029, 4, 0, -983028
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( -234.498, -36.8322 )
 curve = SubResource( 2 )
-enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
-pathFile = "res://Waves/Fase_00/waveTeste00.tres"
 
 [node name="Base" parent="." instance=ExtResource( 6 )]
 position = Vector2( 820.085, 564.539 )

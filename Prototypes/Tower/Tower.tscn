@@ -22,7 +22,7 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 17 ) ],
+"frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -32,14 +32,14 @@ animations = [ {
 "name": "Pos0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
-"name": "Pos1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "cooldown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "Pos1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ) ],
@@ -57,12 +57,12 @@ animations = [ {
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "idle",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "right",
+"name": "idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -122,24 +122,24 @@ animations = [ {
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "6",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "5",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "5",
 "speed": 5.0
 } ]
 
@@ -149,6 +149,7 @@ collision_mask = 2
 script = ExtResource( 4 )
 RangePositions = [ Vector2( -67.273, 13.704 ), Vector2( -1.558, 4.965 ), Vector2( 65.265, 2.578 ), Vector2( 0.033, 4.169 ) ]
 RangeSpritePositions = [ Vector2( 38.082, 12.85 ), Vector2( 7.762, 8.803 ), Vector2( 38.743, 13.491 ), Vector2( 9.875, 8.87 ) ]
+SoundsRef = [ "res://Music/TrumpetTower/g#4.wav", "res://Music/TrumpetTower/d#4.wav", "res://Music/TrumpetTower/f4.wav", "res://Music/TrumpetTower/f4.wav", "res://Music/TrumpetTower/g4.wav" ]
 RangeRotations = PoolRealArray( -539, -539.9, -718.7, -717.4 )
 RangeShapes = [ ExtResource( 7 ), ExtResource( 22 ), ExtResource( 7 ), ExtResource( 22 ) ]
 keycode = "fire_1"
@@ -183,7 +184,7 @@ one_way_collision_margin = 0.0
 
 [node name="RangeSprite" type="AnimatedSprite" parent="Range"]
 self_modulate = Color( 1, 1, 1, 0.156863 )
-position = Vector2( 9.87537, 8.87015 )
+position = Vector2( 10.1662, 9.14142 )
 rotation = -0.0175839
 scale = Vector2( 0.53434, 0.53434 )
 frames = SubResource( 2 )

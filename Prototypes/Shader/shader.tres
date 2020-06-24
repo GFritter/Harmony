@@ -8,14 +8,26 @@ uniform float r_value = 1.0;
 uniform float b_value=1.0;
 uniform float g_value=1.0;
 
+uniform float x_off = 1.0;
+uniform float y_off = 1.0;
+uniform float z_off = 1.0;
+
+uniform float speed = 1.0;
+uniform float strenght = 10.0;
+
+void vertex()
+{
+
+}
+
 void fragment()
 {
-	vec3 col = texture(TEXTURE,SCREEN_UV).rgb;
+	vec4 col = texture(TEXTURE,SCREEN_UV).rgba;
 	
 		//this bumps color
-	//col.r *= r_value;
-	//col.b *= b_value;
-	//col.g *= g_value;
+	col.r *= r_value;
+	col.b *= b_value;
+	col.g *= g_value;
 	
 	float medium = (col.r+col.g+col.b)/3.0;
 	
@@ -26,12 +38,17 @@ void fragment()
 	
 
 	
-	COLOR.rgb = col.rgb *saturation;
+	COLOR.rgba = col.rgba*saturation;
 	}"
 
 [resource]
 shader = SubResource( 1 )
-shader_param/saturation = 1.0
+shader_param/saturation = 0.633
 shader_param/r_value = 1.0
 shader_param/b_value = 1.0
 shader_param/g_value = 1.0
+shader_param/x_off = 2.585
+shader_param/y_off = 5.613
+shader_param/z_off = 1.097
+shader_param/speed = 5.8
+shader_param/strenght = 10.899

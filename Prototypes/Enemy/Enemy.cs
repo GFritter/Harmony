@@ -29,7 +29,7 @@ public class Enemy : PathFollow2D
     Vector2 currentPoint,nextPoint;
 
     int rot;
-    AnimatedSprite sprite;
+    AnimatedSprite sprite,auraSprite;
 
     [Export]
     public int colorId;
@@ -52,7 +52,10 @@ public class Enemy : PathFollow2D
         lifeBar.Value = actualLife;
 
         sprite = GetNode<Area2D>("Area2D").GetNode<AnimatedSprite>("AnimatedSprite");
-        
+        auraSprite = GetNode<Area2D>("Area2D").GetNode<AnimatedSprite>("Aura");
+
+        auraSprite.Modulate = auraColor;
+
         if(GetParentOrNull<Spawner>()!=null)
         {Spawner dad =(Spawner) GetParent();
         
@@ -129,7 +132,7 @@ public class Enemy : PathFollow2D
         angle = Mathf.Rad2Deg(angle);
 
         float angleMod = Mathf.PosMod(angle,360);
-
+        GetNode<CPUParticles2D>("Particles").Direction = -deltaPos;
      
 
         if(angleMod>90 && angleMod<180)
@@ -153,8 +156,15 @@ public class Enemy : PathFollow2D
         }
 
         sprite.Animation="Pos"+rot;
+        auraSprite.Animation = "Pos"+rot;
 
 
+    }
+
+    public void SetAuraColor(Color aColor)
+    {
+        auraColor =aColor;
+       
     }
 
 

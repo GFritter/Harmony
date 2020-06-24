@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Tiles/blankTIle.png" type="Texture" id=1]
 [ext_resource path="res://Builder/ColShape.tres" type="Shape2D" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://Tower/Arts/Front/l0_sprite_2.png" type="Texture" id=6]
 [ext_resource path="res://Tower/Arts/Front/l0_sprite_1.png" type="Texture" id=7]
 [ext_resource path="res://TowerMenu/Menu/Stats.PNG" type="Texture" id=8]
+[ext_resource path="res://Tower/Arts/Boombox/Boombox_Back-1.png" type="Texture" id=9]
+[ext_resource path="res://Tower/Arts/Boombox/Boombox-2.png" type="Texture" id=10]
+[ext_resource path="res://Tower/Arts/Boombox/Boombox-1.png" type="Texture" id=11]
+[ext_resource path="res://Tower/Arts/Boombox/Boombox_Back-2.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,7 +23,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [  ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -50,17 +54,17 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "Tower2",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
 "name": "Tower3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Tower1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Tower2",
 "speed": 5.0
 } ]
 
@@ -83,7 +87,6 @@ position = Vector2( 0.475006, 0.475006 )
 frames = SubResource( 1 )
 
 [node name="BuildHud" type="Control" parent="."]
-visible = false
 margin_left = -40.5451
 margin_top = -30.8378
 margin_right = 57.4549
@@ -130,6 +133,8 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BuildHud/Button2"]
+position = Vector2( 10.4725, 9.46342 )
+scale = Vector2( 0.316, 0.316 )
 frames = SubResource( 3 )
 
 [node name="Custo" type="Label" parent="BuildHud/Button2"]
@@ -168,6 +173,8 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BuildHud/Button3"]
+position = Vector2( 9.61407, 9.79549 )
+scale = Vector2( 0.316, 0.316 )
 frames = SubResource( 3 )
 
 [node name="BUILD" type="Button" parent="BuildHud"]

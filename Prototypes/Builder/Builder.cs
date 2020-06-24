@@ -268,7 +268,7 @@ public class Builder : Area2D
             Tower temp = (Tower)towers[i].Instance();
 
             tButtons[i].Show();
-            tButtons[i].GetNode<AnimatedSprite>("AnimatedSprite").Frame= (temp.getSprite().Frame);
+            tButtons[i].GetNode<AnimatedSprite>("AnimatedSprite").Frames= (temp.getSprite().Frames);
             tCosts[i].Text = temp.cost.ToString();
         }
 

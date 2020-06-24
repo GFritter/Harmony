@@ -1,0 +1,308 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Music/towerShoot.wav" type="AudioStream" id=1]
+[ext_resource path="res://Tiles/blankTIle.png" type="Texture" id=2]
+[ext_resource path="res://Tower/Arts/Boombox/Boombox_Back-1.png" type="Texture" id=3]
+[ext_resource path="res://Tower/Tower.cs" type="Script" id=4]
+[ext_resource path="res://Tower/Arts/Boombox/Boombox-2.png" type="Texture" id=5]
+[ext_resource path="res://Tower/Arts/Boombox/Boombox-1.png" type="Texture" id=6]
+[ext_resource path="res://Tower/Arts/Boombox/Boombox_Back-2.png" type="Texture" id=7]
+[ext_resource path="res://Builder/ColShape.tres" type="Shape2D" id=8]
+[ext_resource path="res://Tower/Range.cs" type="Script" id=9]
+[ext_resource path="res://whiteprivilegeBorder.png" type="Texture" id=10]
+[ext_resource path="res://Tower/Bullet/Arts/ammo_1.png" type="Texture" id=11]
+[ext_resource path="res://Tower/Bullet/Arts/ammo_3.png" type="Texture" id=12]
+[ext_resource path="res://Tower/Bullet/Arts/ammo_6.png" type="Texture" id=13]
+[ext_resource path="res://Tower/Bullet/Arts/ammo_2.png" type="Texture" id=14]
+[ext_resource path="res://Tower/Bullet/Arts/ammo_4.png" type="Texture" id=15]
+[ext_resource path="res://Tower/Bullet/Arts/ammo_5.png" type="Texture" id=16]
+[ext_resource path="res://Tower/RangeBigShape.tres" type="Shape2D" id=18]
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Pos0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Pos1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Pos2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Pos3",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "ready",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "wrong",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.298039, 0.423529, 0.231373, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.294118, 0.286275, 0.239216, 1 )
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+render_mode blend_mix, unshaded;
+
+uniform float valueDelta;
+uniform float valueMax;
+
+void fragment()
+{
+	float uvx = UV.x +valueDelta/valueMax;
+	vec2 newUV = vec2(uvx,UV.y);
+	vec4 spriteColor = texture(TEXTURE,newUV);
+	COLOR = spriteColor;
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/valueDelta = 3.0
+shader_param/valueMax = 3.0
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 10 )
+region_rect = Rect2( 1262, -54, 0, 0 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "5",
+"speed": 5.0
+} ]
+
+[node name="Tower" type="Area2D"]
+position = Vector2( 496.145, 489.518 )
+collision_mask = 2
+script = ExtResource( 4 )
+RangePositions = [ Vector2( 0.033, 4.169 ), Vector2( 0.033, 4.169 ), Vector2( 0.033, 4.169 ), Vector2( 0.033, 4.169 ) ]
+RangeSpritePositions = [ Vector2( 1.557, 2.138 ), Vector2( 1.557, 2.138 ), Vector2( 1.557, 2.138 ), Vector2( 1.557, 2.138 ) ]
+SoundsRef = [ "res://Music/TrumpetTower/g#4.wav", "res://Music/TrumpetTower/d#4.wav", "res://Music/TrumpetTower/f4.wav", "res://Music/TrumpetTower/f4.wav", "res://Music/TrumpetTower/g4.wav" ]
+RangeRotations = PoolRealArray( -718, -718, -718, -718 )
+RangeShapes = [ ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ) ]
+keycode = "fire_1"
+cost = 75
+reloadTime = PoolRealArray( 1.8, 1.5, 1.3, 1.1, 0.5 )
+maxAmmo = PoolIntArray( 3, 4, 5, 6, 6 )
+
+[node name="TowerBase" type="AnimatedSprite" parent="."]
+position = Vector2( -0.0962528, 0.016449 )
+z_index = 1
+frames = SubResource( 10 )
+animation = "Pos3"
+offset = Vector2( -0.202026, -10.7942 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.327148, 1.68033 )
+rotation = -2.5316
+scale = Vector2( 2, 2 )
+shape = ExtResource( 8 )
+
+[node name="Range" type="Area2D" parent="."]
+position = Vector2( 0.033, 4.169 )
+rotation = -12.5315
+scale = Vector2( 2, 2 )
+collision_mask = 2
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+position = Vector2( -2.04135, 3.41287 )
+rotation = 0.615607
+scale = Vector2( 2.062, 2.06 )
+z_index = 1
+shape = ExtResource( 18 )
+one_way_collision_margin = 0.0
+
+[node name="RangeSprite" type="AnimatedSprite" parent="Range"]
+modulate = Color( 0.941176, 0.921569, 0.921569, 0.454902 )
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1.55667, 2.13812 )
+rotation = -0.0175839
+scale = Vector2( 2.44072, 2.92393 )
+frames = SubResource( 2 )
+animation = "idle"
+offset = Vector2( 0.714928, 0.460587 )
+
+[node name="blankTIle" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( -7.94171, -1.94781 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="blankTIle2" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( -4.74384, -3.38745 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="blankTIle3" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( -11.1971, -0.553436 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="blankTIle4" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( -7.82437, 0.887772 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="blankTIle5" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( -4.51273, 2.18738 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="blankTIle6" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( -1.14169, 3.58148 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="blankTIle7" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( 2.46098, 2.23055 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="blankTIle8" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( 6.00488, 0.832512 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="blankTIle9" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( 9.4899, -0.614258 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="blankTIle10" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( 6.11664, -2.10355 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="blankTIle11" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( 2.74442, -3.54608 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="blankTIle12" type="Sprite" parent="Range/RangeSprite"]
+position = Vector2( -1.02789, -4.83575 )
+scale = Vector2( 0.218927, 0.182747 )
+texture = ExtResource( 2 )
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = 10.097
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="RechargeTimer" type="Timer" parent="."]
+wait_time = 1.8
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = 6.66669
+margin_top = 6.25482
+margin_right = 39.6667
+margin_bottom = 20.2548
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = -89.6706
+rect_scale = Vector2( 0.974, 0.43 )
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressBar"]
+visible = false
+material = SubResource( 6 )
+margin_left = 0.310669
+margin_top = 69.6716
+margin_right = 32.3107
+margin_bottom = 83.6716
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
+max_value = 3.0
+value = 1.77
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AmmoBar" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( -0.136963, -4.42346 )
+rotation = 3.15548
+scale = Vector2( 0.363175, 0.529942 )
+frames = SubResource( 9 )
+animation = "6"
+[connection signal="Hit" from="Range" to="." method="Fire"]
+[connection signal="Wrong" from="Range" to="." method="Misfire"]
+[connection signal="area_entered" from="Range" to="Range" method="OnCollisorEnter"]
+[connection signal="area_exited" from="Range" to="Range" method="OnCollisorExit"]
+[connection signal="idleHit" from="Range" to="." method="IdleFire"]
+[connection signal="timeout" from="ShootTimer" to="." method="Refresh"]
+[connection signal="timeout" from="RechargeTimer" to="." method="Reload"]

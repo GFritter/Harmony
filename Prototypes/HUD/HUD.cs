@@ -31,7 +31,7 @@ public class HUD : Control
         waveMaxCounter= GetNode<Label>("Panel/Wave/WaveMax");
         moneyCounter= GetNode<Label>("Panel/Money/MoneyCounter");
         popups = GetNode<Panel>("PopUps");
-        gameOverLose = GetNode<Panel>("PopUps/GameOverWin");
+        gameOverLose = GetNode<Panel>("PopUps/GameOverLose");
         gameOverWin = GetNode<Panel>("PopUps/GameOverWin");
    
     }
@@ -62,12 +62,15 @@ public class HUD : Control
         
         popups.Show();
         gameOverWin.Show();
+        gameOverLose.Hide();
     }
 
     public void OpenGameOverLose()
     {
+        
         popups.Show();
         gameOverLose.Show();
+        gameOverWin.Hide();
 
     }
 

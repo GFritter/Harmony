@@ -12,6 +12,11 @@ public Godot.Collections.Array<Vector2> RangePositions;
 [Export]
 public Godot.Collections.Array<Vector2> RangeSpritePositions;
 
+[Export]
+public Godot.Collections.Array<String> SoundsRef;
+
+public Godot.Collections.Array<AudioStream> Sounds;
+
 
 [Export]
 public float[] RangeRotations;
@@ -62,12 +67,14 @@ public bool refreshing, reloading;
 private AudioStreamPlayer sound;
 
 Range range;
+int soundIdx;
 
 private ProgressBar bar;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        soundIdx = 0;
         sound = GetNode<AudioStreamPlayer>("Sound");
         GetNode<Range>("Range").setKeycode(keycode);
         currentAmmo=maxAmmo[lvl];
@@ -79,7 +86,10 @@ private ProgressBar bar;
         sprite = GetNode<AnimatedSprite>("TowerBase");
         ammoBar = GetNode<AnimatedSprite>("AmmoBar");
 
+
         range = GetNode<Range>("Range");
+        Sounds = new Godot.Collections.Array<AudioStream>();
+        loadSounds();
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -126,7 +136,10 @@ private ProgressBar bar;
        }
 
        currentAmmo--;
+        sound.Stream = Sounds[soundIdx];
         sound.Play();
+        soundIdx =  (soundIdx +1)%Sounds.Count;
+
         canShoot = false;
         if(currentAmmo>0)
         setupRefresh();
@@ -156,8 +169,13 @@ private ProgressBar bar;
         }
       
         currentAmmo--;
+        sound.Stream = Sounds[soundIdx];
         sound.Play();
+        soundIdx =  (soundIdx+1)%Sounds.Count;
         canShoot = false;
+
+        soundIdx++;
+
         if(currentAmmo>0)
         setupRefresh();
 
@@ -342,5 +360,18 @@ private ProgressBar bar;
     {
         return GetNode<AnimatedSprite>("TowerBase");
     }
+
+    void loadSounds()
+    {
+        for(int i=0;i<SoundsRef.Count;i++)
+        {
+           AudioStream streamTemp =(AudioStream) GD.Load(SoundsRef[i]) ;
+       
+
+        Sounds.Add(streamTemp);
+        }
+
+    }
+
 }
 

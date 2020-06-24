@@ -79,7 +79,7 @@ public class Spawner : Path2D
         enemyInstance.speed += matrixSpeed[currentWave][enemyCounter];
         enemyInstance.setMaxHP(enemyInstance.maxLife+matrixHealth[currentWave][enemyCounter]);
         enemyInstance.colorId = matrixColor[currentWave][enemyCounter];
-        enemyInstance.auraColor = colors[enemyInstance.colorId];
+        enemyInstance.SetAuraColor(colors[enemyInstance.colorId]);
        
         AddChild(enemyInstance);
         connectEnemyToMap(enemyInstance);

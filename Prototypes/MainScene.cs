@@ -130,7 +130,7 @@ public class MainScene : Node2D
 
     public void goToMainMenu()
     {
-        GetTree().ChangeScene("res://Tutorial.tscn");
+        GetTree().ChangeScene("res://MenuPrincipal/Menu.tscn");
     }
 
     //**********Connectors and stuff **********/

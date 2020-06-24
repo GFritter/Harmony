@@ -72,7 +72,7 @@ z_index = -1
 texture = ExtResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( -262.872, 293.873 )
+position = Vector2( -262.872, 295.821 )
 scale = Vector2( 0.738322, 0.730059 )
 texture = ExtResource( 4 )
 
