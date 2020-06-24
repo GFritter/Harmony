@@ -126,7 +126,7 @@ private ProgressBar bar;
         {
             if(Godot.Object.IsInstanceValid((Godot.Object)e))
         {
-            //GD.Print("Oi eu to atirando sim porra");
+           
             e.TakeDamage(damage[lvl]*checkDamage(e));
         }
         else
@@ -136,7 +136,7 @@ private ProgressBar bar;
        }
 
        currentAmmo--;
-        sound.Stream = Sounds[soundIdx];
+        sound.Stream = Sounds[soundIdx%Sounds.Count];
         sound.Play();
         soundIdx =  (soundIdx +1)%Sounds.Count;
 
@@ -169,7 +169,7 @@ private ProgressBar bar;
         }
       
         currentAmmo--;
-        sound.Stream = Sounds[soundIdx];
+        sound.Stream = Sounds[soundIdx%Sounds.Count];
         sound.Play();
         soundIdx =  (soundIdx+1)%Sounds.Count;
         canShoot = false;

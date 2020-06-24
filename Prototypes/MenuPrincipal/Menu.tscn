@@ -66,7 +66,7 @@ __meta__ = {
 mainScene = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 511.785, 299.294 )
+position = Vector2( 512.785, 298.294 )
 scale = Vector2( 1.18086, 0.788616 )
 z_index = -1
 texture = ExtResource( 2 )

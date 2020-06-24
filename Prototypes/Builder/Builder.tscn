@@ -52,9 +52,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "Tower3",
+"name": "Tower2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
@@ -62,9 +62,9 @@ animations = [ {
 "name": "Tower1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"frames": [  ],
 "loop": true,
-"name": "Tower2",
+"name": "Tower3",
 "speed": 5.0
 } ]
 
@@ -370,6 +370,18 @@ frames = SubResource( 5 )
 position = Vector2( 0.207596, 1.86639 )
 rotation = 0.646909
 shape = ExtResource( 2 )
+
+[node name="KeyShow" type="Label" parent="."]
+margin_left = -25.2531
+margin_top = -6.32821
+margin_right = 25.7469
+margin_bottom = 7.67179
+text = "K"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="mouse_entered" from="." to="." method="mouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="mouseExited"]
 [connection signal="mouse_entered" from="BuildHud/Button" to="." method="chooseTower1"]

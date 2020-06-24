@@ -18,7 +18,7 @@
 [ext_resource path="res://Tower/Bullet/Arts/ammo_5.png" type="Texture" id=16]
 [ext_resource path="res://Tower/RangeBigShape.tres" type="Shape2D" id=18]
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
@@ -30,6 +30,11 @@ animations = [ {
 "name": "Pos0",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Pos3",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Pos1",
@@ -38,11 +43,6 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Pos2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Pos3",
 "speed": 5.0
 } ]
 
@@ -105,14 +105,9 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "2",
+"name": "3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -120,19 +115,24 @@ animations = [ {
 "name": "6",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "5",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "4",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "3",
+"name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "5",
+"name": "1",
 "speed": 5.0
 } ]
 
@@ -153,7 +153,7 @@ maxAmmo = PoolIntArray( 3, 4, 5, 6, 6 )
 [node name="TowerBase" type="AnimatedSprite" parent="."]
 position = Vector2( -0.0962528, 0.016449 )
 z_index = 1
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "Pos3"
 offset = Vector2( -0.202026, -10.7942 )
 

@@ -46,7 +46,7 @@ public class Builder : Area2D
     bool mouseOn,hudON,canBuild = false;
     bool buildEnabled = true;
 
-    
+    Label keyShow;
     bool towerMode;
 
     int rot,towerId;
@@ -54,11 +54,14 @@ public class Builder : Area2D
     //tower mode things, attributes I mean
     Control towerHud;
     Label ammoCount, Damage, DamageIdle, Speed, Reload;
+
    
     public override void _Ready()
     {
         buildHud = GetNode<Control>("BuildHud");
         buildHud.Hide();
+
+        keyShow = GetNode<Label>("KeyShow");
 
         towerHud = GetNode<Control>("TowerHud");
         towerHud.Hide();
@@ -81,6 +84,21 @@ public class Builder : Area2D
         DamageIdle = GetNode<Label>("TowerHud/Stats/DanoAuto/Stat");
         Speed = GetNode<Label>("TowerHud/Stats/Velocidade/Stat");
         Reload = GetNode<Label>("TowerHud/Stats/Recarrega/Stat");
+
+        Godot.Collections.Array acts = InputMap.GetActionList(key);
+        GetNode<Label>("KeyShow").Text = "";
+        foreach(object o in acts)
+        {
+            InputEvent ie = (InputEvent)o;
+            if(ie is InputEventKey)
+            {
+                InputEventKey iek = (InputEventKey)ie;
+                string scString =OS.GetScancodeString(iek.Scancode);
+                GetNode<Label>("KeyShow").Text += scString + "/";
+
+            }
+        }
+
     }
 
     public void mouseEntered()
@@ -111,6 +129,8 @@ public class Builder : Area2D
             {
                 buildHud.Show();
                 placeHolderSprite.Show();
+
+                keyShow.Hide();
             
             }
             
@@ -119,6 +139,8 @@ public class Builder : Area2D
                placeHolderSprite.Animation = "default";
                placeHolderSprite.Hide();
                buildHud.Hide();
+
+               keyShow.Show();
            }
             }
 
@@ -127,11 +149,13 @@ public class Builder : Area2D
                 if(!hudON)
                 {
                     towerHud.Show();
+                    keyShow.Show();
                 }
 
                 if(hudON)
                 {
                     towerHud.Hide();
+                    keyShow.Hide();
                 }
 
             }
@@ -218,6 +242,8 @@ public class Builder : Area2D
 
     public void Build()
     {
+        EmitSignal("RequestBuiltPermit",towerId);
+
         if(canBuild)
         {EmitSignal("BuildTower",towerId,this,rot);
         buildHud.Hide();
@@ -246,6 +272,10 @@ public class Builder : Area2D
 
     public void BecomeTowerMode(Tower t)
     {
+        keyShow.Hide();
+
+        towerHud.GetNode<AnimatedSprite>("Button/AnimatedSprite").Frames = t.getSprite().Frames;
+
         towerMode = true;
         t.setKeycode(key);
         tower  =t;

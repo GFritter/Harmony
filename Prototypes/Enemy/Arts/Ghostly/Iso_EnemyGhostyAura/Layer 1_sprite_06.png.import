@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Layer 1_sprite_06.png-c61c44ed4f76459751fde3c272f69fab.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Enemy/Arts/Ghostly/Iso_EnemyGhostyAura/Layer 1_sprite_06.png"
+dest_files=[ "res://.import/Layer 1_sprite_06.png-c61c44ed4f76459751fde3c272f69fab.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
