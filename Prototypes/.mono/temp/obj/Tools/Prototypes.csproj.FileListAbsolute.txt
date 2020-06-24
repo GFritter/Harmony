@@ -22,3 +22,9 @@ C:\Jogos\Harmony-master\Harmony-master\Prototypes\.mono\temp\obj\Tools\Prototype
 C:\Jogos\Harmony-master\Harmony-master\Prototypes\.mono\temp\obj\Tools\Prototypes.csproj.CoreCompileInputs.cache
 C:\Jogos\Harmony-master\Harmony-master\Prototypes\.mono\temp\obj\Tools\Prototypes.dll
 C:\Jogos\Harmony-master\Harmony-master\Prototypes\.mono\temp\obj\Tools\Prototypes.pdb
+C:\Jogos\Harmony_beta\Prototypes\.mono\temp\bin\Tools\Prototypes.dll
+C:\Jogos\Harmony_beta\Prototypes\.mono\temp\bin\Tools\Prototypes.pdb
+C:\Jogos\Harmony_beta\Prototypes\.mono\temp\obj\Tools\Prototypes.csprojAssemblyReference.cache
+C:\Jogos\Harmony_beta\Prototypes\.mono\temp\obj\Tools\Prototypes.csproj.CoreCompileInputs.cache
+C:\Jogos\Harmony_beta\Prototypes\.mono\temp\obj\Tools\Prototypes.dll
+C:\Jogos\Harmony_beta\Prototypes\.mono\temp\obj\Tools\Prototypes.pdb
