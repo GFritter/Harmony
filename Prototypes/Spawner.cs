@@ -40,22 +40,29 @@ public class Spawner : Path2D
     bool waitingForClear;
     int numChildDefault;
 
+    AnimatedSprite sprite;
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        sprite = GetNode<AnimatedSprite>("AnimatedSprite");
+
+        sprite.Position = Curve.GetPointPosition(0);
        readFileWave();
        readFileColor();
        readFileHealth();
        readFileSpeed();
        readEnemies();
        numChildDefault = GetChildCount();
+       
     }
 
     public void Spawn()
     {
          if(waitingForClear)
         {
+            sprite.Animation = "Standby";
             if(GetChildCount()==numChildDefault)
             {
              
@@ -66,11 +73,15 @@ public class Spawner : Path2D
              enemyCounter = 0;
              waitingForClear = false;
 
+                if(currentWave<numWaves)
+             checkIfSpawn();
+
              }
          }
 
        else
        {
+           sprite.Animation = "Active";
             if(matrix[currentWave][enemyCounter]!=-1)
         {
              Enemy enemyInstance = new Enemy();
@@ -92,9 +103,16 @@ public class Spawner : Path2D
         if(enemyCounter>=matrix[currentWave].Length)
       {
        
-       
-       
         waitingForClear = true;
+      }
+
+      else
+      {
+          if(currentWave<numWaves)
+          sprite.Modulate = colors[matrixColor[currentWave][enemyCounter]];
+          
+          else
+          sprite.Hide();
       }
    
        }
@@ -280,6 +298,23 @@ public class Spawner : Path2D
 
     }
 
+    public bool checkIfSpawn()
+    {
+        for(int i =0;i< matrix[currentWave].Length;++i)
+        {
+            if(matrix[currentWave][i] != -1)
+            {
+                sprite.Show();
+                sprite.Animation = "Standby";
+                sprite.Modulate = colors[matrixColor[currentWave][i]];
+                return true;
+            }
+        }
+
+        sprite.Hide();
+        return false;
+    }
+
     public void readEnemies()
     {
         enemies = new PackedScene[enemyRefs.Length];
@@ -300,6 +335,12 @@ public class Spawner : Path2D
             EmitSignal("WaveClear");
         }
 
+    }
+
+    public void GetColors(Godot.Collections.Array<Color> cs)
+    {
+        colors = cs;
+        checkIfSpawn();
     }
 
  

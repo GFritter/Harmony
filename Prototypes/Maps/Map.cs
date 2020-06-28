@@ -231,7 +231,7 @@ public class Map : Node2D
             Connect(nameof(StartWaves),temp,nameof(temp.StartWave));
             temp.Connect(nameof(Spawner.WaveClear),this,nameof(getWaveClear));
 
-            temp.colors = colors;
+            temp.GetColors(colors);
         }
     }
 

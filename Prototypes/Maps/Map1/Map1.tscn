@@ -3,12 +3,13 @@
 [ext_resource path="res://Tiles/GroundTile-1.png.png" type="Texture" id=1]
 [ext_resource path="res://Tiles/TowerTile-1.png.png" type="Texture" id=2]
 [ext_resource path="res://Tiles/PathTile-1.png.png" type="Texture" id=3]
-[ext_resource path="res://Spawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Spawner/Spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tower/Tower.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Base/Base.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Maps/Map.cs" type="Script" id=7]
 [ext_resource path="res://Tiles/Ground.png" type="Texture" id=8]
 [ext_resource path="res://Tiles/Fundo.png" type="Texture" id=9]
+
 
 [sub_resource type="TileSet" id=1]
 0/name = "GroundTile-1.png.png 0"

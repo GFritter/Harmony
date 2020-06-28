@@ -86,7 +86,7 @@ public class Builder : Area2D
         Reload = GetNode<Label>("TowerHud/Stats/Recarrega/Stat");
 
         Godot.Collections.Array acts = InputMap.GetActionList(key);
-        GetNode<Label>("KeyShow").Text = "";
+        keyShow.Text = "";
         foreach(object o in acts)
         {
             InputEvent ie = (InputEvent)o;
@@ -94,10 +94,12 @@ public class Builder : Area2D
             {
                 InputEventKey iek = (InputEventKey)ie;
                 string scString =OS.GetScancodeString(iek.Scancode);
-                GetNode<Label>("KeyShow").Text += scString + "/";
+               keyShow.Text += scString + "/";
 
             }
         }
+       keyShow.Text = keyShow.Text.Remove(keyShow.Text.Length-1,1);
+        
 
     }
 

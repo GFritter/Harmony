@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Spawner.cs" type="Script" id=1]
+[ext_resource path="res://Spawner/Arts/PortalStandby2.png" type="Texture" id=2]
+[ext_resource path="res://Spawner/Arts/PortalFrame3.png" type="Texture" id=3]
+[ext_resource path="res://Spawner/Arts/PortalFrame5.png" type="Texture" id=4]
+[ext_resource path="res://Spawner/Arts/PortalFrame2.png" type="Texture" id=5]
+[ext_resource path="res://Spawner/Arts/portalStandby3.png" type="Texture" id=6]
+[ext_resource path="res://Spawner/Arts/PortalStandby1.png" type="Texture" id=7]
+[ext_resource path="res://Spawner/Arts/PortalFrame1.png" type="Texture" id=8]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 18.6124, 30.9864, 0, 0, 0, 0, 2034.08, 1038.64, 0, 0, 0, 0, 1969.79, 1070.39, 0, 0, 0, 0, 2161.95, 1166.09 )
+}
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Active",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Standby",
+"speed": 6.0
+} ]
+
+[node name="Spawner" type="Path2D"]
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.423529 )
+position = Vector2( -6.10529, 11.3158 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 2 )
+animation = "Standby"
+frame = 4
+playing = true
+offset = Vector2( 3.05264, -5.6579 )
+[connection signal="timeout" from="Timer" to="." method="Spawn"]

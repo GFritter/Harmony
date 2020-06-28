@@ -10,3 +10,9 @@ C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\Godot Projects\Prototypes
 C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\Godot Projects\Prototypes\.mono\temp\obj\Release\Prototypes.csproj.CoreCompileInputs.cache
 C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\Godot Projects\Prototypes\.mono\temp\obj\Release\Prototypes.dll
 C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\Godot Projects\Prototypes\.mono\temp\obj\Release\Prototypes.pdb
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\SourceControl\Harmony\Prototypes\.mono\temp\bin\Release\Prototypes.dll
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\SourceControl\Harmony\Prototypes\.mono\temp\bin\Release\Prototypes.pdb
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\SourceControl\Harmony\Prototypes\.mono\temp\obj\Release\Prototypes.csprojAssemblyReference.cache
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\SourceControl\Harmony\Prototypes\.mono\temp\obj\Release\Prototypes.csproj.CoreCompileInputs.cache
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\SourceControl\Harmony\Prototypes\.mono\temp\obj\Release\Prototypes.dll
+C:\Users\1513 IRON\Documents\Uni\Projeto de Motores v2\SourceControl\Harmony\Prototypes\.mono\temp\obj\Release\Prototypes.pdb

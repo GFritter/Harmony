@@ -122,18 +122,19 @@ private ProgressBar bar;
     public void Fire(Godot.Collections.Array<Enemy> enemiesInRange)
     {
         //GD.Print("VOU ATIRAR");
-        foreach(Enemy e in enemiesInRange)
-        {
-            if(Godot.Object.IsInstanceValid((Godot.Object)e))
-        {
-           
-            e.TakeDamage(damage[lvl]*checkDamage(e));
+         for(int i =0;i<enemiesInRange.Count;++i)
+       { 
+           if(IsInstanceValid(enemiesInRange[i]) )
+            {   
+                Enemy e =enemiesInRange[i];
+                 e.TakeDamage(damage[lvl]*checkDamage(e));
+
+            }
+            
+        
+
         }
-        else
-        {
-            //GD.Print("A instancia nao eh valida ??!");
-        }
-       }
+      
 
        currentAmmo--;
         sound.Stream = Sounds[soundIdx%Sounds.Count];
@@ -161,9 +162,15 @@ private ProgressBar bar;
 
     public void IdleFire(Godot.Collections.Array<Enemy> enemiesInRange)
     {
-        foreach(Enemy e in enemiesInRange)
+        for(int i =0;i<enemiesInRange.Count;++i)
        { 
-             e.TakeDamage(minDamage[lvl]*checkDamage(e));
+           if(IsInstanceValid(enemiesInRange[i]) )
+            {   
+                Enemy e =enemiesInRange[i];
+                 e.TakeDamage(minDamage[lvl]*checkDamage(e));
+
+            }
+            
         
 
         }

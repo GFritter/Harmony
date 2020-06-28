@@ -3,7 +3,7 @@
 [ext_resource path="res://Tiles/isoFundo.png" type="Texture" id=1]
 [ext_resource path="res://Tiles/isoGround.png" type="Texture" id=2]
 [ext_resource path="res://Tiles/isoGroundCerto.png" type="Texture" id=3]
-[ext_resource path="res://Spawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Spawner/Spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tower/BoomBoxTower.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Base/Base.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Maps/Map.cs" type="Script" id=7]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Tiles/isoFundoCerto2.png" type="Texture" id=10]
 [ext_resource path="res://Tiles/isoGroundCerto2.png" type="Texture" id=11]
 [ext_resource path="res://Tower/Tower.tscn" type="PackedScene" id=12]
+
 
 [sub_resource type="TileSet" id=1]
 0/name = "isoGround.png 0"
