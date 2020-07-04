@@ -13,7 +13,6 @@
 [ext_resource path="res://Maps/Map.cs" type="Script" id=11]
 [ext_resource path="res://Tower/BoomBoxTower.tscn" type="PackedScene" id=12]
 
-
 [sub_resource type="TileSet" id=1]
 0/name = "isoGround.png 0"
 0/texture = ExtResource( 3 )

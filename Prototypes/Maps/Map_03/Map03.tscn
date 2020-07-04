@@ -13,7 +13,6 @@
 [ext_resource path="res://Tiles/isoGroundCerto2.png" type="Texture" id=11]
 [ext_resource path="res://Tower/Tower.tscn" type="PackedScene" id=12]
 
-
 [sub_resource type="TileSet" id=1]
 0/name = "isoGround.png 0"
 0/texture = ExtResource( 2 )
