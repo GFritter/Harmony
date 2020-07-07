@@ -37,7 +37,7 @@ colors = PoolColorArray( 0.308594, 0.306183, 0.306183, 1, 0.214844, 0.213165, 0.
 [node name="Spawner" type="Path2D"]
 curve = SubResource( 1 )
 script = ExtResource( 1 )
-enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Enemy.tscn" )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Fiery.tscn" )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.7

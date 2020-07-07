@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Enemy/Fiery.cs" type="Script" id=1]
 [ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_04.png" type="Texture" id=2]
@@ -19,6 +19,14 @@
 [ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_05.png" type="Texture" id=17]
 [ext_resource path="res://Enemy/Arts/Fiery/Front/l0_sprite_1.png" type="Texture" id=18]
 [ext_resource path="res://Enemy/Arts/Fiery/Front/l0_sprite_2.png" type="Texture" id=19]
+[ext_resource path="res://Enemy/Arts/Fiery/Front/Fiery_front_01.png" type="Texture" id=20]
+[ext_resource path="res://Enemy/Arts/Fiery/Front/Fiery_front_00.png" type="Texture" id=21]
+[ext_resource path="res://Enemy/Arts/Fiery/Back/Fiery_back_03.png" type="Texture" id=22]
+[ext_resource path="res://Enemy/Arts/Fiery/Back/Fiery_back_00.png" type="Texture" id=23]
+[ext_resource path="res://Enemy/Arts/Fiery/Front/Fiery_front_02.png" type="Texture" id=24]
+[ext_resource path="res://Enemy/Arts/Fiery/Back/Fiery_back_02.png" type="Texture" id=25]
+[ext_resource path="res://Enemy/Arts/Fiery/Front/Fiery_front_03.png" type="Texture" id=26]
+[ext_resource path="res://Enemy/Arts/Fiery/Back/Fiery_back_01.png" type="Texture" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -27,24 +35,24 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 25 ) ],
 "loop": true,
 "name": "Pos0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "Pos3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "Pos1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 26 ) ],
 "loop": true,
 "name": "Pos2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ) ],
-"loop": true,
-"name": "Pos3",
 "speed": 5.0
 } ]
 
@@ -63,6 +71,11 @@ animations = [ {
 "name": "Pos0",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Pos3",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Pos1",
@@ -72,26 +85,21 @@ animations = [ {
 "loop": true,
 "name": "Pos2",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Pos3",
-"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 44.2009, 77.5373 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.878431, 0.266667, 0.266667, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.521569, 0.47451, 0.47451, 1 )
 
-[sub_resource type="Curve" id=6]
+[sub_resource type="Curve" id=7]
 _data = [ Vector2( 0.0333333, 0.491063 ), 0.0, 0.0, 0, 0, Vector2( 0.290476, 0.572882 ), 0.0, 0.168449, 0, 0, Vector2( 0.647619, 0.427427 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0.0855615, 0.213904, 0.347594, 0.534759, 0.721925, 0.930481 )
 colors = PoolColorArray( 0.957031, 0.825369, 0.224304, 1, 0.660156, 0.312672, 0.0825195, 1, 0.523438, 0.239802, 0.128815, 1, 0.328125, 0.161799, 0.134583, 1, 0.292969, 0.279638, 0.268936, 1, 0.0820313, 0.0793651, 0.0772247, 1 )
 
@@ -118,6 +126,8 @@ scale = Vector2( 4, 4 )
 z_index = 1
 frames = SubResource( 1 )
 animation = "Pos2"
+frame = 2
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -3.01886, 0 )
@@ -132,14 +142,14 @@ rotation = -0.00228218
 scale = Vector2( 4.139, 4.182 )
 frames = SubResource( 3 )
 animation = "Pos3"
-frame = 3
+frame = 1
 playing = true
 
 [node name="FrontCollision" type="Area2D" parent="."]
 
 [node name="Front" type="CollisionShape2D" parent="FrontCollision"]
 position = Vector2( 80.861, 165.528 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -149,8 +159,8 @@ margin_left = -65.0
 margin_top = -62.0
 margin_right = 62.0
 margin_bottom = -49.0
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 5 )
+custom_styles/fg = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -181,8 +191,8 @@ angular_velocity = 168.65
 angular_velocity_random = 0.21
 scale_amount = 0.09
 scale_amount_random = 0.13
-scale_amount_curve = SubResource( 6 )
-color_ramp = SubResource( 7 )
+scale_amount_curve = SubResource( 7 )
+color_ramp = SubResource( 8 )
 anim_speed_random = 0.1
 
 [node name="Particles2" type="CPUParticles2D" parent="."]
@@ -202,8 +212,8 @@ angular_velocity = 168.65
 angular_velocity_random = 0.21
 scale_amount = 0.09
 scale_amount_random = 0.13
-scale_amount_curve = SubResource( 6 )
-color_ramp = SubResource( 7 )
+scale_amount_curve = SubResource( 7 )
+color_ramp = SubResource( 8 )
 anim_speed_random = 0.1
 
 [node name="Timer" type="Timer" parent="."]
