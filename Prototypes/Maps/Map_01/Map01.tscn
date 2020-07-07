@@ -27,10 +27,6 @@
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
 1/name = "isoFundo.png 1"
@@ -41,10 +37,6 @@
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
 1/shapes = [  ]
 1/z_index = 0
 2/name = "isoGroundCerto.png 2"
@@ -55,10 +47,6 @@
 2/tile_mode = 0
 2/occluder_offset = Vector2( 0, 0 )
 2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
 2/shapes = [  ]
 2/z_index = 0
 3/name = "isoFundoCerto.png 3"
@@ -69,10 +57,6 @@
 3/tile_mode = 0
 3/occluder_offset = Vector2( 0, 0 )
 3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape_one_way = false
-3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 3/z_index = 0
 4/name = "isoFundoCerto2.png 4"
@@ -83,10 +67,6 @@
 4/tile_mode = 0
 4/occluder_offset = Vector2( 0, 0 )
 4/navigation_offset = Vector2( 0, 0 )
-4/shape_offset = Vector2( 0, 0 )
-4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape_one_way = false
-4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
 5/name = "isoGroundCerto2.png 5"
@@ -97,10 +77,6 @@
 5/tile_mode = 0
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
-5/shape_offset = Vector2( 0, 0 )
-5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape_one_way = false
-5/shape_one_way_margin = 0.0
 5/shapes = [  ]
 5/z_index = 0
 6/name = "isoFundoCinza.png 6"
@@ -111,10 +87,6 @@
 6/tile_mode = 0
 6/occluder_offset = Vector2( 0, 0 )
 6/navigation_offset = Vector2( 0, 0 )
-6/shape_offset = Vector2( 0, 0 )
-6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-6/shape_one_way = false
-6/shape_one_way_margin = 0.0
 6/shapes = [  ]
 6/z_index = 0
 7/name = "isoFundoAgua.png 7"
@@ -125,10 +97,6 @@
 7/tile_mode = 0
 7/occluder_offset = Vector2( 0, 0 )
 7/navigation_offset = Vector2( 0, 0 )
-7/shape_offset = Vector2( 0, 0 )
-7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape_one_way = false
-7/shape_one_way_margin = 0.0
 7/shapes = [  ]
 7/z_index = 0
 8/name = "isoFundoAmarelo.png 8"
@@ -139,10 +107,6 @@
 8/tile_mode = 0
 8/occluder_offset = Vector2( 0, 0 )
 8/navigation_offset = Vector2( 0, 0 )
-8/shape_offset = Vector2( 0, 0 )
-8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape_one_way = false
-8/shape_one_way_margin = 0.0
 8/shapes = [  ]
 8/z_index = 0
 9/name = "isoFundoAmareloQueimado.png 9"
@@ -153,10 +117,6 @@
 9/tile_mode = 0
 9/occluder_offset = Vector2( 0, 0 )
 9/navigation_offset = Vector2( 0, 0 )
-9/shape_offset = Vector2( 0, 0 )
-9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-9/shape_one_way = false
-9/shape_one_way_margin = 0.0
 9/shapes = [  ]
 9/z_index = 0
 10/name = "isoFundoAguaEscuro.png 10"
@@ -167,10 +127,6 @@
 10/tile_mode = 0
 10/occluder_offset = Vector2( 0, 0 )
 10/navigation_offset = Vector2( 0, 0 )
-10/shape_offset = Vector2( 0, 0 )
-10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-10/shape_one_way = false
-10/shape_one_way_margin = 0.0
 10/shapes = [  ]
 10/z_index = 0
 
@@ -196,13 +152,12 @@ _data = {
 
 [node name="Map1" type="Node2D"]
 position = Vector2( 166.284, -19.2793 )
-z_as_relative = false
 script = ExtResource( 7 )
 baseRef = NodePath("Base")
 spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3"), NodePath("Spawner4") ]
 buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3"), NodePath("Builder4") ]
 towerRefs = [ ExtResource( 12 ), ExtResource( 17 ) ]
-colors = [ Color( 0, 0.0392157, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 0, 1, 0.133333, 1 ) ]
+colors = [ Color( 1, 0, 0, 1 ), Color( 0, 0.0627451, 1, 1 ), Color( 0, 1, 0.133333, 1 ) ]
 waveTimes = PoolRealArray( 1, 1, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -219,6 +174,7 @@ tile_data = PoolIntArray( -1900513, 8, 0, -1900512, 8, 0, -1834977, 8, 0, -18349
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( 196.133, 206.19 )
 curve = SubResource( 2 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Fiery.tscn" )
 pathFileWave = "res://Maps/Map_01/Wave/wave_00.tres"
 pathFileColor = "res://Maps/Map_01/Color/color_00.tres"
 pathFileSpeed = "res://Maps/Map_01/Speed/speed_00.tres"
@@ -227,6 +183,7 @@ pathFileHealth = "res://Maps/Map_01/Health/health_00.tres"
 [node name="Spawner2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1554.68, 265.393 )
 curve = SubResource( 3 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Fiery.tscn" )
 pathFileWave = "res://Maps/Map_01/Wave/wave_01.tres"
 pathFileColor = "res://Maps/Map_01/Color/color_01.tres"
 pathFileSpeed = "res://Maps/Map_01/Speed/speed_01.tres"
@@ -235,6 +192,7 @@ pathFileHealth = "res://Maps/Map_01/Health/health_01.tres"
 [node name="Spawner3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 195.345, 207.692 )
 curve = SubResource( 4 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Fiery.tscn" )
 pathFileWave = "res://Maps/Map_01/Wave/wave_02.tres"
 pathFileColor = "res://Maps/Map_01/Color/color_02.tres"
 pathFileSpeed = "res://Maps/Map_01/Speed/speed_02.tres"
@@ -242,7 +200,9 @@ pathFileHealth = "res://Maps/Map_01/Health/health_02.tres"
 
 [node name="Spawner4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1554.63, 264.572 )
+z_as_relative = false
 curve = SubResource( 5 )
+enemyRefs = PoolStringArray( "res://Enemy/Ghost.tscn", "res://Enemy/Fiery.tscn" )
 pathFileWave = "res://Maps/Map_01/Wave/wave_03.tres"
 pathFileColor = "res://Maps/Map_01/Color/color_03.tres"
 pathFileSpeed = "res://Maps/Map_01/Speed/speed_03.tres"
