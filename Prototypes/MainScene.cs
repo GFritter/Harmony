@@ -88,7 +88,7 @@ public class MainScene : Node2D
     }
      public void Reset()
     {
-        GetTree().ReloadCurrentScene();
+       loadMap();
     }
     
     void loadMap()
@@ -105,6 +105,10 @@ public class MainScene : Node2D
             temp.linkHUD();
 
            GetMoney(StartingMoney[idx%StartingMoney.Length] - money);
+           sHolder.modsOnDamage = temp.shaderModsOnDamage;
+           sHolder.modsOnMoney = temp.shaderModsOnMoney;
+
+           sHolder.reset();
 
            currentMap = temp;
 

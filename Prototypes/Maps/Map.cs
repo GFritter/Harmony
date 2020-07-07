@@ -23,6 +23,11 @@ public class Map : Node2D
     [Export]
     public Godot.Collections.Array<Color> colors;
 
+    [Export]
+    public Quat shaderModsOnDamage;
+    [Export]
+    public Quat shaderModsOnMoney;
+
     public Spawner[] spawners;
 
     [Signal]

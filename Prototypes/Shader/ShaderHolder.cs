@@ -9,7 +9,12 @@ public class ShaderHolder : AnimatedSprite
 
     ShaderMaterial mat;
     float initR,initG,initB,initS;
-  
+
+    [Export]
+
+    public float step;
+    public Quat modsOnDamage;
+    public Quat modsOnMoney;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -69,12 +74,13 @@ public class ShaderHolder : AnimatedSprite
     public void treatDamage(int maxLife, int life)
     {
         float portion  = (float)(life-maxLife)/(float)maxLife;
-        GD.Print("vou modificar a saturacao e o r em "+ portion);
-        GD.Print("R: "+getR()+" S: "+ getS());
+       
         
-        addSaturation(portion);
-        addR(-portion*2);
-          GD.Print("R: "+getR()+" S: "+ getS());
+        addSaturation(portion*modsOnDamage.w);
+        addR(-portion*modsOnDamage.x);
+        addG(-portion*modsOnDamage.y);
+        addB(-portion*modsOnDamage.z);
+       
 
     }
 
@@ -82,18 +88,29 @@ public class ShaderHolder : AnimatedSprite
     {
         float portion = money/100.0f;
 
-        addSaturation(portion);
+        addSaturation(portion* modsOnMoney.w);
 
-        
+        addR(portion*modsOnMoney.x);
+        addG(portion*modsOnMoney.y);
+        addB(portion*modsOnMoney.z);
+ 
     }
 
 
 public void scaleBack()
 {
-    changeSaturation(Mathf.Lerp(getS(),initS,0.01f));
-    changeR(Mathf.Lerp(getR(),initR,0.01f));
-    changeG(Mathf.Lerp(getG(),initG,0.01f));
-    changeB(Mathf.Lerp(getB(),initB,0.01f));
+    changeSaturation(Mathf.Lerp(getS(),initS,step));
+    changeR(Mathf.Lerp(getR(),initR,step));
+    changeG(Mathf.Lerp(getG(),initG,step));
+    changeB(Mathf.Lerp(getB(),initB,step));
+}
+
+public void reset()
+{
+    changeSaturation(initS);
+    changeR(initR);
+    changeG(initG);
+    changeB(initB);
 }
 
 public float getR()

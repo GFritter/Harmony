@@ -132,6 +132,7 @@ rotation = -0.00228218
 scale = Vector2( 4.139, 4.182 )
 frames = SubResource( 3 )
 animation = "Pos3"
+frame = 3
 playing = true
 
 [node name="FrontCollision" type="Area2D" parent="."]
