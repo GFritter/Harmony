@@ -88,6 +88,7 @@ public class MainScene : Node2D
     }
      public void Reset()
     {
+        currentMap.Clear();
        loadMap();
     }
     
