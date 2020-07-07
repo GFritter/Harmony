@@ -1,46 +1,17 @@
 using Godot;
 using System;
 
-public class Enemy : PathFollow2D
+public class Fiery : Enemy
 {
     // Declare member variables here. Examples:
     // private int a = 2;
     // private string b = "text";
 
-    [Signal]
-    public delegate void OnDeath(int m);
-
     [Export]
-    public float maxLife;
-    [Export]
-    public float speed;
+    Godot.Collections.Array<Vector2> RangePos;
+    bool freakOut = false;
 
-    [Export]
-    public int moneyValue;
-
-     public ProgressBar lifeBar;
-     public float actualLife;
-
-    [Export]
-    public int damage;
-
-    public Vector2[] points;
-    public int idx;
-    public Vector2 currentPoint,nextPoint;
-
-    public int rot;
-    public AnimatedSprite sprite,auraSprite;
-
-    [Export]
-    public int colorId;
-    [Export]
-    public Color auraColor;
-    [Export]
-    public int ExpValue;
-
-
-    public bool dead;
-
+    CollisionShape2D frontCol;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -53,6 +24,7 @@ public class Enemy : PathFollow2D
 
         sprite = GetNode<Area2D>("Area2D").GetNode<AnimatedSprite>("AnimatedSprite");
         auraSprite = GetNode<Area2D>("Area2D").GetNode<AnimatedSprite>("Aura");
+        frontCol = GetNode<CollisionShape2D>("FrontCollision/Front");
 
         auraSprite.Modulate = auraColor;
 
@@ -69,18 +41,8 @@ public class Enemy : PathFollow2D
         GetNode<AudioStreamPlayer>("OnSpawn").Play();
     }
 
-    public void TakeDamage(float d)
-    {
-        actualLife -=d;
-        lifeBar.Value = actualLife;
-
-        
-      if(actualLife<=0 )
-      dead = true;
-
-    }
-
-    public virtual void move(float delta)
+  
+    public override void  move(float delta)
     {
 
       Offset += speed*delta;
@@ -100,32 +62,17 @@ public class Enemy : PathFollow2D
         }
       }
 
+        sprite.Play();
+        auraSprite.Play();
+
     }
 
-    public void setMaxHP(float mHP)
-    {
-        maxLife = mHP;
-          actualLife= maxLife;
-        lifeBar = GetNode<ProgressBar>("LifeBar");
-        lifeBar.MaxValue = maxLife;
-        
-        lifeBar.Value = actualLife;
-    }
+   
+   
 
-    public void onDeath()
-    {
-        EmitSignal("OnDeath",moneyValue);
-         GetNode<AudioStreamPlayer>("OnDeath").Play();
-    
-    }
+   
 
-    public void destroy()
-    {
-       
-        QueueFree();
-    }
-
-    public virtual void checkRotation()
+    public override void  checkRotation()
     {   
         Vector2 deltaPos = nextPoint - currentPoint;
         float angle = deltaPos.Angle();
@@ -133,7 +80,7 @@ public class Enemy : PathFollow2D
 
         float angleMod = Mathf.PosMod(angle,360);
         GetNode<CPUParticles2D>("Particles").Direction = -deltaPos;
-     
+        GetNode<CPUParticles2D>("Particles2").Direction = -deltaPos;
 
         if(angleMod>90 && angleMod<180)
         {
@@ -155,23 +102,34 @@ public class Enemy : PathFollow2D
             rot =2;
         }
 
+        frontCol.Position = RangePos[rot];
         sprite.Animation="Pos"+rot;
         auraSprite.Animation = "Pos"+rot;
 
 
     }
 
-    public void SetAuraColor(Color aColor)
+    public void treatCollision(Area2D area)
     {
-        auraColor =aColor;
-       
+        if(area.IsInGroup("Tower"))
+        {
+            //set the control bool to true and start the timer nd set animation
+            freakOut = true;
+            GetNode<Timer>("Timer").Start();
+        }
     }
+
+   void endFreakOut()
+   {
+       //reset the nimation aand go back to normal
+       freakOut = false;
+   }
 
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
      {
-         if(!dead)
+         if(!dead && !freakOut)
         move(delta);
        
 

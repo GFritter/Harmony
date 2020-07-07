@@ -1,15 +1,14 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Maps/Map_01/Map01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Music/BASS.wav" type="AudioStream" id=3]
+[ext_resource path="res://Music/heartbeat.wav" type="AudioStream" id=3]
 [ext_resource path="res://MainScene.cs" type="Script" id=4]
 [ext_resource path="res://Maps/Map_00/Map00.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Maps/Map_07/Map07.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Maps/Map_03/Map03.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Maps/Map_06/Map06.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Maps/Map_04/Map04.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Maps/Tutorial/MapTUTORIAL.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Maps/Map_02/Map02.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Maps/Map_05/Map05.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Shader/testEffect1.png" type="Texture" id=13]
@@ -32,7 +31,7 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 8
 z_as_relative = false
 script = ExtResource( 4 )
-maps = [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 6 ) ]
+maps = [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 6 ) ]
 StartingMoney = PoolIntArray( 100, 100, 100, 200, 200, 200, 200, 200, 200 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -44,12 +43,12 @@ autoplay = true
 modulate = Color( 1, 1, 1, 0.447059 )
 show_behind_parent = true
 material = ExtResource( 14 )
-position = Vector2( -2.28882e-05, 0 )
+position = Vector2( 1.42695, 0 )
 scale = Vector2( 6.8533, 4.26602 )
-z_index = 6
+z_index = 8
 z_as_relative = false
 frames = SubResource( 1 )
-frame = 12
+frame = 9
 playing = true
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]

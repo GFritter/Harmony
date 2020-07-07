@@ -41,12 +41,14 @@ public class Spawner : Path2D
     int numChildDefault;
 
     AnimatedSprite sprite;
+    CPUParticles2D particles;
 
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         sprite = GetNode<AnimatedSprite>("AnimatedSprite");
+        particles = GetNode<CPUParticles2D>("AnimatedSprite/CPUParticles2D");
 
         sprite.Position = Curve.GetPointPosition(0);
        readFileWave();
@@ -109,7 +111,9 @@ public class Spawner : Path2D
       else
       {
           if(currentWave<numWaves)
-          sprite.Modulate = colors[matrixColor[currentWave][enemyCounter]];
+         { sprite.Modulate = colors[matrixColor[currentWave][enemyCounter]];
+            particles.Color = colors[matrixColor[currentWave][enemyCounter]];
+         }
           
           else
           sprite.Hide();
@@ -307,6 +311,7 @@ public class Spawner : Path2D
                 sprite.Show();
                 sprite.Animation = "Standby";
                 sprite.Modulate = colors[matrixColor[currentWave][i]];
+                 particles.Color = colors[matrixColor[currentWave][enemyCounter]];
                 return true;
             }
         }

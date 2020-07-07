@@ -1,0 +1,212 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Enemy/Fiery.cs" type="Script" id=1]
+[ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_04.png" type="Texture" id=2]
+[ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_07.png" type="Texture" id=3]
+[ext_resource path="res://Enemy/Arts/Fiery/Back/l0_sprite_2.png" type="Texture" id=4]
+[ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_09.png" type="Texture" id=5]
+[ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_12.png" type="Texture" id=6]
+[ext_resource path="res://Music/enemySpawn.wav" type="AudioStream" id=7]
+[ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_10.png" type="Texture" id=8]
+[ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_06.png" type="Texture" id=9]
+[ext_resource path="res://Enemy/Arts/WeirdMonstro-1.png.png" type="Texture" id=10]
+[ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_03.png" type="Texture" id=11]
+[ext_resource path="res://Music/enemyDeath.wav" type="AudioStream" id=12]
+[ext_resource path="res://Enemy/Arts/Fiery/Back/l0_sprite_1.png" type="Texture" id=13]
+[ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_08.png" type="Texture" id=14]
+[ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_11.png" type="Texture" id=15]
+[ext_resource path="res://whiteprivilege.png" type="Texture" id=16]
+[ext_resource path="res://Enemy/Arts/Fiery/Iso_EnemyFiery_Particle/Layer 1_sprite_05.png" type="Texture" id=17]
+[ext_resource path="res://Enemy/Arts/Fiery/Front/l0_sprite_1.png" type="Texture" id=18]
+[ext_resource path="res://Enemy/Arts/Fiery/Front/l0_sprite_2.png" type="Texture" id=19]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Pos0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Pos1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "Pos2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "Pos3",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 39.1378, 40.6151 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Pos0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Pos1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Pos2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Pos3",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 44.2009, 77.5373 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.878431, 0.266667, 0.266667, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.521569, 0.47451, 0.47451, 1 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0.0333333, 0.491063 ), 0.0, 0.0, 0, 0, Vector2( 0.290476, 0.572882 ), 0.0, 0.168449, 0, 0, Vector2( 0.647619, 0.427427 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0.0855615, 0.213904, 0.347594, 0.534759, 0.721925, 0.930481 )
+colors = PoolColorArray( 0.957031, 0.825369, 0.224304, 1, 0.660156, 0.312672, 0.0825195, 1, 0.523438, 0.239802, 0.128815, 1, 0.328125, 0.161799, 0.134583, 1, 0.292969, 0.279638, 0.268936, 1, 0.0820313, 0.0793651, 0.0772247, 1 )
+
+[node name="Fiery" type="PathFollow2D" groups=[
+"Enemy",
+]]
+position = Vector2( 186.243, 116.961 )
+scale = Vector2( 0.25, 0.25 )
+rotate = false
+script = ExtResource( 1 )
+maxLife = 1.0
+speed = 200.0
+moneyValue = 25
+damage = 1
+ExpValue = 20
+RangePos = [ Vector2( -13.318, -130.329 ), Vector2( 87.52, -100.839 ), Vector2( 58.981, 148.404 ), Vector2( -68.494, 169.333 ) ]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
+scale = Vector2( 4, 4 )
+z_index = 1
+frames = SubResource( 1 )
+animation = "Pos2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -3.01886, 0 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Aura" type="AnimatedSprite" parent="Area2D"]
+position = Vector2( -2.85394, -5.70782 )
+rotation = -0.00228218
+scale = Vector2( 4.139, 4.182 )
+frames = SubResource( 3 )
+animation = "Pos3"
+frame = 1
+playing = true
+
+[node name="FrontCollision" type="Area2D" parent="."]
+
+[node name="Front" type="CollisionShape2D" parent="FrontCollision"]
+position = Vector2( 80.861, 165.528 )
+shape = SubResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LifeBar" type="ProgressBar" parent="."]
+margin_left = -65.0
+margin_top = -62.0
+margin_right = 62.0
+margin_bottom = -49.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OnSpawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 15.0
+
+[node name="OnDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = 15.0
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+position = Vector2( -34.3538, 58.1203 )
+amount = 27
+lifetime = 2.0
+randomness = 0.22
+lifetime_randomness = 0.63
+local_coords = false
+texture = ExtResource( 16 )
+direction = Vector2( -0.185, 0.196 )
+spread = 38.91
+gravity = Vector2( 0, 0 )
+initial_velocity = 225.23
+initial_velocity_random = 0.41
+angular_velocity = 168.65
+angular_velocity_random = 0.21
+scale_amount = 0.09
+scale_amount_random = 0.13
+scale_amount_curve = SubResource( 6 )
+color_ramp = SubResource( 7 )
+anim_speed_random = 0.1
+
+[node name="Particles2" type="CPUParticles2D" parent="."]
+position = Vector2( 40.7995, 80.0004 )
+amount = 27
+lifetime = 2.0
+randomness = 0.22
+lifetime_randomness = 0.63
+local_coords = false
+texture = ExtResource( 16 )
+direction = Vector2( -0.185, 0.196 )
+spread = 38.91
+gravity = Vector2( 0, 0 )
+initial_velocity = 225.23
+initial_velocity_random = 0.41
+angular_velocity = 168.65
+angular_velocity_random = 0.21
+scale_amount = 0.09
+scale_amount_random = 0.13
+scale_amount_curve = SubResource( 6 )
+color_ramp = SubResource( 7 )
+anim_speed_random = 0.1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.355
+one_shot = true
+[connection signal="area_entered" from="FrontCollision" to="." method="treatCollision"]
+[connection signal="finished" from="OnDeath" to="." method="destroy"]
+[connection signal="timeout" from="Timer" to="." method="endFreakOut"]

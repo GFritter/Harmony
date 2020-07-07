@@ -32,11 +32,6 @@ animations = [ {
 "name": "Pos0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "cooldown",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "Pos1",
@@ -45,6 +40,11 @@ animations = [ {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "Pos2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "cooldown",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 19 ) ],
@@ -117,9 +117,9 @@ animations = [ {
 "name": "1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "2",
+"name": "5",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -132,14 +132,14 @@ animations = [ {
 "name": "4",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "5",
 "speed": 5.0
 } ]
 
@@ -169,7 +169,9 @@ rotation = -2.5316
 scale = Vector2( 2, 2 )
 shape = ExtResource( 8 )
 
-[node name="Range" type="Area2D" parent="."]
+[node name="Range" type="Area2D" parent="." groups=[
+"Tower",
+]]
 position = Vector2( 0.033, 4.169 )
 rotation = -12.5315
 scale = Vector2( 2, 2 )

@@ -25,6 +25,16 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Pos0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Pos1",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Pos2",
@@ -33,16 +43,6 @@ animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Pos3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Pos1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "Pos0",
 "speed": 5.0
 } ]
 
@@ -110,9 +110,9 @@ animations = [ {
 "name": "1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "2",
+"name": "5",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -125,14 +125,14 @@ animations = [ {
 "name": "4",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "5",
 "speed": 5.0
 } ]
 
@@ -163,7 +163,9 @@ rotation = -2.5316
 scale = Vector2( 2, 2 )
 shape = ExtResource( 8 )
 
-[node name="Range" type="Area2D" parent="."]
+[node name="Range" type="Area2D" parent="." groups=[
+"Tower",
+]]
 position = Vector2( 0.033, 4.169 )
 rotation = -12.5315
 scale = Vector2( 2, 2 )

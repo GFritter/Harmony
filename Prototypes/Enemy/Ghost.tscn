@@ -34,6 +34,11 @@ animations = [ {
 "name": "Pos0",
 "speed": 4.0
 }, {
+"frames": [ ExtResource( 21 ), ExtResource( 11 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Pos1",
+"speed": 4.0
+}, {
 "frames": [ ExtResource( 9 ), ExtResource( 20 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "Pos2",
@@ -42,11 +47,6 @@ animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 14 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "Pos3",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 11 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Pos1",
 "speed": 4.0
 } ]
 
@@ -62,6 +62,11 @@ animations = [ {
 "name": "Pos0",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Pos1",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Pos2",
@@ -70,11 +75,6 @@ animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Pos3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Pos1",
 "speed": 5.0
 } ]
 
@@ -116,7 +116,7 @@ position = Vector2( -1.36224, 0 )
 scale = Vector2( 3.8, 3.8 )
 frames = SubResource( 1 )
 animation = "Pos3"
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
