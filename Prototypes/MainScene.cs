@@ -32,7 +32,7 @@ public class MainScene : Node2D
     public override void _Ready()
     {
         hud = GetNode<HUD>("HUD");
-       // sHolder = GetNode<ShaderHolder>("Renderer");
+        sHolder = GetNode<ShaderHolder>("Sprite");
 
         connectHud();
 
@@ -101,7 +101,7 @@ public class MainScene : Node2D
             connectMap(temp);
             AddChild(temp);
             MoveChild(temp,1);
-            //sHolder.AddMap(temp);
+          
             temp.linkHUD();
 
            GetMoney(StartingMoney[idx%StartingMoney.Length] - money);
@@ -138,8 +138,10 @@ public class MainScene : Node2D
     void connectMap(Map m)
     {
         m.Connect(nameof(Map.OnLifeUpdate),hud,nameof(hud.UpdateLife));
+        m.Connect(nameof(Map.OnLifeUpdate),sHolder,nameof(sHolder.treatDamage));
         m.Connect(nameof(Map.OnUpdateWave),hud,nameof(hud.UpdateWave));
         m.Connect(nameof(Map.OnMoneyChange),this,nameof(GetMoney));
+        m.Connect(nameof(Map.OnMoneyChange),sHolder,nameof(sHolder.treatMoney));
         m.Connect(nameof(Map.SendBuildRequest),this,nameof(testCanBuild));
         m.Connect(nameof(Map.OnBaseDeath),this,nameof(gameOverLose));
         m.Connect(nameof(Map.OnWin),this,nameof(gameOverWin));

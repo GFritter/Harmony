@@ -390,6 +390,7 @@ __meta__ = {
 [connection signal="pressed" from="BuildHud/Button2" to="." method="chooseTower2"]
 [connection signal="mouse_entered" from="BuildHud/Button3" to="." method="chooseTower3"]
 [connection signal="pressed" from="BuildHud/Button3" to="." method="chooseTower3"]
+[connection signal="mouse_entered" from="BuildHud/BUILD" to="." method="getPermit"]
 [connection signal="pressed" from="BuildHud/BUILD" to="." method="Build"]
 [connection signal="pressed" from="TowerHud/Button" to="." method="LevelUp"]
 [connection signal="pressed" from="TowerHud/Vender" to="." method="Sell"]

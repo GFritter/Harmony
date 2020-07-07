@@ -55,7 +55,7 @@ public void setColor(Color c)
     onSpot = true;
     targetBox = area;
    
-    if(targetBox.Owner.GetGroups().Contains("Enemy"))
+    if(targetBox.GetGroups().Contains("Enemy"))
        enemiesInRange.Add((Enemy)targetBox.Owner);
 
   checkArray();
@@ -64,7 +64,7 @@ public void setColor(Color c)
 public void OnCollisorExit(Area2D area)
 {
 
-    if(IsInstanceValid(area.Owner) && area.Owner.GetGroups().Contains("Enemy"))
+    if(IsInstanceValid(area.Owner) && area.GetGroups().Contains("Enemy"))
     {
         
         if(tower.canShoot )

@@ -51,6 +51,8 @@ public class Builder : Area2D
 
     int rot,towerId;
 
+    bool waiting = false;
+
     //tower mode things, attributes I mean
     Control towerHud;
     Label ammoCount, Damage, DamageIdle, Speed, Reload;
@@ -206,6 +208,7 @@ public class Builder : Area2D
         placeHolderSprite.Animation = "Tower1";
         placeHolderSprite.Frame = rot;
 
+        waiting = true;
         EmitSignal("RequestBuildPermit",towerId); 
 
 
@@ -216,7 +219,7 @@ public class Builder : Area2D
         towerId = 1;
         placeHolderSprite.Animation = "Tower2";
         placeHolderSprite.Frame = rot;
-
+        waiting = true;
              EmitSignal("RequestBuildPermit",towerId); 
     }
 
@@ -225,10 +228,15 @@ public class Builder : Area2D
         towerId =2;
         placeHolderSprite.Animation = "Tower3";
         placeHolderSprite.Frame = rot;
-
+        waiting = true;
              EmitSignal("RequestBuildPermit",towerId); 
     }
 
+
+    public void getPermit()
+    {
+        EmitSignal("RequestBuildPermit",towerId);
+    }
 
     public void setBuildPermit(bool permit)
     {
@@ -240,12 +248,14 @@ public class Builder : Area2D
         else
         placeHolderSprite.Modulate = cantBuildCol;
 
+        waiting = false;
+
     }
 
     public void Build()
     {
         EmitSignal("RequestBuiltPermit",towerId);
-
+       
         if(canBuild)
         {EmitSignal("BuildTower",towerId,this,rot);
         buildHud.Hide();

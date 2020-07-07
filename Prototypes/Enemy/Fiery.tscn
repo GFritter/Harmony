@@ -109,7 +109,9 @@ damage = 1
 ExpValue = 20
 RangePos = [ Vector2( -13.318, -130.329 ), Vector2( 87.52, -100.839 ), Vector2( 58.981, 148.404 ), Vector2( -68.494, 169.333 ) ]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Enemy",
+]]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
 scale = Vector2( 4, 4 )
@@ -130,7 +132,6 @@ rotation = -0.00228218
 scale = Vector2( 4.139, 4.182 )
 frames = SubResource( 3 )
 animation = "Pos3"
-frame = 1
 playing = true
 
 [node name="FrontCollision" type="Area2D" parent="."]

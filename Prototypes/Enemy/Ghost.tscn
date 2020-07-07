@@ -107,7 +107,9 @@ moneyValue = 25
 damage = 1
 ExpValue = 15
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Enemy",
+]]
 
 [node name="Aura" type="AnimatedSprite" parent="Area2D"]
 show_behind_parent = true

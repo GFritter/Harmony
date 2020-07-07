@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Maps/Map_01/Map01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
@@ -6,9 +6,8 @@
 [ext_resource path="res://MainScene.cs" type="Script" id=4]
 [ext_resource path="res://Maps/Map_00/Map00.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Maps/Map_07/Map07.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Maps/Map_03/Map03.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Maps/Map_06/Map06.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Maps/Map_04/Map04.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Shader/ShaderHolder.cs" type="Script" id=10]
 [ext_resource path="res://Maps/Map_02/Map02.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Maps/Map_05/Map05.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Shader/testEffect1.png" type="Texture" id=13]
@@ -28,10 +27,10 @@ animations = [ {
 [node name="Main" type="Node2D"]
 position = Vector2( -34.5089, -44.2489 )
 scale = Vector2( 0.5, 0.5 )
-z_index = 8
+z_index = 7
 z_as_relative = false
 script = ExtResource( 4 )
-maps = [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 6 ) ]
+maps = [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 6 ) ]
 StartingMoney = PoolIntArray( 100, 100, 100, 200, 200, 200, 200, 200, 200 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -41,15 +40,15 @@ autoplay = true
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.447059 )
-show_behind_parent = true
 material = ExtResource( 14 )
 position = Vector2( 1.42695, 0 )
 scale = Vector2( 6.8533, 4.26602 )
-z_index = 8
+z_index = 7
 z_as_relative = false
 frames = SubResource( 1 )
-frame = 9
+frame = 8
 playing = true
+script = ExtResource( 10 )
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 anchor_right = 0.0
