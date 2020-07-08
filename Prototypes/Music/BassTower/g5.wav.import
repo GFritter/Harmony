@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/g5.wav-1a3da17913401dd69458a8a804d3beb9.sample"
+
+[deps]
+
+source_file="res://Music/BassTower/g5.wav"
+dest_files=[ "res://.import/g5.wav-1a3da17913401dd69458a8a804d3beb9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

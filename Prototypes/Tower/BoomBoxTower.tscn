@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Music/towerShoot.wav" type="AudioStream" id=1]
 [ext_resource path="res://Tiles/blankTIle.png" type="Texture" id=2]
@@ -16,7 +16,43 @@
 [ext_resource path="res://Tower/Bullet/Arts/ammo_2.png" type="Texture" id=14]
 [ext_resource path="res://Tower/Bullet/Arts/ammo_4.png" type="Texture" id=15]
 [ext_resource path="res://Tower/Bullet/Arts/ammo_5.png" type="Texture" id=16]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_13.png" type="Texture" id=17]
 [ext_resource path="res://Tower/RangeBigShape.tres" type="Shape2D" id=18]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_07.png" type="Texture" id=19]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_09.png" type="Texture" id=20]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_17.png" type="Texture" id=21]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_15.png" type="Texture" id=22]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_11.png" type="Texture" id=23]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_12.png" type="Texture" id=24]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_01.png" type="Texture" id=25]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_05.png" type="Texture" id=26]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_09.png" type="Texture" id=27]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_10.png" type="Texture" id=28]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_11.png" type="Texture" id=29]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_07.png" type="Texture" id=30]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_03.png" type="Texture" id=31]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_13.png" type="Texture" id=32]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_01.png" type="Texture" id=33]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_06.png" type="Texture" id=34]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_02.png" type="Texture" id=35]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_04.png" type="Texture" id=36]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_08.png" type="Texture" id=37]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_14.png" type="Texture" id=38]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_16.png" type="Texture" id=39]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_18.png" type="Texture" id=40]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_12.png" type="Texture" id=41]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_08.png" type="Texture" id=42]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_14.png" type="Texture" id=43]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_18.png" type="Texture" id=44]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_03.png" type="Texture" id=45]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_10.png" type="Texture" id=46]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxCharge/Layer 1_sprite_05.png" type="Texture" id=47]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_15.png" type="Texture" id=48]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_17.png" type="Texture" id=49]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_02.png" type="Texture" id=50]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_16.png" type="Texture" id=51]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_04.png" type="Texture" id=52]
+[ext_resource path="res://Tower/Arts/Iso_TowerBoomboxBackCharge/Layer 1_sprite_06.png" type="Texture" id=53]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -30,11 +66,6 @@ animations = [ {
 "name": "Pos0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Pos1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Pos2",
@@ -43,6 +74,31 @@ animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Pos3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Pos1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 50 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 42 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 51 ), ExtResource( 44 ) ],
+"loop": true,
+"name": "Recharge2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "Recharge3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 31 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 32 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"loop": true,
+"name": "Recharge1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
+"loop": true,
+"name": "Recharge0",
 "speed": 5.0
 } ]
 
@@ -110,14 +166,19 @@ animations = [ {
 "name": "1",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "6",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "5",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "6",
+"name": "3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -129,11 +190,6 @@ animations = [ {
 "loop": true,
 "name": "2",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "3",
-"speed": 5.0
 } ]
 
 [node name="Tower" type="Area2D"]
@@ -142,7 +198,7 @@ collision_mask = 2
 script = ExtResource( 4 )
 RangePositions = [ Vector2( 0.033, 4.169 ), Vector2( 0.033, 4.169 ), Vector2( 0.033, 4.169 ), Vector2( 0.033, 4.169 ) ]
 RangeSpritePositions = [ Vector2( 1.557, 2.138 ), Vector2( 1.557, 2.138 ), Vector2( 1.557, 2.138 ), Vector2( 1.557, 2.138 ) ]
-SoundsRef = [ "res://Music/TrumpetTower/g#4.wav", "res://Music/TrumpetTower/d#4.wav", "res://Music/TrumpetTower/f4.wav", "res://Music/TrumpetTower/f4.wav", "res://Music/TrumpetTower/g4.wav" ]
+SoundsRef = [ "res://Music/BassTower/f5.wav", "res://Music/BassTower/f5.wav", "res://Music/BassTower/b4.wav", "res://Music/BassTower/g6.wav", "res://Music/BassTower/g5.wav", "res://Music/BassTower/c6.wav", "res://Music/BassTower/f6.wav", "res://Music/BassTower/c5.wav" ]
 RangeRotations = PoolRealArray( -718, -718, -718, -718 )
 RangeShapes = [ ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ) ]
 keycode = "fire_1"
@@ -154,7 +210,7 @@ maxAmmo = PoolIntArray( 3, 4, 5, 6, 6 )
 position = Vector2( -0.0962528, 0.016449 )
 z_index = 1
 frames = SubResource( 1 )
-animation = "Pos3"
+animation = "Recharge3"
 offset = Vector2( -0.202026, -10.7942 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

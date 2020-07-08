@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/d#5.wav-6c638698ac02e339be3271029ade3af3.sample"
+
+[deps]
+
+source_file="res://Music/TrumpetTower/d#5.wav"
+dest_files=[ "res://.import/d#5.wav-6c638698ac02e339be3271029ade3af3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

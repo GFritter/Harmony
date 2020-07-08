@@ -293,6 +293,8 @@ public class Builder : Area2D
         tower  =t;
         t.colorId = colorId;
         t.setRangeCol(cOff);
+        t.rotat = rot;
+        
 
         ammoCount.Text = t.GetAmmo().ToString();
         Damage.Text = t.GetDamage().ToString();

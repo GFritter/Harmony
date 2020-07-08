@@ -3,7 +3,7 @@ using System;
 
 public class Tower : Area2D
 {
-    int rotat;
+    public int rotat;
     int experience;
 
 [Export]
@@ -106,7 +106,7 @@ private ProgressBar bar;
         canShoot = true;
         refreshing = false;
         bar.Hide();
-        //sprite.Animation = "default";
+        sprite.Animation = "Pos"+rotat;
         ammoBar.Animation = currentAmmo.ToString();
     }
 
@@ -116,6 +116,7 @@ private ProgressBar bar;
         ammoBar.Animation = currentAmmo.ToString();
         canShoot =true;
         reloading = false;
+        sprite.Animation = "Pos"+rotat;
         bar.Hide();
     }
 
@@ -199,7 +200,7 @@ private ProgressBar bar;
         GetNode<Timer>("ShootTimer").Start();
         refreshing = true;
         bar.MaxValue =  GetNode<Timer>("ShootTimer").WaitTime;
-        //sprite.Animation = ("cooldown");
+        sprite.Animation = ("Recharge"+rotat);
     }
 
     void setupReload()
@@ -208,6 +209,7 @@ private ProgressBar bar;
           GetNode<Timer>("RechargeTimer").Start();
           reloading =true;
           bar.MaxValue = GetNode<Timer>("RechargeTimer").WaitTime;
+          sprite.Animation = ("Recharge"+rotat);
 
     }
 

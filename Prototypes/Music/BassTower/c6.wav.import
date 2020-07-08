@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/c6.wav-2cfe80178c4aeb5a93c2d51c13b8e1c0.sample"
+
+[deps]
+
+source_file="res://Music/BassTower/c6.wav"
+dest_files=[ "res://.import/c6.wav-2cfe80178c4aeb5a93c2d51c13b8e1c0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
