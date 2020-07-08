@@ -66,9 +66,9 @@ animations = [ {
 "name": "Pos0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
 "loop": true,
-"name": "Pos2",
+"name": "Recharge0",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -76,14 +76,9 @@ animations = [ {
 "name": "Pos3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "Pos1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 50 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 42 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 51 ), ExtResource( 44 ) ],
-"loop": true,
-"name": "Recharge2",
+"name": "Pos2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 33 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 21 ) ],
@@ -91,14 +86,19 @@ animations = [ {
 "name": "Recharge3",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 50 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 42 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 51 ), ExtResource( 44 ) ],
+"loop": true,
+"name": "Recharge2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 25 ), ExtResource( 31 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 32 ), ExtResource( 48 ), ExtResource( 49 ) ],
 "loop": true,
 "name": "Recharge1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Recharge0",
+"name": "Pos1",
 "speed": 5.0
 } ]
 
@@ -166,9 +166,19 @@ animations = [ {
 "name": "1",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -176,19 +186,9 @@ animations = [ {
 "name": "5",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "2",
 "speed": 5.0
 } ]
 
@@ -202,7 +202,7 @@ SoundsRef = [ "res://Music/BassTower/f5.wav", "res://Music/BassTower/f5.wav", "r
 RangeRotations = PoolRealArray( -718, -718, -718, -718 )
 RangeShapes = [ ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ) ]
 keycode = "fire_1"
-cost = 200
+cost = 400
 reloadTime = PoolRealArray( 1.8, 1.5, 1.3, 1.1, 0.5 )
 maxAmmo = PoolIntArray( 3, 4, 5, 6, 6 )
 

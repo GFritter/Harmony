@@ -218,6 +218,8 @@ spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3"), N
 buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3"), NodePath("Builder4"), NodePath("Builder5"), NodePath("Builder6"), NodePath("Builder7"), NodePath("Builder8") ]
 towerRefs = [ ExtResource( 9 ), ExtResource( 18 ) ]
 colors = [ Color( 0.00784314, 0, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 0, 1, 0.133333, 1 ) ]
+shaderModsOnDamage = Quat( 150, 0, 0, 0 )
+shaderModsOnMoney = Quat( 0, 30, 0, -1 )
 waveTimes = PoolRealArray( 1, 1, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]

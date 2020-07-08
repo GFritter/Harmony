@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Maps/Map_01/Map01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://MainScene.cs" type="Script" id=4]
 [ext_resource path="res://Maps/Map_00/Map00.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Maps/Map_07/Map07.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Tutorial/Credits.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Maps/Tutorial/MapTUTORIAL.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Maps/Map_06/Map06.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Maps/Map_03/Map03.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Shader/ShaderHolder.cs" type="Script" id=10]
 [ext_resource path="res://Maps/Map_02/Map02.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Maps/Map_05/Map05.tscn" type="PackedScene" id=12]
@@ -16,6 +17,8 @@
 [ext_resource path="res://Shader/testEffect2.png" type="Texture" id=15]
 [ext_resource path="res://Shader/testEffect3.png" type="Texture" id=16]
 [ext_resource path="res://Shader/testEffect4.png" type="Texture" id=17]
+[ext_resource path="res://Maps/Map_04/Map04.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Tutorial/Credits.tscn" type="PackedScene" id=19]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,8 +34,8 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 7
 z_as_relative = false
 script = ExtResource( 4 )
-maps = [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 6 ) ]
-sceneGameFinished = ExtResource( 7 )
+maps = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 6 ) ]
+sceneGameFinished = ExtResource( 19 )
 StartingMoney = PoolIntArray( 100, 100, 100, 200, 200, 200, 200, 200, 200 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

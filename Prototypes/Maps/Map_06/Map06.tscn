@@ -434,6 +434,8 @@ spanwRefs = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3"), N
 buildRefs = [ NodePath("Builder"), NodePath("Builder2"), NodePath("Builder3"), NodePath("Builder4"), NodePath("Builder5"), NodePath("Builder6"), NodePath("Builder7"), NodePath("Builder8") ]
 towerRefs = [ ExtResource( 12 ), ExtResource( 5 ) ]
 colors = [ Color( 0.0313726, 0, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 0, 1, 0.219608, 1 ) ]
+shaderModsOnDamage = Quat( 150, 0, 0, 0 )
+shaderModsOnMoney = Quat( 0, 30, 0, -1 )
 waveTimes = PoolRealArray( 1, 1, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -494,7 +496,7 @@ cantBuildCol = Color( 0.0431373, 0.00392157, 0.372549, 0.823529 )
 key = "fire_4"
 
 [node name="Builder5" parent="." instance=ExtResource( 9 )]
-position = Vector2( 382.587, 766.219 )
+position = Vector2( 383.181, 766.172 )
 disabled = Color( 0, 0.301961, 0.0313726, 1 )
 colorId = 3
 cOn = Color( 0.121569, 1, 0, 1 )
@@ -504,7 +506,7 @@ cantBuildCol = Color( 0, 0.278431, 0.00392157, 0.921569 )
 key = "fire_5"
 
 [node name="Builder6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 639.308, 833.201 )
+position = Vector2( 708.688, 735.254 )
 disabled = Color( 0, 0.301961, 0.0313726, 1 )
 colorId = 3
 cOn = Color( 0.121569, 1, 0, 1 )
@@ -514,7 +516,7 @@ cantBuildCol = Color( 0, 0.278431, 0.00392157, 0.921569 )
 key = "fire_6"
 
 [node name="Builder7" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1149.34, 830.77 )
+position = Vector2( 1078.6, 731.463 )
 disabled = Color( 0, 0.301961, 0.0313726, 1 )
 colorId = 3
 cOn = Color( 0.121569, 1, 0, 1 )
@@ -524,7 +526,7 @@ cantBuildCol = Color( 0, 0.278431, 0.00392157, 0.921569 )
 key = "fire_7"
 
 [node name="Builder8" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1407.52, 768.502 )
+position = Vector2( 1404.21, 764.02 )
 disabled = Color( 0, 0.301961, 0.0313726, 1 )
 colorId = 3
 cOn = Color( 0.121569, 1, 0, 1 )
