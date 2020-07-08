@@ -42,6 +42,11 @@ animations = [ {
 "name": "Pos0",
 "speed": 4.0
 }, {
+"frames": [ ExtResource( 9 ), ExtResource( 20 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Pos2",
+"speed": 4.0
+}, {
 "frames": [ ExtResource( 10 ), ExtResource( 14 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "Pos3",
@@ -50,11 +55,6 @@ animations = [ {
 "frames": [ ExtResource( 21 ), ExtResource( 11 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Pos1",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 20 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Pos2",
 "speed": 4.0
 } ]
 
@@ -70,6 +70,11 @@ animations = [ {
 "name": "Pos0",
 "speed": 3.0
 }, {
+"frames": [ ExtResource( 2 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Pos2",
+"speed": 3.0
+}, {
 "frames": [ ExtResource( 6 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ) ],
 "loop": true,
 "name": "Pos3",
@@ -78,11 +83,6 @@ animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 28 ), ExtResource( 28 ), ExtResource( 28 ) ],
 "loop": true,
 "name": "Pos1",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "Pos2",
 "speed": 3.0
 } ]
 
@@ -135,6 +135,7 @@ scale = Vector2( 4, 4 )
 z_index = 1
 frames = SubResource( 2 )
 animation = "Pos3"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -186,4 +187,9 @@ scale_amount_random = 0.25
 scale_amount_curve = SubResource( 6 )
 color_ramp = SubResource( 7 )
 anim_speed_random = 0.1
+
+[node name="Killswitch" type="Timer" parent="."]
+wait_time = 1.558
+one_shot = true
 [connection signal="finished" from="OnDeath" to="." method="destroy"]
+[connection signal="timeout" from="Killswitch" to="." method="destroy"]

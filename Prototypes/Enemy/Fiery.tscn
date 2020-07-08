@@ -40,6 +40,11 @@ animations = [ {
 "name": "Pos0",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "Pos2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 19 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ) ],
 "loop": true,
 "name": "Pos3",
@@ -48,11 +53,6 @@ animations = [ {
 "frames": [ ExtResource( 13 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "Pos1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "Pos2",
 "speed": 5.0
 } ]
 
@@ -71,6 +71,11 @@ animations = [ {
 "name": "Pos0",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 17 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Pos2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Pos3",
@@ -79,11 +84,6 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Pos1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "Pos2",
 "speed": 5.0
 } ]
 
@@ -142,7 +142,6 @@ rotation = -0.00228218
 scale = Vector2( 4.139, 4.182 )
 frames = SubResource( 3 )
 animation = "Pos3"
-frame = 1
 playing = true
 
 [node name="FrontCollision" type="Area2D" parent="."]
@@ -219,6 +218,9 @@ anim_speed_random = 0.1
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.355
 one_shot = true
+
+[node name="Killswitch" type="Timer" parent="."]
 [connection signal="area_entered" from="FrontCollision" to="." method="treatCollision"]
 [connection signal="finished" from="OnDeath" to="." method="destroy"]
 [connection signal="timeout" from="Timer" to="." method="endFreakOut"]
+[connection signal="timeout" from="Killswitch" to="." method="destroy"]

@@ -76,7 +76,10 @@ public class Enemy : PathFollow2D
 
         
       if(actualLife<=0 )
-      dead = true;
+      {dead = true;
+        GetNode<Timer>("Killswitch").Start();
+
+      }
 
     }
 
