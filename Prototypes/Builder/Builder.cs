@@ -254,7 +254,7 @@ public class Builder : Area2D
 
     public void Build()
     {
-        EmitSignal("RequestBuiltPermit",towerId);
+        EmitSignal("RequestBuildPermit",towerId);
        
         if(canBuild)
         {EmitSignal("BuildTower",towerId,this,rot);

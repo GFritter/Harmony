@@ -93,10 +93,15 @@ void checkArray()
     for(int i=0;i<enemiesInRange.Count;i++)
     {
        
-        if(enemiesInRange[i].dead)
+        if(Godot.Object.IsInstanceValid(enemiesInRange[i]) &&enemiesInRange[i].dead)
         {
             tower.getXp(enemiesInRange[i].ExpValue);
             enemiesInRange[i].onDeath();
+            enemiesInRange.RemoveAt(i);
+        }
+
+        else if(!Godot.Object.IsInstanceValid(enemiesInRange[i]))
+        {
             enemiesInRange.RemoveAt(i);
         }
     }
