@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tutorial.cs" type="Script" id=1]
-[ext_resource path="res://MenuPrincipal/Menu.jpg" type="Texture" id=2]
-[ext_resource path="res://MenuPrincipal/backMenu.png" type="Texture" id=3]
+[ext_resource path="res://MenuPrincipal/MenuArt.png" type="Texture" id=2]
 [ext_resource path="res://Tutorial_v2.png" type="Texture" id=4]
 [ext_resource path="res://MenuPrincipal/Metal_Mania/MetalMania-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://MainScene.tscn" type="PackedScene" id=8]
@@ -66,8 +65,8 @@ __meta__ = {
 mainScene = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 512.785, 298.294 )
-scale = Vector2( 1.18086, 0.788616 )
+position = Vector2( 507.785, 288.414 )
+scale = Vector2( 0.649305, 0.444656 )
 z_index = -1
 texture = ExtResource( 2 )
 
@@ -89,20 +88,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Control"]
-position = Vector2( 129.296, 270.987 )
-scale = Vector2( 0.999603, 0.610149 )
-texture = ExtResource( 3 )
-
 [node name="Novo jogo" type="Button" parent="Control"]
 anchor_left = 0.208
 anchor_top = 0.255
 anchor_right = 0.842
 anchor_bottom = 0.369
-margin_left = -4.391
-margin_top = -0.0500031
-margin_right = -4.25702
-margin_bottom = 0.0639954
+margin_left = -165.391
+margin_top = 205.95
+margin_right = -165.257
+margin_bottom = 206.064
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 text = "Novo jogo"
@@ -115,10 +109,10 @@ anchor_left = 0.172
 anchor_top = 0.696
 anchor_right = 0.825
 anchor_bottom = 0.81
-margin_left = 4.57301
-margin_top = 0.109985
-margin_right = -0.0240173
-margin_bottom = 7.61203
+margin_left = 22.573
+margin_top = 71.11
+margin_right = 17.976
+margin_bottom = 78.612
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
@@ -132,14 +126,14 @@ anchor_left = 0.18
 anchor_top = 0.403
 anchor_right = 0.842
 anchor_bottom = 0.5
-margin_left = 2.581
-margin_top = 0.179001
-margin_right = -4.25702
-margin_bottom = 8.776
+margin_left = 13.581
+margin_top = 133.179
+margin_right = 6.74298
+margin_bottom = 141.776
 rect_pivot_offset = Vector2( -1095.7, 167.227 )
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
-text = "Options"
+text = "Opções"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -149,10 +143,10 @@ anchor_left = 0.18
 anchor_top = 0.558
 anchor_right = 0.825
 anchor_bottom = 0.672
-margin_left = 2.581
-margin_top = 0.0849915
-margin_right = -0.0240173
-margin_bottom = 0.198975
+margin_left = 181.581
+margin_top = 55.085
+margin_right = 178.976
+margin_bottom = 55.199
 rect_pivot_offset = Vector2( -1095.7, 167.227 )
 custom_styles/hover = SubResource( 8 )
 custom_styles/pressed = SubResource( 9 )

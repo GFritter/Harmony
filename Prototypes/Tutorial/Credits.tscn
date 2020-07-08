@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tutorial.cs" type="Script" id=1]
+[ext_resource path="res://MenuPrincipal/Menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MenuPrincipal/credito.png" type="Texture" id=3]
+
+[node name="Tutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.216
+margin_top = -22.1606
+margin_right = -2.216
+margin_bottom = -24.1606
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+mainScene = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 513.112, 319.156 )
+scale = Vector2( 0.508398, 0.497683 )
+texture = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.412
+anchor_top = 0.816
+anchor_right = 0.601
+anchor_bottom = 0.935
+margin_left = 35.3496
+margin_top = 89.091
+margin_right = -25.1863
+margin_bottom = 41.929
+rect_scale = Vector2( 0.84, 0.92 )
+text = "Voltar Ao Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="LoadMainScene"]
