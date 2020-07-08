@@ -5,6 +5,9 @@ public class Tutorial : Control
 {
     [Export]
     public PackedScene mainScene;
+
+    [Export]
+    string scenePath;
     public PackedScene prevScene;
     public PackedScene nextScene;
     // Declare member variables here. Examples:
@@ -18,6 +21,11 @@ public class Tutorial : Control
     }
 
 
+
+    void goToMenu()
+    {
+        GetTree().ChangeScene(scenePath);
+    }
     void LoadMainScene()
     {
         GetTree().ChangeSceneTo(mainScene);
