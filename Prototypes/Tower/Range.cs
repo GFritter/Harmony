@@ -102,7 +102,7 @@ void checkArray()
 
         else if(!Godot.Object.IsInstanceValid(enemiesInRange[i]))
         {
-            GD.Print("Achei um null");
+           // GD.Print("Achei um null");
         }
     }
 }
