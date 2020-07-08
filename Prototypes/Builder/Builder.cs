@@ -333,6 +333,7 @@ public class Builder : Area2D
         buildHud.Hide();
         placeHolderSprite.Hide();
         towerHud.Hide();
+        keyShow.Hide();
 
     }
 
